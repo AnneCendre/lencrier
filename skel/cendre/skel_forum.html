@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <title>Forum - #TITRE_JOURNAL</title>
+    <INCLURE{head}>
+</head>
+
+<body id="forum_page">
+
+<div id="tout">
+  <h1><a href="#URL_JOURNAL">#TITRE_JOURNAL</a></h1>
+
+  <div id="page">
+    <div id="corps">
+        <h2>Forum</h2>
+
+        <B_liste>
+        <table class="liste">
+          <tr class="titre">
+            <th>Titre</th>
+            <td class="auteur">Auteur</td>
+            <td class="reponses">R&eacute;ponses</td>
+            <td class="dernier">Dernier message</td>
+          </tr>
+          <BOUCLE_liste(FORUMS){parent=0}{par dernier_message}{inverse}{debut_liste,20}>
+          <tr class="[(#URL|alterner{couleur_fond,impair,pair})]">
+            <th><a href="#URL">#TITRE</a></th>
+            <td class="auteur">#NOM</td>
+            <td class="reponses">#REPONSES</td>
+            <td class="dernier">[(#DERNIER_MESSAGE|date_intelligente)]</td>
+          </tr>
+          </BOUCLE_liste>
+        </table>
+
+        <BOUCLE_pagination(FORUMS){parent=0}>
+        </BOUCLE_pagination>
+        [<div class="pagination">(#TOTAL_BOUCLE|pagination{debut_liste,20})</div>]
+        </B_pagination>
+        </B_liste>
+        <p>Aucun message.</p>
+        <//B_liste>
+
+        <INCLURE{forum_formulaire}>
+
+        <div class="clearer"></div>
+    </div>
+
+    <div id="blocmenu">
+      <INCLURE{menu}>
+    </div>
+
+  </div>
+  <div id="bas"></div>
+</div>
+</body>
+</html>

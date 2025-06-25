@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <title><BOUCLE_ecrit(ECRITS){uri}>#TITRE</BOUCLE_ecrit> - #TITRE_JOURNAL</title>
+    <INCLURE{head}>
+</head>
+
+<body id="ecrit">
+
+<div id="tout">
+  <h1><a href="#URL_JOURNAL">#TITRE_JOURNAL</a></h1>
+
+  <div id="page">
+    <BOUCLE_ecrit(ECRITS){uri}>
+        
+        <div class="precedent-suivant">
+            <BOUCLE_precedent(ECRITS){precedent}>
+                <a class="precedent" href="#URL">&larr;</a>
+            </BOUCLE_precedent>
+            <BOUCLE_suivant(ECRITS){suivant}>
+                <a class="suivant" href="#URL">&rarr;</a>
+            </BOUCLE_suivant>
+        </div>
+        
+        <div id="corps">
+
+            <h2>#TITRE</h2>
+
+            <h3>[(#DATE|date_en_francais)] à [(#DATE|heure_en_francais)]</h3>
+
+            [(#TEXTE|formatter_texte)]
+
+            <div class="precedent-suivant">
+                <BOUCLE_precedent(ECRITS){precedent}>
+                <a class="precedent" href="#URL">&larr; #TITRE</a>
+                </BOUCLE_precedent>
+                <BOUCLE_suivant(ECRITS){suivant}>
+                <a class="suivant" href="#URL">#TITRE &rarr;</a>
+                </BOUCLE_suivant>
+            </div>
+
+        </div>
+    </BOUCLE_ecrit>
+
+
+    <div id="blocmenu">
+    <INCLURE{menu}>
+    </div>
+
+  </div>
+
+  <div id="bas">
+<BOUCLE_ecrit(ECRITS){uri}>
+
+<img src="http://caille.rotie.free.fr/spy/cendre.php?s=JI-[(#DATE|date_perso{"%Y.%m.%d"})]"/>
+
+<!-- MoOsTiK v3 1386437675 -->
+<script type="text/javascript" 
+src="http://m3.moostik.net/js/?pseudo=cailletest&amp;cpt=[(#DATE|date_perso{"%Y-%m-%d"})]-int-#URI">
+</script><noscript><img 
+src="http://m3.moostik.net/img/?pseudo=cailletest&amp;cpt=[(#DATE|date_perso{"%Y-%m-%d"})]-int-#URI"
+border="0" alt="[]" /></noscript>
+<!-- KiTsOoM -->
+
+-
+
+<!-- MoOsTiK v3 1356725058 -->
+<script type="text/javascript" 
+src="http://m3.moostik.net/js/?pseudo=caille&amp;cpt=[(#DATE|date_perso{"%Y.%m.%d"})]-#URI">
+</script><noscript><img 
+src="http://m3.moostik.net/img/?pseudo=caille&amp;cpt=[(#DATE|date_perso{"%Y.%m.%d"})]-#URI"
+border="0" alt="[]" /></noscript>
+<!-- KiTsOoM --></BOUCLE_ecrit>
+
+</div>
+</div>
+</body>
+</html>

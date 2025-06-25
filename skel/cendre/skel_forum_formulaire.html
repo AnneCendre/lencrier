@@ -1,0 +1,24 @@
+        <form method="post" action="#URL_FORMULAIRE_FORUM" id="fpost">
+        <fieldset>
+            <legend>Nouveau message</legend>
+            <dl>
+                <dt><label for="f_nom">Nom ou pseudo</label> (facultatif)</dt>
+                <dd><input type="text" name="nom" id="f_nom" value="" /></dd>
+                <dt><label for="f_contact">Contact (e-mail ou site web)</label> (facultatif)</dt>
+                <dd><input type="text" name="contact" id="f_contact" value="" /></dd>
+                [(#ID|non)
+                  <dt><label for="f_titre">Titre</label></dt>
+                  <dd><input type="text" name="titre" id="f_titre" value="" />
+                ]
+                <dt><label for="f_texte">Texte</label></dt>
+                <dd><textarea name="texte" id="f_texte" cols="40" rows="20"></textarea></dd>
+            </dl>
+            <p class="tip">
+                Nota: Le code HTML sera affiché comme du texte, les adresses internet seront converties automatiquement.
+            </p>
+            <p class="submit">
+                <input type="hidden" name="parent" value="[(#ID|sinon{0})]" />
+                <input type="submit" name="post" value="Poster" />
+            </p>
+        </fieldset>
+        </form>

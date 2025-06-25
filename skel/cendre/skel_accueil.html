@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <title>#TITRE_JOURNAL</title>
+    <INCLURE{head}>
+</head>
+
+<body id="index_mois">
+
+<div id="tout">
+  <h1><a href="#URL_JOURNAL">#TITRE_JOURNAL</a></h1>
+
+  <div id="page">
+    <div id="corps">
+        [<div id="texte_journal">(#TEXTE_JOURNAL*|formatter_texte)</div>]
+
+        <dl id="liste_ecrits">
+          <BOUCLE_ecrits(ECRITS){par date}{inverse}{0,40}>
+            <dt><h3><a href="#URL">#TITRE</a></h3></dt>
+            <dd class="date">[(#DATE|date_en_francais)] à [(#DATE|heure_en_francais)]</dd>
+            <dd class="intro">#INTRO</dd>
+          </BOUCLE_ecrits>
+        </dl>
+    </div>
+
+    <div id="blocmenu">
+      <INCLURE{menu}>
+    </div>
+  </div>
+  <div id="bas">
+<img src="http://caille.rotie.free.fr/spy/cendre.php?s=JI-Accueil"/>
+<!-- MoOsTiK v3 1356725058 -->
+<script type="text/javascript" 
+src="http://m3.moostik.net/js/?pseudo=caille&amp;data=site&amp;cpt=0-Journal">
+</script><noscript><img 
+src="http://m3.moostik.net/img/?pseudo=caille&amp;data=site&amp;cpt=0-Journal"
+border="0" alt="[]" /></noscript>
+<!-- KiTsOoM -->
+  </div>
+</div>
+</body>
+</html>

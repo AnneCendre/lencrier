@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <title><BOUCLE_message_titre(FORUMS){uri}>#TITRE - </BOUCLE_message_titre>Forum - #TITRE_JOURNAL</title>
+    <INCLURE{head}>
+</head>
+
+<body id="forum_message">
+
+<div id="tout">
+  <h1><a href="#URL_JOURNAL">#TITRE_JOURNAL</a></h1>
+
+  <div id="page">
+    <BOUCLE_message(FORUMS){uri}>
+    <div id="corps">
+        <h2>#TITRE</h2>
+        <div id="parent">
+          <h3>[(#DATE|date_en_francais)] &agrave; [(#DATE|heure_en_francais)]</h3>
+          <p class="auteur">[(#NOM)][ <small>(#CONTACT|proteger_contact)</small>]</p>
+          <div class="texte">[(#TEXTE|reconnaitre_urls|formatter_texte_minimal)]</div>
+        </div>
+
+        <BOUCLE_reponses(FORUMS){parent}{par date}>
+        <div class="reponse" id="msg-#ID">
+          <h3><a href="#msg-#ID">[(#DATE|date_en_francais)] &agrave; [(#DATE|heure_en_francais)]</a></h3>
+          <p class="auteur">[(#NOM|sinon{"Anonyme"})][ <small>(#CONTACT|proteger_contact)</small>]</p>
+          <div class="texte">[(#TEXTE|reconnaitre_urls|formatter_texte_minimal)]</div>
+        </div>
+        </BOUCLE_reponses>
+
+        <INCLURE{forum_formulaire}>
+        <div class="clearer"></div>
+    </div>
+    </BOUCLE_message>
+    <div id="corps">
+        <p class="erreur">Ce message n'existe pas.</p>
+    </div>
+    <//B_message>
+
+    <div id="blocmenu">
+      <INCLURE{menu}>
+    </div>
+
+  </div>
+
+  <div id="bas"></div>
+</div>
+</body>
+</html>

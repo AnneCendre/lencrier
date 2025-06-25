@@ -1,0 +1,25 @@
+      <ul class="menu">
+        <li class="home"><a href="#URL_JOURNAL">Journal</a></li>
+        [<li class="forum"><a href="(#FORUM)">Forum</a></li>]
+        [<li class="subscribe"><a href="(#ABONNEMENT)" title="Recevoir les nouveaux écrits par E-Mail" onclick="return !window.open(this.href, '', 'width=400,height=400,status=no,toolbar=no,menubar=no,resizable=yes');">S'abonner</a></li>]
+        [<li class="contact"><a href="(#CONTACT)">Contact</a></li>]
+      </ul>
+
+      <B_archives>
+      <div class="archives">
+        <h4>Archives</h4>
+        <ul>
+        <BOUCLE_archives(MOIS){inverse}>
+          <li><a href="#URL">[(#DATE|mois_en_francais)]</a></li>
+        </BOUCLE_archives>
+        </ul>
+      </div>
+      </B_archives>
+
+      <p class="pub">
+        <a href="http://journalintime.com/"><img src="/datas/skins/default/button0.png" width="100" height="15" alt="Journal Intime.com" /></a>
+      </p>
+      <p class="rss">
+        <a href="#URL_RSS"><i>Flux</i> <b>RSS</b></a>
+      </p>
+

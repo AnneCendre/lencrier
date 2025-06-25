@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <title>Contact - #TITRE_JOURNAL</title>
+    <INCLURE{head}>
+</head>
+
+<body id="forum_message">
+
+<div id="tout">
+  <h1><a href="#URL_JOURNAL">#TITRE_JOURNAL</a></h1>
+
+  <div id="page">
+    <div id="corps">
+      [(#MESSAGE_ENVOYE|oui)<p>Votre message a bien été envoyé.</p>]
+      [(#FORMULAIRE_CONTACT*)]
+    </div>
+
+    <div id="blocmenu">
+      <INCLURE{menu}>
+    </div>
+
+  </div>
+
+  <div id="bas"></div>
+</div>
+</body>
+</html>
