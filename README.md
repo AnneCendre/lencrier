@@ -1,3 +1,4 @@
 # lencrier
 
- test push 
+ cmd : 
+ `python3 fiche.py`
