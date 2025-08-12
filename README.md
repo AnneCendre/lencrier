@@ -1,4 +1,15 @@
 # lencrier
 
  cmd : 
- `python3 fiche.py`
+`cendre@Terminus:~/dev/lencrier$ python3 ./src/fusion.py`
+
+
+# TODO
+
+## anonymiser
+
+Boubak
+Rabouillère
+Dante
+Sylvain
+
