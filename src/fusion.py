@@ -1,6 +1,7 @@
 import requests
 import re
 from bs4 import BeautifulSoup
+from operator import itemgetter, attrgetter
 
 class Article:
     def __init__ (self, nomLencrier, idLencrier, titre, dateLencrier, content):
@@ -34,11 +35,13 @@ res = lireArticles(nomLencrier, nomFichier)
 
 csv = open("./result/data.csv", "w")
 csv.write('nomLencrier;  id     ; dateLencrier              ; titre     ; length \n')
-for article in sorted(res, key=lambda art: art.idLencrier, reverse = True):
+for article in sorted(res,key=attrgetter('titre')):
     ligne =  '"' + article.nomLencrier + '" ; "' + article.idLencrier + '" ; "' + article.dateLencrier + '" ; "' + article.titre  + '" ; "' + str(len(article.content)) + '"'
     csv.write(ligne + '\n')
 
 
 csv.close()
 
+
+# , reverse = True
 
