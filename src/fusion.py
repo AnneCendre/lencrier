@@ -35,7 +35,7 @@ res = lireArticles(nomLencrier, nomFichier)
 
 csv = open("./result/data.csv", "w")
 csv.write('nomLencrier;  id     ; dateLencrier              ; titre     ; length \n')
-for article in sorted(res,key=attrgetter('titre')):
+for article in sorted(res, key=attrgetter('titre')):
     ligne =  '"' + article.nomLencrier + '" ; "' + article.idLencrier + '" ; "' + article.dateLencrier + '" ; "' + article.titre  + '" ; "' + str(len(article.content)) + '"'
     csv.write(ligne + '\n')
 
@@ -43,5 +43,5 @@ for article in sorted(res,key=attrgetter('titre')):
 csv.close()
 
 
-# , reverse = True
+# inverser le tri :  , reverse = True
 
