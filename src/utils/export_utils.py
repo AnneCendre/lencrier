@@ -1,0 +1,17 @@
+from bs4 import BeautifulSoup
+from models.article import Article
+import copy
+
+def writeHtml(articles, template, output):
+    soup = BeautifulSoup(open(template),"html.parser")
+    section = soup.find('section')
+    articleTagTemplate = section.article
+    for article in articles:
+        articleTag = copy.copy(articleTagTemplate)
+        articleTag["class"] = article.nomLencrier
+        articleTag.h2.string = article.titre
+        articleTag.time.string = article.dateTime
+        articleTag.div.string = article.content
+        section.append(articleTag)
+    with open(output, "w", encoding = 'utf-8') as file:
+        file.write(str(soup.prettify()))

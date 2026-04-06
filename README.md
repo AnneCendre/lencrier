@@ -6,10 +6,3 @@
 
 # TODO
 
-## anonymiser
-
-Boubak
-Rabouillère
-Dante
-Sylvain
-
