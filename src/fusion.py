@@ -3,21 +3,19 @@ import re
 from operator import itemgetter, attrgetter
 
 from models.article import Article
-import utils.import_utils
-import utils.export_utils
-from utils.export_utils import writeHtml
+from utils.import_utils import lire_articles_from_lencrier_html
+from utils.export_utils import write_html
 
-lireArticlesFromLencrierHtml = utils.import_utils.lireArticlesFromLencrierHtml
 
 EXPORT_PATH = "./exports/"
 
-nomFichier = EXPORT_PATH + "test_Cendre.html"
-nomLencrier = 'caillecendre'
-articles = lireArticlesFromLencrierHtml(nomLencrier, nomFichier)
-nomFichier = EXPORT_PATH + "test_Les amours de Cendre.html"
-articles.extend(lireArticlesFromLencrierHtml("cendre", nomFichier))
-nomFichier = EXPORT_PATH + "test_Mes écrits manuscrits.html"
-articles.extend(lireArticlesFromLencrierHtml('manuscrits2caille', nomFichier))
+nom_fichier = EXPORT_PATH + "test_Cendre.html"
+nom_lencrier = 'caillecendre'
+articles = lire_articles_from_lencrier_html(nom_lencrier, nom_fichier)
+nom_fichier = EXPORT_PATH + "test_Les amours de Cendre.html"
+articles.extend(lire_articles_from_lencrier_html("cendre", nom_fichier))
+nom_fichier = EXPORT_PATH + "test_Mes écrits manuscrits.html"
+articles.extend(lire_articles_from_lencrier_html('manuscrits2caille', nom_fichier))
 
 csv = open("./result/data.csv", "w")
 csv.write('nomLencrier         ;  id       ; dateTime           ; dateLencrier              ; titre     ; length \n')
@@ -26,7 +24,7 @@ for article in sorted(articles, key=attrgetter('dateTime')):
     csv.write(ligne + '\n')
 csv.close()
 
-writeHtml(sorted(articles, key=attrgetter('dateTime')), "./result/template.html", "./result/journaux.html")
+write_html(sorted(articles, key=attrgetter('dateTime')), "./result/template.html", "./result/journaux.html")
 
 
 # inverser le tri :  , reverse = True

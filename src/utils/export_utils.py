@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from models.article import Article
 import copy
 
-def writeHtml(articles, template, output):
+def write_html(articles, template, output):
     soup = BeautifulSoup(open(template),"html.parser")
     section = soup.find('section')
     articleTagTemplate = section.article
