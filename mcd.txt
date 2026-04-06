@@ -6,14 +6,14 @@ table journal : 3 lignes par export
 - nom_lencrier
 - auteur
 - titre
-- source_datetime_string : date de l'archive
+- date_lencrier : date de l'archive
 - nom_fichier_export_source
 
 table article : 
 - référence journal
 - id_lencrier
 - titre
-- source_datetime_string : date à la française
+- date_lencrier : date à la française
 - source_contenu_html
 
 

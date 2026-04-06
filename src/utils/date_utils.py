@@ -8,7 +8,7 @@ mois_fr = {
 }
 
 
-def date_fr_vers_iso(date_str):
+def date_fr_vers_iso(date_str: str) -> str:
     # Exemple d'entrée : "27 août 2023 à 8h37"
     date_part, time_part = date_str.split(" à ")
 

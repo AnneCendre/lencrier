@@ -8,9 +8,9 @@ def write_html(articles, template, output):
     articleTagTemplate = section.article
     for article in articles:
         articleTag = copy.copy(articleTagTemplate)
-        articleTag["class"] = article.nomLencrier
+        articleTag["class"] = article.nom_lencrier
         articleTag.h2.string = article.titre
-        articleTag.time.string = article.dateTime
+        articleTag.time.string = article.date_time
         articleTag.div.string = article.content
         section.append(articleTag)
     with open(output, "w", encoding = 'utf-8') as file:
