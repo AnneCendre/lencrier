@@ -16,3 +16,4 @@ def write_html(articles, template, output):
     with open(output, "w", encoding = 'utf-8') as file:
         # on ne formate pas le html pour ne pas echapper les caractères spéciaux ou les balises html dans le contenu des articles
         file.write(str(soup.prettify(formatter=None)))
+

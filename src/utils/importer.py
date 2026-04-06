@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from models.article import Article
-from utils.date_utils import date_fr_vers_iso
+from utils.database import save_in_db
 
 def lire_articles_from_lencrier_html(nom_lencrier, fichierSource):
     html = open(fichierSource)
@@ -12,4 +12,5 @@ def lire_articles_from_lencrier_html(nom_lencrier, fichierSource):
         a = Article(nom_lencrier, data.get('id'), data.h2.get_text(), data.h3.get_text(), data.div.decode_contents())
         articles.append(a)
     print (articles.__len__())
+    save_in_db(articles)
     return articles
