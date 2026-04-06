@@ -14,4 +14,5 @@ def write_html(articles, template, output):
         articleTag.div.string = article.content
         section.append(articleTag)
     with open(output, "w", encoding = 'utf-8') as file:
-        file.write(str(soup.prettify()))
+        # on ne formate pas le html pour ne pas echapper les caractères spéciaux ou les balises html dans le contenu des articles
+        file.write(str(soup.prettify(formatter=None)))

@@ -3,6 +3,7 @@ import re
 import copy
 from bs4 import BeautifulSoup
 from operator import attrgetter
+from typing import List
 
 
 from utils.date_utils import date_fr_vers_iso
@@ -13,13 +14,17 @@ from utils import lire_articles_from_lencrier_html, write_html
 nom_fichier = "./exports/test_Cendre.html"
 nom_lencrier = "caillecendre"
 
-articles = lire_articles_from_lencrier_html(nom_lencrier, nom_fichier)
+articles: list[Article] = []
+articles.extend(lire_articles_from_lencrier_html(nom_lencrier, nom_fichier))
 
 nom_fichier = "./exports/test_Les amours de Cendre.html"
 articles.extend(lire_articles_from_lencrier_html("cendre", nom_fichier))
 
 nom_fichier = "./exports/test_Mes écrits manuscrits.html"
 articles.extend(lire_articles_from_lencrier_html("manuscrits2caille", nom_fichier))
+
+# print(articles.__len__())
+# print(articles[0].content)
 
 
 with open("./result/data.csv", "w") as csv_file:

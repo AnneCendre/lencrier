@@ -9,7 +9,7 @@ def lire_articles_from_lencrier_html(nom_lencrier, fichierSource):
     print (articlesTag[0].h2)
     articles = []
     for data in articlesTag:
-        a = Article(nom_lencrier, data.get('id'), data.h2.get_text(), data.h3.get_text(), data.div.get_text())
+        a = Article(nom_lencrier, data.get('id'), data.h2.get_text(), data.h3.get_text(), data.div.decode_contents())
         articles.append(a)
     print (articles.__len__())
     return articles

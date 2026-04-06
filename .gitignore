@@ -193,6 +193,5 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-exports/2025-11-24*
-result/data.csv
+# config perso
 copilot/*
