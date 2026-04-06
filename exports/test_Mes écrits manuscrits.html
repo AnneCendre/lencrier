@@ -1,0 +1,1734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0104)https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            
+            <title>Mes écrits manuscrits</title>
+            <style type="text/css">
+            h1, h2, h3, h4, h5, h6, ul, ol, li, p, blockquote, pre { list-style-type: none; margin: 0; padding: 0; font-size: 1em; font-weight: normal; }
+            body { font-family: Georgia, Times New Roman, Times, serif; font-size: 12pt; background: #fff; color: #000; }
+            #titre { text-align: center; }
+            #titre a { color: #000; }
+            a { color: #009; }
+            a:hover { color: #900; }
+            .content p, .content ul, .content ol, .content pre, .content blockquote, .content h1, .content h2,
+            .content h3, .content h4, .content h5, .content h6 { margin-bottom: 8pt; }
+            .content ul { list-style-type: disc; }
+            .content ol { list-style-type: decimal; }
+            .content { text-align: justify; }
+            .item h3 { font-family: Arial, Helvetica, Sans-serif; font-size: 10pt; color: #999; margin-bottom: 1em; }
+            </style>
+            <style type="text/css" media="screen,projection,handheld">
+            #titre h1 { font-size: 3em; text-shadow: 5px 5px 10px #ccc; }
+            #toc h2 { font-size: 3em; font-style: italic; color: #333; line-height: 0.5em; margin-top: 0.2em; text-shadow: 5px 5px 10px #999; }
+            #toc { width: 30%; float: left; }
+            #toc > ul > li > h3 { font-size: 2em; line-height: 0.8em; font-style: italic; background: #ddd; color: #666; padding: 0 0.2em; }
+            .tocMonths h4 { font-size: 1.5em; line-height: 0.8em; font-style: italic; background: #eee; color: #999; padding: 0 0.2em; }
+            .tocDays h5 { font-size: 1.5em; line-height: 0.9em; font-style: italic; color: #666; padding: 0 0.5em; }
+            .tocItems { margin: 0.2em 0.5em; display: table; width: 100%; }
+            .tocItems li { display: table-row; }
+            .tocItems abbr { display: table-cell; text-align: center; width: 15%; font-family: Arial, Helvetica, Sans-serif; font-size: 8pt; padding: 0 0.3em; }
+            .tocItems strong { display: table-cell; }
+            #ecrits { margin: 2em 0 0 32%; }
+            .item { border: 1px solid #ccc; margin: 3em 0; box-shadow: 0px 0px 10px #999; padding: 10pt; }
+            .item h2 { font-size: 28pt; color: #000; margin-top: -36pt;}
+            </style>
+            <style type="text/css" media="print">
+            @page { size: portrait; }
+            a { color: #000; text-decoration: underline; }
+            a[href]:after { content: " (" attr(href) ")"; }
+            #titre h1 { font-size: 3em; }
+            #titre { margin-bottom: 2em; padding-bottom: 10pt; border-bottom: 1pt solid #999; }
+            #toc { display: none; }
+            .item h2 { font-size: 20pt; color: #000; }
+            .item h2, .item h3 { text-align: center; page-break-after: avoid; }
+            .item { padding-bottom: 10pt; border-bottom: 1pt solid #ccc; margin-bottom: 10pt; display: block !important; }
+            p, blockquote { orphans: 3; widows: 3; }
+            </style>
+            <script type="text/javascript">
+            (function () {
+                var current = false;
+
+                function displayItem(id)
+                {
+                    if (typeof id != "string")
+                    {
+                        var item = this.href.match(/#(e\d+)$/);
+                        var id = item[1];
+                    }
+
+                    if (current)
+                    {
+                        current.className = "item hidden";
+                    }
+
+                    current = document.getElementById(id);
+                    current.className = "item";
+
+                    return true;
+                }
+
+                function init()
+                {
+                    var items = document.getElementsByClassName("item");
+                    var nb_items = items.length;
+
+                    for (var i = 0; i < nb_items; i++)
+                    {
+                        items[i].className = "item hidden";
+                    }
+
+                    var toc_months = document.getElementsByClassName("tocMonths");
+                    var toc_nb_months = toc_months.length;
+
+                    for (var i = 0; i < toc_nb_months; i++)
+                    {
+                        var title = toc_months[i].parentNode.getElementsByTagName("h3")[0];
+                        title.onclick = function () {
+                            var p = this.parentNode.getElementsByClassName("tocMonths")[0];
+                            var v = p.style.display.toLowerCase() == "block";
+                            p.style.display = v ? "none" : "block";
+                        };
+                    }
+
+                    var toc_days = document.getElementsByClassName("tocDays");
+                    var toc_nb_days = toc_days.length;
+
+                    for (var i = 0; i < toc_nb_days; i++)
+                    {
+                        var title = toc_days[i].parentNode.getElementsByTagName("h4")[0];
+                        title.onclick = function () {
+                            var p = this.parentNode.getElementsByClassName("tocDays")[0];
+                            var v = p.style.display.toLowerCase() == "block";
+                            p.style.display = v ? "none" : "block";
+                        };
+
+                        var items = toc_days[i].getElementsByTagName("a");
+                        var nb_items = items.length;
+
+                        for (var j = 0; j < nb_items; j++)
+                        {
+                            items[j].onclick = displayItem;
+                        }
+                    }
+
+                    if (m = window.location.hash.match(/^#(e\d+)$/))
+                    {
+                        displayItem(m[1]);
+
+                        var toc_links = document.getElementById("tocRoot").getElementsByTagName("a");
+                        var nb_links = toc_links.length;
+
+                        for (var i = 0; i < nb_links; i++)
+                        {
+                            if (toc_links[i].href.substr(- (m[0].length)) == m[0])
+                            {
+                                var l = toc_links[i].parentNode;
+
+                                while (l.className != "tocDays")
+                                {
+                                    l = l.parentNode;
+                                }
+
+                                l.style.display = "block";
+
+                                while (l.className != "tocMonths")
+                                {
+                                    l = l.parentNode;
+                                }
+
+                                l.style.display = "block";
+
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        toc_months[0].style.display = "block";
+                        toc_days[0].style.display = "block";
+                    }
+                }
+
+                if ((document.addEventListener || document.attachEvent) && document.getElementsByClassName)
+                {
+                    // Créer style spécifique aux navigations JS
+                    var s = document.createElement("style");
+                    s.disabled = false;
+                    s.media = "screen,projection,handheld";
+                    var s_c = document.createTextNode(".tocMonths, .tocDays, .hidden { display: none; } #toc { position: fixed; overflow-y: auto; overflow-x: hidden; left: 0px; top: 0px; bottom: 0px; } #titre { margin-left: 32%; } #toc > ul > li > h3:hover,.tocMonths h4:hover { cursor: pointer; background: #ccc; color: #009; }");
+                    s.appendChild(s_c);
+                    document.getElementsByTagName("head")[0].appendChild(s);
+
+                    if (document.addEventListener)
+                    {
+                        document.addEventListener("DOMContentLoaded", init, false);
+                    }
+                    else
+                    {
+                        document.attachEvent("onDOMContentLoaded", init, false);
+                    }
+                }
+            } ());
+            </script><style media="screen,projection,handheld">.tocMonths, .tocDays, .hidden { display: none; } #toc { position: fixed; overflow-y: auto; overflow-x: hidden; left: 0px; top: 0px; bottom: 0px; } #titre { margin-left: 32%; } #toc > ul > li > h3:hover,.tocMonths h4:hover { cursor: pointer; background: #ccc; color: #009; }</style>
+        <link type="image/x-icon" rel="shortcut icon" href="data:image/png;base64,AAABAAIAICAAAAEAIACoEAAAJgAAABAQAAABACAAaAQAAM4QAAAoAAAAIAAAAEAAAAABACAAAAAAAAAQAAASCwAAEgsAAAAAAAAAAAAA////AP///wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wAAAAAFAAAAEAAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAQAAAABQAAAAD///8A////AP///wD///8A////AAAAABAAAAAxAAAAQgAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQgAAADEAAAAQAAAAAP///wD///8A////AP///wD///8AAAAAFrCwrvOvr63/rq6r/62tq/+trav/ra2r/62tq/+trav/ra2r/62tq/+trav/ra2r/62tq/+trav/ra2r/62tq/+trav/ra2r/62tq/+trav/ra2r/66uq/+vr63/sLCu8wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWsLCt//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+wsK3/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABaurqv////////////+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v///////////66uq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq////////f39//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//39/f//////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////8/Pz/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v//Pz8//////+trav/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABatrav///////v7+f/6+vn/+vr5//r6+f/6+vn/+vr5//r6+f/6+vn/+vr5//r6+f/6+vn/+vr5//r6+f/6+vn/+vr5//r6+f/6+vn/+vr5//r6+f/7+/n//////62tq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq///////+vj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//r4+P//////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////59/f/+Pf3//j39//49/f/+Pf3//j39//49/f/+Pf3//j39//49/f/+Pf3//j39//49/f/+Pf3//j39//49/f/+Pf3//j39//49/f/+ff3//////+trav/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABatrav///////b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb//////62tq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq///////9fX0//X19P/19fT/9fX0//X19P/19fT/9fX0//X19P/19fT/9fX0//X19P/19fT/9fX0//X19P/19fT/9fX0//X19P/19fT/9fX0//X19P//////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//////+trav/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABatrav///////Py8v/z8vL/8/Ly//Py8v/z8vL/8/Ly//Py8v/z8vL/8/Ly//Py8v/z8vL/8/Ly//Py8v/z8vL/8/Ly//Py8v/z8vL/8/Ly//Py8v/z8vL//////62tq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq///////8vHx//Lx8f/y8fH/8vHx//Lx8f/y8fH/8vHx//Lx8f/y8fH/8vHx//Lx8f/y8fH/8vHx//Lx8f/y8fH/8vHx//Lx8f/y8fH/8vHx//Lx8f//////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////x8O//8fDv//Hw7//x8O//8fDv//Hw7//x8O//8fDv//Hw7//x8O//8fDv//Hw7//x8O//8fDv//Hw7//x8O//8fDv//Hw7//x8O//8fDv//////+trav/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABatrav//////+7v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+/v7v/u7+7//////62tq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq///////7e7s/+7u7f/u7u3/7u7t/+7u7f/u7u3/7u7t/+7u7f/u7u3/7u7t/+7u7f/u7u3/7u7t/+7u7f/u7u3/7u7t/+7u7f/u7u3/7u7t/+3u7P//////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////s6+v/7ezs/+3s7P/t7Oz/7ezs/+3s7P/t7Oz/7ezs/+3s7P/t7Oz/7ezs/+3s7P/t7Oz/7ezs/+3s7P/t7Oz/7ezs/+3s7P/t7Oz/7Ovr//////+trav/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABatrav//////+vq6v/s6+v/7Ovr/+zr6//s6+v/7Ovr/+zr6//s6+v/7Ovr/+zr6//s6+v/7Ovr/+zr6//s6+v/7Ovr/+zr6//s6+v/7Ovr/+vq6v/r6ur//////62tq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq///////6uno/+vq6f/r6un/6+rp/+vq6f/r6un/6+rp/+vq6f/r6un/6+rp/+vq6f/r6un/6+rp/+rp6P/q6ef/6unn/+rp6P/q6ej/6ejn/+no5///////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////p6Of/6uno/+rp6P/q6ej/6uno/+rp6P/q6ej/6uno/+rp6P/q6ej/6uno/+rp6P/p6Of/9PLz//////////////////////////////////////+urqv/AAAAFQAAAAD///8A////AP///wD///8A////AAAAABatrav//////+fn5v/o6Of/6Ojn/+jo5//o6Of/6Ojn/+jo5//o6Of/6Ojn/+jo5//o6Of/6Ojn/+bn5f//////y8vK/6enpP+np6X/p6el/6enpP+lpaL//////6+vrf8AAAANAAAAAP///wD///8A////AP///wD///8AAAAAFq6uq///////5ubl/+fn5v/n5+b/5+fm/+fn5v/n5+b/5+fm/+fn5v/n5+b/5+fm/+fn5v/n5+b/5ebk//////+np6T///////v8/P/29fX/7+7t///////p6en/qamnswAAAAQAAAAA////AP///wD///8A////AP///wAAAAAWrq6r///////k4+L/5uXk/+bl5P/m5eT/5uXk/+bl5P/m5eT/5uXk/+bl5P/m5eT/5uXk/+bl5P/k4+L//////6enpf/7/Pz/8/Ly/+vq6f//////5+fn/6iopa4AAAADAAAAAAAAAAD///8A////AP///wD///8A////AAAAABaurqv//////+Pi4f/l5OP/5eTj/+Xk4//l5OP/5eTj/+Xk4//l5OP/5eTj/+Xk4//l5OP/5eTj/+Pi4f//////p6el//b19f/r6un//////+bm5v+np6SuAAAAAwAAAAAAAAAAAAAAAP///wD///8A////AP///wD///8AAAAAFq6uq///////4uHg/+Pi4f/k4+L/5OPi/+Tj4v/k4+L/5OPi/+Tj4v/k4+L/5OPi/+Tj4v/j4uH/4uHg//////+np6T/7+7t///////m5ub/p6ekrgAAAAMAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wAAAAAVrq6s///////g397/4eDf/+Hg3//h4N//4eDf/+Hg3//h4N//4eDf/+Hg3//h4N//4eDf/+Hg3//g397//////6Wlo///////5+fn/6enpK4AAAADAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AAAAAA2vr63//////////////////////////////////////////////////////////////////////////////////////+np6f+np6WuAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wD///8A////AP///wD///8AAAAABK+vrbSwsK3/rq6s/66uq/+urqv/rq6r/66uq/+urqv/rq6r/66uq/+urqv/rq6r/66uq/+urqv/ra6r/66uq/+vr63/rKyqsAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP/////gAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAP4AAAH+AAAD/gAAB/4AAA/+AAAf//////KAAAABAAAAAgAAAAAQAgAAAAAAAABAAAEgsAABILAAAAAAAAAAAAAP///wAAAAAjAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAj////AP///wD///8ApKSiwK+vrf+urqv/ra2r/62tq/+trav/ra2r/62tq/+trav/ra2r/66uq/+vr63/pKSiwP///wD///8A////ALCwrf///////////////////////////////////////////////////////////7Cwrf////8A////AP///wCurqv///////39/f/8/P3//Pz9//z8/f/8/P3//Pz9//z8/f/8/P3//f39//////+urqv/////AP///wD///8Ara2r///////6+Pj/+fj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//r4+P//////ra2r/////wD///8A////AK2tq///////9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb//////62tq/////8A////AP///wCtrav///////T08//09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//////+trav/////AP///wD///8Ara2r///////y8fD/8vHw//Lx8P/y8fD/8vHw//Lx8P/y8fD/8vHw//Lx8P//////ra2r/////wD///8A////AK2tq///////7+/u/+/v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+7u7f/u7u3//////62tq/////8A////AP///wCtrav//////+zr6v/t7Ov/7ezr/+3s6//t7Ov/7Ovq/+zr6f/r6un/6+rp//////+trav/////AP///wD///8Ara2r///////p6ej/6urp/+rq6f/q6un/6eno//P08v//////////////////////rq6r/////wD///8A////AK2uq///////5+Xk/+jn5v/o5+b/6Ofm/+fl5P//////y8vK/6enpP+lpaP//////6+vrf////8A////AP///wCurqv//////+Pj4v/k5OP/5OXk/+Tk4//j4+L//////6enpP/r6+r//////+np6f+wsK6s////AP///wD///8Arq6s///////g397/4d/e/+Hg3//h397/4N/e//////+lpaP//////+jo6P+vr6ynAAAAAP///wD///8A////AK+vrf///////////////////////////////////////////+np6f+urqymAAAAAAAAAAD///8A////AP///wCzs7HvsLCt/66urP+urqv/rq6r/66uq/+trqv/rq6r/6+vrf+wsK7qAAAAAAAAAAAAAAAA////AP///wCAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAcAAIAPAACAHwAA"></head>
+
+        <body>
+        <div id="titre">
+            <h1>Mes écrits manuscrits</h1>
+            <h3>Un journal de <a href="https://journalintime.com/">Journal Intime.com</a></h3>
+            <p>Archive du journal au 08/08/2024.</p>
+        </div>
+        <div id="toc">
+            <h2>Sommaire</h2>
+            <ul id="tocRoot"><li><h3>2012</h3><ul class="tocMonths" style="display: block;"><li><h4>janvier</h4><ul class="tocDays" style="display: block;"><li><h5>vendredi 20</h5><ul class="tocItems"><li><abbr>22h47</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123010">2012</a></strong></li></ul></li></ul></li><li><h4>février</h4><ul class="tocDays"><li><h5>vendredi 10</h5><ul class="tocItems"><li><abbr>21h54</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123011">Chonchonitude</a></strong></li></ul></li><li><h5>lundi 20</h5><ul class="tocItems"><li><abbr>18h23</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123022">Je m'éparpille</a></strong></li></ul></li></ul></li><li><h4>mai</h4><ul class="tocDays"><li><h5>mercredi 9</h5><ul class="tocItems"><li><abbr>22h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123012">Fariboles de mariage</a></strong></li></ul></li></ul></li><li><h4>juin</h4><ul class="tocDays"><li><h5>jeudi 28</h5><ul class="tocItems"><li><abbr>09h30</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123023">La vie de tous les jours</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>samedi 25</h5><ul class="tocItems"><li><abbr>03h31</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123013">Il se passe un truc</a></strong></li></ul></li><li><h5>dimanche 26</h5><ul class="tocItems"><li><abbr>23h32</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123014">Je pense à toi</a></strong></li></ul></li><li><h5>lundi 27</h5><ul class="tocItems"><li><abbr>22h43</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123015">Frustrée</a></strong></li></ul></li><li><h5>mardi 28</h5><ul class="tocItems"><li><abbr>22h53</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123016">Se donner rendez vous</a></strong></li></ul></li><li><h5>mercredi 29</h5><ul class="tocItems"><li><abbr>22h55</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123017">Lapin</a></strong></li></ul></li><li><h5>jeudi 30</h5><ul class="tocItems"><li><abbr>20h39</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123028">Quel beau barrage</a></strong></li><li><abbr>22h37</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123027">Je fulmine</a></strong></li></ul></li></ul></li><li><h4>septembre</h4><ul class="tocDays"><li><h5>samedi 1</h5><ul class="tocItems"><li><abbr>00h56</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123029">Il est pas là le vendredi soir</a></strong></li></ul></li><li><h5>dimanche 2</h5><ul class="tocItems"><li><abbr>22h12</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123032">Fin de parenthèse</a></strong></li></ul></li><li><h5>lundi 3</h5><ul class="tocItems"><li><abbr>22h16</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123034">Le lion ronronne</a></strong></li></ul></li><li><h5>mardi 4</h5><ul class="tocItems"><li><abbr>22h18</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123035">Asynchrone</a></strong></li></ul></li><li><h5>mercredi 5</h5><ul class="tocItems"><li><abbr>22h20</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123036">Humeur changeante</a></strong></li></ul></li><li><h5>vendredi 7</h5><ul class="tocItems"><li><abbr>20h13</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123088">Premier tête à tête</a></strong></li><li><abbr>20h22</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123037">Retour de tête à tête</a></strong></li></ul></li><li><h5>samedi 8</h5><ul class="tocItems"><li><abbr>23h23</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123038">Premier manque</a></strong></li></ul></li><li><h5>dimanche 9</h5><ul class="tocItems"><li><abbr>21h22</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123040">Lettre à mon amour</a></strong></li><li><abbr>23h25</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123039">Ma dose</a></strong></li></ul></li><li><h5>lundi 10</h5><ul class="tocItems"><li><abbr>22h50</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123041">Bonne humeur</a></strong></li></ul></li><li><h5>mardi 11</h5><ul class="tocItems"><li><abbr>19h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123089">Explosion euphorique (RER E)</a></strong></li></ul></li><li><h5>mercredi 12</h5><ul class="tocItems"><li><abbr>08h35</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123042">Je vous aime</a></strong></li></ul></li><li><h5>vendredi 14</h5><ul class="tocItems"><li><abbr>08h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123066">J'ai cédé (deuxième rendez-vous)</a></strong></li><li><abbr>16h10</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123068">Je suis amoureuse</a></strong></li><li><abbr>18h20</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123069">Je t'ai trompé</a></strong></li><li><abbr>19h17</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123044">Rémi, mon amour</a></strong></li></ul></li><li><h5>dimanche 16</h5><ul class="tocItems"><li><abbr>07h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123045">Rêve</a></strong></li><li><abbr>19h10</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123046">C'est quoi un amant ?</a></strong></li></ul></li><li><h5>lundi 17</h5><ul class="tocItems"><li><abbr>09h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123070">La force de l'Amour</a></strong></li><li><abbr>19h03</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123071">Pallier dans le désir</a></strong></li><li><abbr>22h54</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123047">Effets collateraux bénéfiques</a></strong></li></ul></li><li><h5>mardi 18</h5><ul class="tocItems"><li><abbr>21h30</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123072">Sortir de la frustration ? (3)</a></strong></li></ul></li><li><h5>mercredi 19</h5><ul class="tocItems"><li><abbr>22h50</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123052">Je joue à faire semblant</a></strong></li></ul></li><li><h5>jeudi 20</h5><ul class="tocItems"><li><abbr>18h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123073">Apprivoiser son désir (4)</a></strong></li><li><abbr>21h51</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123053">Petite escapade impromptue</a></strong></li></ul></li><li><h5>vendredi 21</h5><ul class="tocItems"><li><abbr>09h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123074">Sources de bonheur</a></strong></li><li><abbr>19h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123075">Cours du vendredi</a></strong></li></ul></li><li><h5>dimanche 23</h5><ul class="tocItems"><li><abbr>11h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123054">Dimanche</a></strong></li></ul></li><li><h5>mardi 25</h5><ul class="tocItems"><li><abbr>08h45</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123077">Régime miracle</a></strong></li><li><abbr>21h55</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123078">Avouer mes émois</a></strong></li></ul></li><li><h5>mercredi 26</h5><ul class="tocItems"><li><abbr>22h03</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123055">Mes amours</a></strong></li></ul></li><li><h5>jeudi 27</h5><ul class="tocItems"><li><abbr>20h04</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123056">Retour d'un double rendez-vous (5-6)</a></strong></li></ul></li><li><h5>vendredi 28</h5><ul class="tocItems"><li><abbr>12h07</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123057">Abscence</a></strong></li></ul></li><li><h5>samedi 29</h5><ul class="tocItems"><li><abbr>23h56</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123058">Lettre avant de partir</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>lundi 1</h5><ul class="tocItems"><li><abbr>16h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123080">Changement d'hémisphère</a></strong></li></ul></li><li><h5>mardi 2</h5><ul class="tocItems"><li><abbr>17h43</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123108">Au revoir Salazie</a></strong></li></ul></li><li><h5>mardi 9</h5><ul class="tocItems"><li><abbr>06h20</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123111">Trahison ?</a></strong></li></ul></li><li><h5>mercredi 10</h5><ul class="tocItems"><li><abbr>07h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123119">Au revoir Cilaos</a></strong></li></ul></li><li><h5>dimanche 14</h5><ul class="tocItems"><li><abbr>09h13</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123060">Lettre au retour en metro</a></strong></li><li><abbr>18h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123061">Attente</a></strong></li></ul></li><li><h5>mardi 16</h5><ul class="tocItems"><li><abbr>08h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123121">Les bonheurs de la reprise (7)</a></strong></li></ul></li><li><h5>jeudi 18</h5><ul class="tocItems"><li><abbr>15h15</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123138">Un banc ensoleillé sur la promenade planté (8)</a></strong></li></ul></li><li><h5>vendredi 19</h5><ul class="tocItems"><li><abbr>09h45</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123139">Découverte du polyamour</a></strong></li></ul></li><li><h5>dimanche 21</h5><ul class="tocItems"><li><abbr>10h15</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123140">Le cahier Bleu</a></strong></li></ul></li><li><h5>lundi 22</h5><ul class="tocItems"><li><abbr>13h25</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123141">Notre banc</a></strong></li></ul></li><li><h5>mardi 23</h5><ul class="tocItems"><li><abbr>08h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123142">Les hommes ont l'amour charnel (pré - 9)</a></strong></li></ul></li><li><h5>jeudi 25</h5><ul class="tocItems"><li><abbr>14h10</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123143">Après midi au jardin des Tuileries (10)</a></strong></li></ul></li><li><h5>vendredi 26</h5><ul class="tocItems"><li><abbr>18h48</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123180">Quatre heures</a></strong></li><li><abbr>20h16</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123062">Caractère indélébile</a></strong></li></ul></li><li><h5>samedi 27</h5><ul class="tocItems"><li><abbr>11h34</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123064">Caractère indélébile (suite)</a></strong></li></ul></li><li><h5>lundi 29</h5><ul class="tocItems"><li><abbr>18h30</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123181">Susceptible</a></strong></li></ul></li><li><h5>mardi 30</h5><ul class="tocItems"><li><abbr>15h57</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123182">Nation (11)</a></strong></li></ul></li></ul></li><li><h4>novembre</h4><ul class="tocDays"><li><h5>vendredi 2</h5><ul class="tocItems"><li><abbr>20h30</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123183">Dérivation (12)</a></strong></li><li><abbr>21h53</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123065">«Tu vas rentrer et retrouver Rémi »</a></strong></li></ul></li><li><h5>lundi 5</h5><ul class="tocItems"><li><abbr>18h20</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123279">Rumination</a></strong></li></ul></li><li><h5>dimanche 11</h5><ul class="tocItems"><li><abbr>22h28</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124690">Note</a></strong></li></ul></li><li><h5>lundi 12</h5><ul class="tocItems"><li><abbr>18h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123280">Une prière</a></strong></li></ul></li><li><h5>mercredi 14</h5><ul class="tocItems"><li><abbr>01h50</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123435">Confrontation (14)</a></strong></li><li><abbr>08h59</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123436">Effrontément heureuse ?</a></strong></li><li><abbr>11h23</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124691">Note</a></strong></li></ul></li><li><h5>vendredi 23</h5><ul class="tocItems"><li><abbr>00h28</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124692">Note</a></strong></li></ul></li><li><h5>dimanche 25</h5><ul class="tocItems"><li><abbr>00h20</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124693">Note</a></strong></li></ul></li><li><h5>mardi 27</h5><ul class="tocItems"><li><abbr>21h34</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123439">Digestion (19)</a></strong></li></ul></li><li><h5>jeudi 29</h5><ul class="tocItems"><li><abbr>18h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123438">Il l'aime plus que moi</a></strong></li></ul></li></ul></li><li><h4>décembre</h4><ul class="tocDays"><li><h5>lundi 3</h5><ul class="tocItems"><li><abbr>18h30</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123470">A Teddy</a></strong></li></ul></li><li><h5>samedi 22</h5><ul class="tocItems"><li><abbr>01h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124536">J'ai détruit mon couple</a></strong></li></ul></li><li><h5>lundi 24</h5><ul class="tocItems"><li><abbr>02h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124537">Spleen</a></strong></li></ul></li></ul></li></ul></li><li><h3>2013</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>mercredi 2</h5><ul class="tocItems"><li><abbr>23h59</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124538">Patience</a></strong></li></ul></li><li><h5>lundi 7</h5><ul class="tocItems"><li><abbr>02h17</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123184">Journal secret</a></strong></li></ul></li><li><h5>mardi 8</h5><ul class="tocItems"><li><abbr>21h01</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e123270">Sur un petit nuage (24)</a></strong></li></ul></li><li><h5>mercredi 9</h5><ul class="tocItems"><li><abbr>09h20</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124539">Je spychote</a></strong></li><li><abbr>21h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124542">KS</a></strong></li></ul></li><li><h5>mercredi 16</h5><ul class="tocItems"><li><abbr>23h59</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124545">Rémi reste l'Homme de ma vie</a></strong></li></ul></li><li><h5>jeudi 17</h5><ul class="tocItems"><li><abbr>21h03</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128568">Et de deux</a></strong></li></ul></li><li><h5>mercredi 23</h5><ul class="tocItems"><li><abbr>18h15</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128570">Un rendez vous manqué</a></strong></li></ul></li><li><h5>jeudi 24</h5><ul class="tocItems"><li><abbr>00h39</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124111">Injuste</a></strong></li></ul></li><li><h5>lundi 28</h5><ul class="tocItems"><li><abbr>20h39</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124337">Piarrine</a></strong></li></ul></li><li><h5>mardi 29</h5><ul class="tocItems"><li><abbr>10h48</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124355">J'ai peur qu'elle nous sépare</a></strong></li><li><abbr>20h03</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128573">Piarrine (27)</a></strong></li></ul></li><li><h5>mercredi 30</h5><ul class="tocItems"><li><abbr>08h52</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124397">J'ai essayé de la haïr</a></strong></li></ul></li></ul></li><li><h4>février</h4><ul class="tocDays"><li><h5>samedi 2</h5><ul class="tocItems"><li><abbr>12h38</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124496">Archive de MP</a></strong></li></ul></li><li><h5>mardi 5</h5><ul class="tocItems"><li><abbr>13h42</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124619">Mélancolie</a></strong></li><li><abbr>14h15</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128574">Jasmin d'hiver</a></strong></li></ul></li><li><h5>vendredi 8</h5><ul class="tocItems"><li><abbr>09h15</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128575">Premier café poly</a></strong></li><li><abbr>12h08</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128600">Compromis</a></strong></li></ul></li><li><h5>samedi 9</h5><ul class="tocItems"><li><abbr>00h47</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128577">Thomas</a></strong></li><li><abbr>02h57</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124745">Retour d'un café poly</a></strong></li><li><abbr>10h45</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124748">Parade amoureuse</a></strong></li></ul></li><li><h5>dimanche 10</h5><ul class="tocItems"><li><abbr>02h47</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124772">Implosion</a></strong></li></ul></li><li><h5>lundi 11</h5><ul class="tocItems"><li><abbr>15h03</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e124825">Rémi, Daniel, Thomas et les autres</a></strong></li></ul></li><li><h5>mardi 12</h5><ul class="tocItems"><li><abbr>00h05</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128578">Deuxième café poly</a></strong></li><li><abbr>09h20</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128579">NRE</a></strong></li><li><abbr>18h30</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128580">RER</a></strong></li></ul></li><li><h5>vendredi 15</h5><ul class="tocItems"><li><abbr>09h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128582">On ne se verra plus</a></strong></li></ul></li><li><h5>lundi 18</h5><ul class="tocItems"><li><abbr>19h50</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128584">Ces êtres qui aiment tant faire éclore l'amour</a></strong></li></ul></li><li><h5>mardi 19</h5><ul class="tocItems"><li><abbr>19h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128585">Passions dévorantes</a></strong></li></ul></li><li><h5>mercredi 20</h5><ul class="tocItems"><li><abbr>20h19</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e125163">Mon homme est extraordinaire</a></strong></li></ul></li><li><h5>dimanche 24</h5><ul class="tocItems"><li><abbr>13h17</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e125263">Compersion au carré</a></strong></li><li><abbr>21h31</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e125279">Les choses se font</a></strong></li></ul></li><li><h5>lundi 25</h5><ul class="tocItems"><li><abbr>20h18</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e125327">Non, ça va pas bien</a></strong></li></ul></li></ul></li><li><h4>mars</h4><ul class="tocDays"><li><h5>vendredi 1</h5><ul class="tocItems"><li><abbr>01h21</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e125538">Juste un compte rendu</a></strong></li><li><abbr>08h55</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128594">Optimisme</a></strong></li></ul></li><li><h5>lundi 4</h5><ul class="tocItems"><li><abbr>01h28</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128806">Extases</a></strong></li></ul></li><li><h5>mardi 5</h5><ul class="tocItems"><li><abbr>14h15</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e134260">Amis &amp; copains</a></strong></li></ul></li><li><h5>mercredi 6</h5><ul class="tocItems"><li><abbr>15h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e125728">A quoi ça sert la vie ?</a></strong></li></ul></li><li><h5>jeudi 7</h5><ul class="tocItems"><li><abbr>09h30</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e134261">Je revois Thomas demain midi</a></strong></li></ul></li><li><h5>lundi 11</h5><ul class="tocItems"><li><abbr>14h48</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e125887">Triangulaire (bis)</a></strong></li></ul></li><li><h5>mardi 12</h5><ul class="tocItems"><li><abbr>21h56</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e134263">Les filles entre elles parlent de leur mec</a></strong></li></ul></li><li><h5>mercredi 13</h5><ul class="tocItems"><li><abbr>16h28</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e125945">Ça va pas</a></strong></li></ul></li><li><h5>mardi 19</h5><ul class="tocItems"><li><abbr>18h45</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e134264">Fait attention</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>lundi 8</h5><ul class="tocItems"><li><abbr>14h54</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e126898">Je perds Daniel</a></strong></li></ul></li><li><h5>samedi 20</h5><ul class="tocItems"><li><abbr>11h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e127854">Faire attention</a></strong></li></ul></li><li><h5>jeudi 25</h5><ul class="tocItems"><li><abbr>12h52</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128007">Jeudi</a></strong></li></ul></li></ul></li><li><h4>mai</h4><ul class="tocDays"><li><h5>dimanche 12</h5><ul class="tocItems"><li><abbr>15h28</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128556">Teddy</a></strong></li><li><abbr>20h42</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128571">Note pour souvenir</a></strong></li></ul></li><li><h5>mardi 21</h5><ul class="tocItems"><li><abbr>23h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e128869">Thomas</a></strong></li></ul></li></ul></li><li><h4>juin</h4><ul class="tocDays"><li><h5>samedi 1</h5><ul class="tocItems"><li><abbr>19h49</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e129390">Dents de scie</a></strong></li></ul></li><li><h5>dimanche 2</h5><ul class="tocItems"><li><abbr>00h44</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e129404">Ça le rend malade</a></strong></li></ul></li><li><h5>mercredi 5</h5><ul class="tocItems"><li><abbr>12h46</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e129541">A Thomas</a></strong></li></ul></li></ul></li><li><h4>juillet</h4><ul class="tocDays"><li><h5>lundi 29</h5><ul class="tocItems"><li><abbr>23h59</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e131815">Dépile</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>samedi 3</h5><ul class="tocItems"><li><abbr>19h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e131994">Je ne suis pas sensible aux colères</a></strong></li></ul></li><li><h5>mardi 13</h5><ul class="tocItems"><li><abbr>17h22</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e132247">Triangulaires</a></strong></li></ul></li></ul></li><li><h4>septembre</h4><ul class="tocDays"><li><h5>jeudi 5</h5><ul class="tocItems"><li><abbr>20h43</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e132955">Tout ce qu'il m'a laissé</a></strong></li></ul></li><li><h5>mercredi 25</h5><ul class="tocItems"><li><abbr>09h49</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e133639">Je suis le fils de mon père</a></strong></li><li><abbr>15h25</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e133647">Tes chemins me plaisent</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>lundi 14</h5><ul class="tocItems"><li><abbr>15h22</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e134165">Prise au piège ?</a></strong></li><li><abbr>16h39</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e134167">Auto-mutilation</a></strong></li></ul></li></ul></li><li><h4>décembre</h4><ul class="tocDays"><li><h5>dimanche 22</h5><ul class="tocItems"><li><abbr>03h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e136168">Amour et sexualité (privé)</a></strong></li></ul></li></ul></li></ul></li><li><h3>2014</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>lundi 13</h5><ul class="tocItems"><li><abbr>00h54</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e136838">Arcancia est morte</a></strong></li></ul></li></ul></li><li><h4>février</h4><ul class="tocDays"><li><h5>samedi 22</h5><ul class="tocItems"><li><abbr>23h23</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e137944">Notes</a></strong></li></ul></li><li><h5>jeudi 27</h5><ul class="tocItems"><li><abbr>16h35</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e138032">Arborescence</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>jeudi 17</h5><ul class="tocItems"><li><abbr>17h34</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e139121">Les amours de Cendre... Au pluriel ?</a></strong></li></ul></li></ul></li><li><h4>mai</h4><ul class="tocDays"><li><h5>mercredi 21</h5><ul class="tocItems"><li><abbr>18h53</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e139847">Je rentre demain</a></strong></li></ul></li></ul></li><li><h4>juillet</h4><ul class="tocDays"><li><h5>lundi 28</h5><ul class="tocItems"><li><abbr>14h55</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e141568">Elise</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>vendredi 1</h5><ul class="tocItems"><li><abbr>11h48</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e141658">Acné excoriée, Dermatillomanie, Grattage Compulsif</a></strong></li></ul></li><li><h5>vendredi 15</h5><ul class="tocItems"><li><abbr>22h58</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e142084">Elise bis</a></strong></li></ul></li></ul></li></ul></li><li><h3>2015</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>lundi 5</h5><ul class="tocItems"><li><abbr>10h25</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e145100">Insomnie</a></strong></li></ul></li><li><h5>mercredi 28</h5><ul class="tocItems"><li><abbr>12h03</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e145590">Mes rêves de ce matin</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>mercredi 28</h5><ul class="tocItems"><li><abbr>03h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e150727">Insomnie</a></strong></li><li><abbr>14h26</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e150726">Amour doctoral</a></strong></li></ul></li></ul></li><li><h4>novembre</h4><ul class="tocDays"><li><h5>lundi 9</h5><ul class="tocItems"><li><abbr>14h01</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e150725">Souhait inavouable</a></strong></li></ul></li><li><h5>mercredi 11</h5><ul class="tocItems"><li><abbr>06h39</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e150757">On peut être seule et entourée</a></strong></li><li><abbr>13h46</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e150767">Rêves.</a></strong></li></ul></li><li><h5>lundi 16</h5><ul class="tocItems"><li><abbr>14h39</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e150859">Récriminations effacées d'un mail</a></strong></li></ul></li><li><h5>vendredi 27</h5><ul class="tocItems"><li><abbr>15h52</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e151063">Auto-Censure</a></strong></li></ul></li></ul></li><li><h4>décembre</h4><ul class="tocDays"><li><h5>mardi 1</h5><ul class="tocItems"><li><abbr>15h55</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e151170">Elise veut être sûr qu'elle va être tranquille.</a></strong></li></ul></li><li><h5>lundi 14</h5><ul class="tocItems"><li><abbr>17h54</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e151509">Manipulation ?</a></strong></li></ul></li><li><h5>lundi 21</h5><ul class="tocItems"><li><abbr>18h19</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e151629">Je buggue</a></strong></li><li><abbr>23h33</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e151638">Colère</a></strong></li></ul></li><li><h5>mardi 29</h5><ul class="tocItems"><li><abbr>10h26</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e151786">Maternage</a></strong></li></ul></li></ul></li></ul></li><li><h3>2016</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>lundi 11</h5><ul class="tocItems"><li><abbr>14h16</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e152113">Jee semaine 1</a></strong></li></ul></li></ul></li><li><h4>février</h4><ul class="tocDays"><li><h5>lundi 1</h5><ul class="tocItems"><li><abbr>14h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e152904">Mise en ordre</a></strong></li></ul></li><li><h5>vendredi 19</h5><ul class="tocItems"><li><abbr>10h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e153388">vague</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>vendredi 15</h5><ul class="tocItems"><li><abbr>12h05</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e154591">Comment je suis arrivée à la conviction que Elise fait obstacle entre Jerry et moi</a></strong></li></ul></li></ul></li><li><h4>juillet</h4><ul class="tocDays"><li><h5>samedi 30</h5><ul class="tocItems"><li><abbr>01h05</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e157689">Jee vient de m'écrire</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>mardi 2</h5><ul class="tocItems"><li><abbr>15h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e157775">Journaux et lecteurs</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>jeudi 27</h5><ul class="tocItems"><li><abbr>16h34</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e159510">soirée exceptionnelle, mémorable</a></strong></li></ul></li></ul></li></ul></li><li><h3>2017</h3><ul class="tocMonths"><li><h4>août</h4><ul class="tocDays"><li><h5>vendredi 18</h5><ul class="tocItems"><li><abbr>11h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e164614">Rêve</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>lundi 16</h5><ul class="tocItems"><li><abbr>19h12</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e166039">9 histoires d'abus sexuel</a></strong></li></ul></li></ul></li><li><h4>novembre</h4><ul class="tocDays"><li><h5>mardi 28</h5><ul class="tocItems"><li><abbr>16h47</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e166549">petits bonheurs ordinaires</a></strong></li></ul></li></ul></li><li><h4>décembre</h4><ul class="tocDays"><li><h5>mercredi 13</h5><ul class="tocItems"><li><abbr>17h13</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e166720">Ombre</a></strong></li></ul></li><li><h5>vendredi 15</h5><ul class="tocItems"><li><abbr>12h47</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e166737">Alignement</a></strong></li></ul></li><li><h5>jeudi 21</h5><ul class="tocItems"><li><abbr>17h32</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e166778">Partage érotique</a></strong></li></ul></li></ul></li></ul></li><li><h3>2018</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>jeudi 4</h5><ul class="tocItems"><li><abbr>17h52</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e166962">Pèlerinage</a></strong></li></ul></li><li><h5>mercredi 10</h5><ul class="tocItems"><li><abbr>11h09</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e167028">Amertume</a></strong></li></ul></li><li><h5>vendredi 12</h5><ul class="tocItems"><li><abbr>12h33</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e167049">Plus amoureuse qu'hier encore</a></strong></li></ul></li><li><h5>mardi 30</h5><ul class="tocItems"><li><abbr>17h41</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e167164">Narration</a></strong></li></ul></li></ul></li><li><h4>février</h4><ul class="tocDays"><li><h5>lundi 5</h5><ul class="tocItems"><li><abbr>18h04</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e167199">Tripouiller</a></strong></li></ul></li><li><h5>mardi 6</h5><ul class="tocItems"><li><abbr>17h53</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e167201">Tripouiller (suite)</a></strong></li></ul></li></ul></li></ul></li><li><h3>2020</h3><ul class="tocMonths"><li><h4>février</h4><ul class="tocDays"><li><h5>lundi 3</h5><ul class="tocItems"><li><abbr>17h56</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e174295">Responsable qualité</a></strong></li></ul></li><li><h5>mercredi 5</h5><ul class="tocItems"><li><abbr>15h51</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e174306">Introspection</a></strong></li></ul></li></ul></li><li><h4>septembre</h4><ul class="tocDays"><li><h5>mardi 15</h5><ul class="tocItems"><li><abbr>14h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e175728">Il y a 22 ans</a></strong></li></ul></li><li><h5>mercredi 16</h5><ul class="tocItems"><li><abbr>13h36</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e175737">J'ai cru que ça pourrait passer</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>lundi 26</h5><ul class="tocItems"><li><abbr>00h54</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e175987">un trip, un gentil et un pervers</a></strong></li></ul></li></ul></li></ul></li><li><h3>2023</h3><ul class="tocMonths"><li><h4>mars</h4><ul class="tocDays"><li><h5>dimanche 12</h5><ul class="tocItems"><li><abbr>13h56</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e181659">221 - Mes Marginaux</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>mercredi 9</h5><ul class="tocItems"><li><abbr>09h01</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e182562">226 - Kiff ou pas</a></strong></li></ul></li></ul></li><li><h4>septembre</h4><ul class="tocDays"><li><h5>jeudi 7</h5><ul class="tocItems"><li><abbr>13h13</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e182730">220-224 Printemps 2023</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>vendredi 20</h5><ul class="tocItems"><li><abbr>11h17</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e182989">229 - Yoann et Morgane</a></strong></li></ul></li></ul></li></ul></li><li><h3>2024</h3><ul class="tocMonths"><li><h4>avril</h4><ul class="tocDays"><li><h5>dimanche 7</h5><ul class="tocItems"><li><abbr>09h37</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e183996">234 - Fracassée</a></strong></li></ul></li><li><h5>lundi 22</h5><ul class="tocItems"><li><abbr>16h09</abbr> <strong><a href="https://public.journalintime.com/datas/documents/manuscrits2caille/export-journal-manuscrits2caille.html#e184133">235 - absence de libido</a></strong></li>
+            </ul></li></ul></li></ul></li></ul>
+        </div>
+        <div id="ecrits">
+        
+        <div class="item hidden" id="e123010">
+            <h2>2012</h2>
+            <h3>20 janvier 2012 à 22h47</h3>
+            <div class="content">
+                
+<p>
+  Des musiques qui mettent la pêche. Il n'est ps bon de s'occuper éternellement l’esprit. J'aime beaucoup Mermet, mais l'écouter matins et soir, sur cette année et 2009, c'est trop. IL me faut du temps pour moi, pour prendre du recul, pour écrire.
+</p>
+
+<p>
+  J'ai déjà écris trois pages il y a deux mois, mais je n'avais même plus de cahier dans mon sac ! Cette fois, c'est le stylo qui manque et celui-ci est bien désagréable à tenir. Mais c'est mieux que rien.
+</p>
+
+<p>
+  Musiques.
+</p>
+
+<p>
+  Nous Autres, épisode début janvier, 11'19.<br>
+  Gost, Welcom Home. La musique de Nilon, celle de Kahiloa, mais la suite, c'est la transition, cet après midi à Paris, cette heure au soleil, au jardin des Tuileries. Des moments de bonheur, de sérénité, à jamais gravés dans ma mémoire, ré-activable par une photo, ou mieux, une musique.
+</p>
+
+<p>
+  Je marche vers mon futur avec assurance. 2012 sera une année de promesses. Et ça commence déjà à faire effet. ♥♥ hier soir, alors que seul un massage avait été envisagé.
+</p>
+
+<p>
+  Transformation, se donner les moyens, se donner la confiance, se regarder avec indulgence et amour, par certitude que l'on a fait au mieux. La est est encore longue, et que de Belles surprises va-t-elle me gratifier encore ?
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e123011">
+            <h2>Chonchonitude</h2>
+            <h3>10 février 2012 à 21h54</h3>
+            <div class="content">
+                
+<p>
+  Je n'ai toujours pas de vrai stylo dans mon sac, mais en ce soir de chonchonitude, je me force à écrire quand même.
+</p>
+
+<p>
+  Évacuons rapidement Scigma Group qui rechigne jusqu'au bout à m'écourter mon préavis : tout ceci sera oublié sans un mois.
+</p>
+
+<p>
+  L'organisation du mariage sera plus difficile à balayer d'un revers de la main. On est quand même pas mal à la bourre, toujours pas de nouvelles de la mairie, monter le dossier, paperasse...
+</p>
+
+<p>
+  Que me reste-t-il après ?
+</p>
+
+<p>
+  Ce soir, je suis lasse, et je maudis mes projets, je n'ai plus envie d'en faire. Ma vie est redevenue une liste de TODO où même mes loisirs sont venus prendre place ! Et porutant, il ne faut pas se laisser aller à la dépression.
+</p>
+
+<p>
+  Jeudi, en congé, j'ai réussit à faire déprimer mon perso de minecraft sur le monde absurde d'infini croissance dans lequel il vit.
+</p>
+
+<p>
+  Il parait que je voulais m'offrir un cuir, un beau mariage, une belle robe. Tout cela se gâte par la réponse ordinaire que donne la société de consommation à une demande qui s'avère tout à fair ordinaire au final.
+</p>
+
+<p>
+  Agnes Obel. Riverside. J'aurais du me méfier de mettre cette période sous une musique si mélancolique...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e150726">
+            <h2>Amour doctoral</h2>
+            <h3>28 octobre 2015 à 14h26</h3>
+            <div class="content">
+                
+<p>
+  « Nan mais si je dis ça, c’est pour ton bien, mais je comprendrais que tu ne veuilles pas le faire »
+</p>
+
+<p>
+  Une semaine après c’est ce qui m’est le plus pénible à digérer.<br>
+  Et le pire, c’est que tu es sûrement sincère dans la démarche. Que tu crois bien faire.
+</p>
+
+<p>
+  Les états d’âmes d’inquiétude sont les plus sournois, les plus apte à s’imposer avec nous avec tout le discours de la rationalité « Je ne suis que la voix de la prudence !  »
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e150725">
+            <h2>Souhait inavouable</h2>
+            <h3>9 novembre 2015 à 14h01</h3>
+            <div class="content">
+                
+<p>
+  L'écrire, pour le noter, et noter sa transformation possible.
+</p>
+
+<p>
+  Il m'arrive encore souvent de souhaiter que Elise ne soit plus dans la vie de Jerry, en clair, qu'il la quitte.
+</p>
+
+<p>
+  Mais d'une, je sais que c'est très peu probable : <br>
+   parce que Jerry n'est pas dans une optique de quitter ses amoureuses, ni moi, ni Elise<br>
+   parce que Elise est meilleure que moi dans la gestion des suites d'un conflit, qu'elle a déjà regagné sa confiance là où je rame encore.
+</p>
+
+<p>
+  D'autre part, je sais que je n'ai pas à intervenir là dessus<br>
+   parce que je n'ai de toute manière pas mon mot à dire dans les relations que Jerry souhaite entretenir.<br>
+   parce que je le préfère libre et autonome dans ses choix que soumis à mes désidérata
+</p>
+
+<p>
+  Par ailleurs, si je creuse, ce n'est pas mon souhait exact : Elise ne me dérange pas si elle n'a pas de mauvaise influence sur lui, ce qui permet deux autres résolutions possibles : <br>
+  Soit Elise rétabli la communication avec moi et me convainc que j'ai tors depuis le début, que c'est vraiment mes actes qui ont induit la méfiance de Jerry à mon égard, et pas le fait qu'elle lui répète depuis mai que je suis une personne indigne de confiance.<br>
+  Soit Jerry cesse d'être influencé par elle et s'offre la liberté de vivre comme il l'entend.
+</p>
+
+<p>
+  ...
+</p>
+
+<p>
+  Que je lui dise droit dans les yeux "je ne souhaite pas que Elise te quitte" ?? j'en suis incapable, c'est du mensonge caractérisé.<br>
+  Par contre, je peux lui dire " j'ai confiance en toi, en ta capacité à prendre les décisions qui sont bonnes pour toi et pour te construire un avenir serein." (tiré de mon mail de ce matin)
+</p>
+
+<p>
+  D'ailleurs, mon souhait, c'est pas qu'il l'a quitte, c'est qu'elle ne le contrôle plus.<br>
+  Mais une fois encore, je dois m'en tenir au secret absolu, vu qu'il est incapable de voir qu'il est contrôlé (et que donc, je n'ai aucune idée du niveau de contrôle qu'elle a sur lui... des fois je me rassure en me disant qu'elle ne le contrôle pas tant que ça...)<br>
+  En tout cas, ce que je souhaite n'a d'importance que dans les actes que cela me pousse à faire. Et ce que je souhaite faire, c'est augmenter la confiance qu'il a en lui et dans ces choix, et ça, ce n'est pas dirigé contre Elise.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e150757">
+            <h2>On peut être seule et entourée</h2>
+            <h3>11 novembre 2015 à 6h39</h3>
+            <div class="content">
+                
+<p>
+  conclusion de tente rouge.<br>
+  Je peux être seule, même avec des amoureux, des amantes, des amis.<br>
+  Mais en ce moment, je suis définitivement seule.<br>
+  A écrire sur ce média protégé et pas sur les autres, parce que dans toutes les directions, je dois faire attention à ce que je dis, à ce en quoi je m'engage...
+</p>
+
+<p>
+  Ty aurais besoin de moi dimanche prochain ? C'est pour ça que j'ai pas envoyé la réponse encore ? * pffff * on verra ce que j'en pense demain.
+</p>
+
+<p>
+  En attendant, déverser ici ce que je ne peux pas écrire dans le mail pour Jee.
+</p>
+
+<p>
+  J'ai sous estimé ton besoin de discrétion par rapport à mon besoin de raconter, c'est un vrai problème par contre.<br>
+  Si ta solution ressemble à "tu peux parler de nous, mais uniquement à un tel et un tel parce que je les connais et que je les ai validé à l'avance", désolée, ce sera sans moi, je suis incapable de tolérer ce type d'ingérence.<br>
+  Si ta solution ressemble à "je ne te parlerais plus de mes histoires avec Elise" pour que je ne puisse pas les étaler vers autrui plus tard, je comprendrais ça comme un cloisonnement, une coupure volontaire d'une partie de la communication, et personnellement, je trouve ça beaucoup plus handicapant au sein de la constellation que d'avoir des fausses rumeurs à gérer.<br>
+  .
+</p>
+
+<p>
+  Désolée, quand je fais une connerie, je l'assume.<br>
+  La seule que je reconnais, c'est d'avoir manqué de discrétion. Je t'en re-présente mes excuses.
+</p>
+
+<p>
+  Tu pars du principe que j'ai radicalement changé de discours, que "j'ai clairement" fait allusion que Elise et toi allait devenir de l'histoire ancienne, je te dis que non.<br>
+  Si on a pu l'interpréter, ce n'était pas "clairement", et ce n'était pas "affirmé".
+</p>
+
+<p>
+  Comme je ne sais toujours pas de qui il s'agit, je ne comprends toujours pas qui a pu élaborer ce type de conviction à partir de mon comportement. Pour réfléchir, je pose des peut être, pour t'expliquer le fond de ma pensée, pour être transparente et faire preuve de sincérité. Si j'ai mis tant de peut être, c'est que ce je n'ai vraiment aucune idée d'où peut venir cette interprétation, et ce n'est pas du tout ce que moi j'ai retenu de mon discours où des réponses qui m'ont été faites.
+</p>
+
+<p>
+  Encore une fois, je ne vois pas où est la nuisance, quel est l'acte qui est entraîné par ces paroles qui te prive ou te blesse suite à ça ?<br>
+  Tu dis par exemple : « Tu cites l'incident avec Angela et tu évoques la colère dans laquelle cela t'avait mise d'imaginer qu'on avait pu parler de toi en mal dans ton dos à Renaud ». Non, ce qui m'a mis en colère, c'est que suite à ça Renaud annule sa venue à Vincennes, pas que l'on ait parlé en mal. Quant à ma colère initiale contre Elise, je la considère comme honteuse, parce que justement, elle était crée par un propos rapporté qui manquait franchement de bienveillance et donc je n'aurais jamais du le prendre autant au sérieux. Et je suis fière de m'en être débarrassée en quelques jours.
+</p>
+
+<p>
+  Mais peut être que je ne me rends pas compte parce que je n'ai toujours pas le contexte dans lequel cette histoire t'es revenue pour comprendre la profondeur de ta blessure ?<br>
+  En tout cas, je vois que cela réveille en toi l'histoire de l'exposition sur le forum ou sur facebook, que nous n'avons toujours pas pleinement débriefé.
+</p>
+
+<p>
+  .
+</p>
+
+<p>
+  Lifting. Je suis en train de vider mon mail de sa substance pour en rester à mon message principal "confiance, autonomie, liberté.
+</p>
+
+<p>
+  .
+</p>
+
+<p>
+  Par contre, je vois en filigranne une modification majeure du comportement de Jee envers moi, dans son "je peux pas te changer donc je fais avec", et dans le fait que faire avec, c'est augmenter les protection. D'une par, les protections sexuelles entre nous. Et là probablement, décider qu'il ne me parlera plus de ses soucis avec Elise, ou de ses soucis en général, de peur que je les expose en place publique plus tard. Avec un "c'est pas de ma faute, mais j'aime pas comment ça me revient dans la gueule, alors je mets les barrières en amont, tu n'as qu'à me promettre que tu diras plus jamais rien"<br>
+  Déception car si il met ce genre de choses en pratique, alors Elise a gagné (il cloisonne, donc il n'a qu'une principale, donc c'est elle)<br>
+  En même temps, tu t'en doutais, non ?<br>
+  Repense à ce que tu disais cet après midi : soit il reprend confiance en toi, et c'est bon, tu peux lui pardonner, soit il a pas confiance en toi, et alors, il n'est pas la personne que tu aimes.
+</p>
+
+<p>
+  Sauf que, j'ai compris la fêlure.<br>
+  Il me dit "ton besoin irrépressible de t'étaler en public fait partie de toi, je t'aime en le prenant en compte"<br>
+  Qu'est-ce qui m'est reproché vraiment ?<br>
+  D'avoir changé radicalement de discours ? je plaide non coupable.<br>
+  D'avoir un peu trop parlé ? Ok, mais je comprends toujours pas en quoi c'est si grave.
+</p>
+
+<p>
+  Voilà, c'est dans le mail.
+</p>
+
+<p>
+  Mais du coup.<br>
+  en quoi est-ce "parler mal".<br>
+  Jee pense que je véhicule une mauvaise pensée sur les autres, il arrête pas de me dire que je reporte la faute sur les autres.<br>
+  ça mérite réflexion. Et interrogation de mes proches. qui ? Tous ceux que je vois sont biaisés (Carolila, Frédérick, Diana, Elsa, je ne parles même pas d'Estelle).<br>
+  Tiens, je pourrais demander à Méta. Elle est bien assez cache, et j'ai quand même été dans les détails.<br>
+  Raphaëlle, aussi, peut être.<br>
+  (en même temps, j'ai un exemple sérieux, là, sur ce que c'est que "dire du mal" de quelqu'un)
+</p>
+
+<p>
+  .
+</p>
+
+<p>
+  Mail envoyé. Nuit blanche... j'ai même pas sommeil.<br>
+  je me crispe à chaque ligne que je peux relire de son mail. Je le trouve accusateur et jugeant de bout en bout.<br>
+  Je trouve qu'il parle mal de moi.<br>
+  Devais-je avoir peur à l'idée qu'il parle de moi avec ses sentiments là autour de lui ? Comme d'une personne égoïste qui veut pas changer.
+</p>
+
+<p>
+  Tout ça parce que je souris encore à la réponse de Jacques (?) au dernier café poly de St Quentin, « Et quand on te reproche quelque chose ? » « Et ben, on te le reproche »<br>
+  Sourire de sérénité, rien ne compte plus + pour moi aujourd'hui.
+</p>
+
+<p>
+  J'évolue, mais pour moi, pour rester à l'aplomb de moi-même. Pour augmenter ma stabilité.<br>
+  Je suis morte plusieurs fois, et je renais toujours de plus en plus vite.<br>
+  Je suis intimement persuadée, et j'en ai des marques extérieures, que je ne suis pas imbue de moi même au point de ne pas me rendre compte de certaines choses trop moches chez moi.<br>
+  Je ne crois pas, par exemple, que je tienne à mon psy un discours très différent qu'à Familleureux. (au contraire, je dois être plus trash envers Elise vers mon spy... et du coup il m'a dit qu'elle était une anxieuse qui mettait toute la tribu en danger à ne pas faire confiance aux autres, et du coup, j'ai pris du recul par rapport à son jugement !! )
+</p>
+
+<p>
+  Et si Jerry reste persuadé que je suis incapable de le prendre en compte, alors, aucune relation amoureuse entre nous n'a de sens.<br>
+  J'attendrais, patiemment, qu'il daigne, peut être un jour, reconnaître son erreur de jugement sur moi.
+</p>
+
+<p>
+  Un jour peut être.<br>
+  Faire profil bas.<br>
+  C'est une épreuve de patience.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e150767">
+            <h2>Rêves.</h2>
+            <h3>11 novembre 2015 à 13h46</h3>
+            <div class="content">
+                
+<p>
+  Est-ce que je brasse du vent ?
+</p>
+
+<p>
+  C'est le premier rêve, le plus confus, dans ma tête, donc (le second rêve a du se développer alors que j'essayais de fixer celui-là).
+</p>
+
+<p>
+  C'est l'histoire d'une journée de boulot éprouvante, où je suis seule, où il y a plein de bugs en prod, où je répond au téléphone, teste des urls, dit "c'est facile, je te fais ça très vite", mais je suis appelée sur autre chose, et sur le tout nouveau tableau mis en place, mais qui casse tout l'existant, et je continue de dire "c'est facile, je peux te corriger ça très vite", mais en fait, je ne fais rien. Nadine m'appelle au téléphone (ou en présence, ça dépend) m'explique pourquoi elle est obligée de faire tel ou tel choix. Je lui dit "bah non, en utf-8, tu n'as pas besoin, si tu es encore obligée de faire ça c'est que tu as un problème d'encodage plus profond" et nous voilà à parler de grosses modifs en prod alors qu'il est bientôt cinq heure, que j'avais promis de travailler sur tel bug, que j'ai pas avancé d'un pouce. On avait demandé si cela m'inquiétait de produire du code jetable, juste pour aider les usager le temps de, j'avais dit oui et au final je n'ai rien fait.<br>
+  J'ai une trentaine d'onglets ouverts regroupés en grandes lignes, je les repasses tous en mode "ah oui là, il faut faire ça", je re-constate les bug, analyse, donne mon analyse, mais qu'est-ce d'autre que me faire mousser à brasser du vent ?<br>
+  Le soir avance, et je retrouve des collègues qui mettent en avant la démarcher artistique de d'un peintre de rue dont ils sont fan. Mode grouppie on, et le boulot disparaît complètement.
+</p>
+
+<p>
+  L'eovre murale va se transformer en film, puis en série, et la suite du rêve va mélanger des scènes du film (chat géant, robots dangeureux, scène de vitesse en voiture) et des scènes de la vie courante (cantine). je suis deux collègues (un homme et une femmes), dans leur enthousiasme, j'y pers un peu moi même (j'ai faim, mais alors que j'essaye de rejoindre tranquillement le self à l'étage suppérieur, même si j'ai fait tomber en miette ma bouteille de bière, je suis happée par l'histoire du robots nettoyeur fou qu'il faut éviter soignesement) On revient sur certaines scènes, il y a des différences entre celles d'un film et celles d'un documentaire. L'histoire est encore en cours d'écriture, comme avec ce chat géant téléphathe qui porte l'héroïne sur son dos, où un agent de police pense bien faire son travail en sauvant l'éroïne, mais le chat montre qu'il comprends mieux l'héroïne que l'agent, donc cette dernière feinte l'agent, lui fait croire que, pour se retrouver plus tard, derrière le mur, à dos du chat.<br>
+  Et le rêve se termine sur cette phrase "mais attend ! elle vient de dire qu'elle a toujours pas vu le dernier épisode de la série documentaire, il faut absoluement  qu'elle le voie !
+</p>
+
+<p>
+  Bon, c'est vraiment dur à raconter, ça ne se remet pas du tout dans l'ordre, c'est bourré de flash back partout.
+</p>
+
+<p>
+  Je vais dire ce que je reconnais.<br>
+  La journée où je n'écris pas une ligne de code et ne fait que répondre au téléphone, elle a existé, plus d'une fois. Je me souviens du ton badin de certains collègues, en mode "on est tranquille, nous", que j'ai un peu retrouvé dans cette série "au service de la France" où à 16h45 on arrête tout pour préparer le pot.<br>
+  Donc je suis à la fois la plus sérieuse (celle qui est persuadée de prendre le bug des usagers au sérieux), et en même temps, je ne fais que rajouter du vent à cette journée : je défends les tableaux que j'ai rajouté précédemment, je fais la leçon aux autres sur comment il devraient coder, mais je ne tiens pas mes propres engagements.<br>
+  J'ai mon air très proféssoral, de "c'est comme ça qu'on doit faire, tu sais pas coder", et je maintiens quand c'est mon propre truc qui induit un bug.<br>
+  Là, je repense à l'erreur spring de Yann, ou en ajoutant un package plus large, ça déconne, au fait que j'ai du mettre des classes dans des packages à part, qui ne sont pas appelés d'habitudes, mais qui là, en étant appelé de cette façon générique, écrasait je ne sais quelle autre config.<br>
+  Ce rêve décrit le mépris que je commence à avoir pour l'administration, la façon dont je me retrouve dedans, en mode "c'est pas ma faute, je ne suis qu'un maillon de la chaîne", constatant au final que malgré toutes les meilleurs intentions du monde, je ne fais qu'augmenter l'entropie moi même. Cette alternance entre le "c'est bon, on a fini, on a plus rien à faire, on va s'amuser (à ajouter des tableaux)", et de, face aux vrais problèmes, de constater "mais comment on a pu ne pas voir ça avant !! "<br>
+  L'ajout des tableaux, c'est une référence aux journées que Yann a passé à ajouter des dataTables, sur enquete médicament puis sur e<span class="cap">PMSI</span>, alors qu'en fait, Nadine nous avait envoyé via Redmine les établissements et les régions à ajouter.<br>
+  L'utf-8, c'est parce que la tâche de mettre qualhas en utf-8 a plus d'un an et repasse dans mon outlook.<br>
+  Le refactoring de fond, je suis toujours aussi perplexe sur quand le faire. Vu que c'est toujours risqué, on ne le fait ni avant une mise en prod, ni quand on a aucune équipe derrière nous pour remonter les régressions. Donc on le fait jamais.<br>
+  Le sentiment global de cette journée, c'est que je l'ai passée à me noyer dans un verre d'eau, à switcher entre trop de problème, à donner mon avis sur tout, à vouloir tout remettre en cause, et ce sans faire aucune de mes péremptoires "c'est facile, il suffit de"
+</p>
+
+<p>
+  (( J'écrivais quoi, hier, à Jee ? que le plus important pour moi était de rester digne ? intègre à soi-même ?<br>
+  de pouvoir se regarder dans une glace ? j'ai peur là, de jeudi matin, demain matin, où Yann est pas là et où je vais avoir Nadine en première ligne. ))
+</p>
+
+<p>
+  Le deuxième rêve, c'est plus clément.<br>
+  Au contraire, je suis la fantaisie des autres, je me laisse porter par l'enthousiasme de leur histoire. Dès mon réveil j'ai pensé à la merveilleuse histoire de Jerry et Elise.<br>
+  Mais quand même, ça parle de dissimulation, de faire semblant, de se cacher, de se protéger.<br>
+  ça parle aussi de faire confiance (l'héroïne fait confiance au chat)<br>
+  ça parle aussi de style, de l'impression donnée par telle ou tel acte (ou choix artistique)
+</p>
+
+<p>
+</p>
+<hr>
+<p>
+</p>
+
+<p>
+  Le réveil est quand même très dur.<br>
+  premier réveil à 11h, levée vers midi et demi je pense.<br>
+  J'essaye de tirer le maximum de mes rêves tant que c'est possible, et que quand même, il ont leur dose de remise en question et il parait que je ne me remets pas assez en question. Que je veux pas changer.<br>
+  J'ai la nausée.<br>
+  j'ai mal à la tête.<br>
+  J'héberge Estelle ce soir, je voulais ranger l'appart, cuisiner. J'ai juste envie de <br>
+  rien.<br>
+  Qu'on me foute la paix.<br>
+  J'ai peur de relire ce mail.<br>
+  Je me suis calmée en rédigeant ma réponses, mais quand, à 6h du mal, j'en ai repris en diagonale la lecture, il m'a choqué par son ton.<br>
+  Ce n'est pas le ton d'une personne amoureuse, <br>
+  Est-ce seulement le ton d'une personne respectueuse ?<br>
+  Peut être, profiter que j'ai répondu pour <strong>ne pas</strong> le relire.<br>
+  c'est un écrit, je pourrais le relire plus tard, ce n'est pas comme un rêve qui se perds si je n'y accorde pas de temps là tout de suite.
+</p>
+
+<p>
+  Je me sens très nulle.<br>
+  A prendre des engagements et à pas pouvoir les tenir.
+</p>
+
+<p>
+  je bugue, entre l'envie de pleurer sur mon sort et la honte de me considérer comme malheureuse, et les engagement joyeux que j'ai aujourd'hui (Fabrice et Estelle)<br>
+  L'envie de décommander et la certitude qu'il ne faut pas.<br>
+  L'envie de fumer et la certitude que ça n'apporte rien.<br>
+  La déception de voir Jerry s'éloigner ainsi de moi.<br>
+  La conviction que je l'aime quand même.
+</p>
+
+<p>
+  Mais que l'amour n'a plus aucun sen.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e150859">
+            <h2>Récriminations effacées d'un mail</h2>
+            <h3>16 novembre 2015 à 14h39</h3>
+            <div class="content">
+                
+<p>
+  J'aurais besoin de te voir pour calmer mon amertume face à tes messages, pour comprendre ce que tu as voulu dire, me transmettre, pour être sûre que tu ne penses pas que je suis une personne mauvaise. (c'est différent si tu penses que tu dois te méfier de moi jusqu'à preuve que j'ai changé, ou si tu admets que certaines de tes suppositions n'étaient pas vraiment fondées)<br>
+  J'aurais besoin d’enclencher un processus de réconciliation avec toi, être sûre que c'est ce que tu souhaites également, que l'on pose à plat les blessures, qu'on envisage les réparations (la plus courante est de s'excuser, mais il y en a d'autres), pour pouvoir envisager de risquer à nouveau sa confiance, et savoir pourquoi on garde des engagements l'un envers l'autre.
+</p>
+
+<p>
+  Je suis désolée de l'instabilité émotionnelle de toute cette histoire, qui n'est toujours pas apaisée, malgré mes renoncements successifs. Je suis désolée que tu aies eu ce sentiment de vulnérabilité à voir ta vie privée connue d'un presque inconnu parce que je lui en avais parlé. Aujourd'hui, quand j'en parle autour de moi, je ne parle plus que de mon ressenti et je précise bien que je ne parle que de mon interprétation de l'histoire.<br>
+  Je souhaite sincèrement que l'on retrouve le calme, que l'on arrête de s'accuser les uns les autres, que l'on arrête de lire dans les mots de l'autre des accusations permanentes ou des marques de malveillance ou d'égoïsme.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e151063">
+            <h2>Auto-Censure</h2>
+            <h3>27 novembre 2015 à 15h52</h3>
+            <div class="content">
+                
+<p>
+  Je suis morose depuis ce matin.<br>
+  La discussion d'hier soir c'est bien passée, mais elle acte quand même que un certain nombre de distances ont été prises et qu'on va pas se rapprocher de ci-tot.<br>
+  Alors j'ai envie d'un peu de compassion.<br>
+  Sauf que j'ai pas le droit de m'exprimer sur les médias publics.
+</p>
+
+<p>
+  Alors l'écrire ici.
+</p>
+
+<p>
+  Il y a un an, j'étais émue aux larmes que mon amoureux me dise et me répète que j'étais une relation principale au même titre que son autre relation.<br>
+  Je n'aurais jamais du le croire.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e151170">
+            <h2>Elise veut être sûr qu'elle va être tranquille.</h2>
+            <h3>1 décembre 2015 à 15h55</h3>
+            <div class="content">
+                
+<p>
+  Tant pis pour l'historique, si j'écrivais dans l'autre journal, il faudrait le cacher, et je n'en ai pas vraiment envie, alors, tant pis, écrire ici.
+</p>
+
+<p>
+  Ecrire ici les réponses que j'aurais voulu faire à Jerry sur sa tirade hangout, mais que je ne peux pas me permettre de lui envoyer.<br>
+  L'avantage, c'est que du coup j'ai pas à masquer les noms. :3
+</p>
+
+<p>
+</p>
+
+<blockquote>
+   <p>
+     A la base lorsque je suis venu te demander où tu te situes aujourd'hui par rapport à Elise et ta façon d'appréhender ses besoins, j'étais tourné vers le futur, pour savoir ce qui pouvait être attendu de ce côté là<br>
+     j'ai envie, et je m'engage personnellement à te croire lorsque tu me dis que le simple fait d'avoir laissé une ouverture au dialogue te suffit et que tu ne vas pas chercher à aller à l'encontre de son souhait d'être laissée tranquille (car en résumé, c'est de ça dont il s'agit: face à un phénomène de saturation, ne plus être sollicitée le temps de retrouver un niveau de calme ou elle pourrait éventuellement se tourner vers toi à nouveau)<br>
+     [lorsque je dis que je m'engage à te croire, c'est que si Elise me pose la question: "Anne va t elle éviter de m'exposer et ne pas chercher à me contacter par un biais direct ou indirect, bref me laissera tranquille à l'avenir jusqu'à ce que je me sente prête à renouer le dialogue si cela devait arriver ?" Je lui répondrai oui, c'est bien ce que tu m'as dit et que moi je crois que tu es capable de respecter la parole que tu lui donnes à elle et que tu me donnes à moi en m'affirmant que ce sera le cas]<br>
+     donc c'est en ayant foi en tes paroles que je reviens vers toi Tendre, et c'est en attendant de voir les actes auxquels tu donneras suite, à la suite de ces paroles qu'Elise se tient dans l'expectative aujourd'hui <br>
+     oui, désir que je respecte depuis juillet"il y a quelque chose qui me frappe:<br>
+     ça, c'est ce que tu dis, mais dans la réalité, ce n'est pas ce que tu as fait.<br>
+     il y a une différence entre dire "j'ai essayé du mieux que j'ai pu, avec les meilleures intentions, de respecter la demande d'Elise"<br>
+     et "de manière effective, je n'ai rien fait qui ait pu toucher Elise, car j'ai respecté ce qu'elle m'a demandé de faire"<br>
+     et là, c'est peut être une subtilité, mais je la trouve importante<br>
+     (et on recoupe sur ma notion toute personnelle certes de ce que j'appelle admettre ses tords)<br>
+     donc avec tout cela, je me sens très mal à l'aise, pas du tout en colère, mais mal à l'aise<br>
+     et c'est ce genre de choses dans ton discours sur lesquelles Elise accroche également je pense -et c'est normal: ça revient quasiment à nier la réalité de ce qu'elle a vécu, à savoir "j'ai respecté les désirs d'Elise et elle n'a plus eu à faire à moi depuis juillet ni sur le forum, ni sur facebook, par mail, ou par journal interposé"
+   </p>
+</blockquote>
+
+<p>
+</p>
+
+<p>
+  Si tu voulais parler du futur, pourquoi avoir employé une phrase aussi alambiquée.<br>
+  « est ce un fait entendu pour toi qu'actuellement Elise a ouvertement manifesté son intention et son désir de de ne pas renouer le dialogue entre elle et toi ?  »<br>
+  J'aurais donc du comprendre : est-ce clair pour toi que Elise ne souhaite pas que tu la contactes.<br>
+  Pire : est-ce clair pour toi que Elise ne souhaite plus avoir affaire à toi.<br>
+  Oh oui, c'est clair.<br>
+  Elle veut m'éjecter, c'est on ne peut plus clair.
+</p>
+
+<p>
+  T'as beau dire le contraire, tous ses actes vont dans ce sens. <br>
+  Tu n'as pas le droit de m'aimer.<br>
+  Elle me fait exactement ce qu'elle avait peur que je lui fasse.<br>
+  Et depuis le début où elle a hurlé "je veux pas être secondaire", elle ne veut pas du traitement que j'ai.
+</p>
+
+<p>
+  Ma première réponse était pas politiquement correct : <br>
+  « heu... en juillet, ses demandes, c'était : 1/ que je prenne moins de place (ce que j'ai fait) 2/ que je lui envoie pas de mail (ce que j'ai fait) 3/ Qu'on parle plus d'enfant (ce que j'ai fait). Et je parle pas d'autres éléments sur lesquels j'ai cédés (tu peux reprendre la liste qu'on a écrite ensemble à Caen)<br>
+  Je répète que je pouvais pas savoir à l'époque qu'il y avait une demande de ne pas parler d'elle »<br>
+  pas plus que<br>
+  « Par ailleurs, le désir de de plus avoir affaire à moi, en effet, j'ai du mal à le respecter, parce que je le trouve en contradiction avec le fait que tu dises que tu m'aimes... »
+</p>
+
+<p>
+  Ne parlons pas des réponses phrases par phrases : <br>
+  <strong>un niveau de calme ou elle pourrait éventuellement se tourner vers toi à nouveau</strong> c'est ce qu'elle réclame depuis des mois, et que je donne en m'éloignant de plus en plus de Jerry, et en me censurant, et en fait, n'importe quoi est prétexte pour elle pour dire que j'ai fait des remoux et que j'ai empêché le calme.
+</p>
+
+<p>
+  <strong>Anne va t elle éviter de m'exposer et ne pas chercher à me contacter par un biais direct ou indirect, bref me laissera tranquille</strong> : faut qu'elle arrête de se sentir concernée par tout ce que j'écris, non elle n'est pas le centre de mon monde, non, je ne l'ai jamais obligée à lire mon journal.<br>
+  Et puis, elle veut avant tout que je laisse tranquille va petite vie avec Jerry.<br>
+  Elle a pensé au foutoir qu'elle a mis dans ma vie à moi ? <br>
+  Au fait que à cause d'elle, je suis célibataire pour la première fois de ma vie amoureuse ?<br>
+  Et je parle même pas de l'auto-censure !
+</p>
+
+<p>
+  <strong>en attendant de voir les actes auxquels tu donneras suite, à la suite de ces paroles qu'Elise se tient dans l'expectative aujourd'hui </strong> Quatre mois qu'on attend, et que "mes actes" continuent de lui déplaire, quatre mois qu'elle ajoute de nouvelles règles. Où je dois être sa marionnette : sourire quand on vient vers moi et ne plus bouger quand on se fâche. Enfin là, je peux pas reculer plus. Je suis au max. A part quitter Jerry (ce que je ferais, au prochain clash, c'est de plus en plus évident qu'il va arriver)
+</p>
+
+<p>
+  <strong>de manière effective, je n'ai rien fait qui ait pu toucher Elise</strong> j'ai jamais dit que j'avais respecté ce besoin là. Que je trouve inconvenant dans la bouche de qqun qui se dit avoir toujours été poly.
+</p>
+
+<p>
+  <strong>car j'ai respecté ce qu'elle m'a demandé de faire</strong> oui, je maintiens que j'ai respecté les règles qu'elles m'a donné, jusqu'aux plus absurdes comme ne plus faire de sexe anal, jusqu'aux plus liberticides comme ne plus parler polyamour en public.
+</p>
+
+<p>
+  <strong>ou par journal interposé</strong> C'était bien la peine qu'elle m'explique en long en large que tant qu'on en avait pas parlé toute les deux, c'était comme si je ne lui avait rien dit.
+</p>
+
+<p>
+  Mais c'était plus possible de rester en silence, voici ce que j'ai envoyé : <br>
+  « <br>
+  Je peux reconnaître mes tors de ne pas avoir été assez discrète et en même temps continuer d'affirmer que j'ai respecté les règles qu'on m'avait donné (prendre moins de place, ne plus parler de RS sans capote, ne pas envoyer de mail, ne plus parler d'enfant, etc...) Je comprends ta subtilité, la mienne se place entre les règles explicites (et comprises) et les règles implicites.<br>
+  14:21<br>
+  Sur ce, je veux bien reconnaître que le soin que j'ai mis à ce que mon comportement ne nuise pas à Elise (chose que j'ai faite, non parce qu'elle l'a demandé, mais parce que je suis comme ça), que ce soin n'aie pas porté ses fruits, je veux bien reconnaître que je suis passée à coté de choses très importantes pour Elise. Et de cela je reconnais mes tors et m'en excuse.<br>
+  14:21<br>
+  Sur ce, si je voulais être sûre qu'elle n'aie plus affaire à moi, il faudrait que j'arrête de te parler, que j'arrête de dire que je t'aime.<br>
+  Il y a 53 min<br>
+  Tant qu'on accepte, toi et moi, de maintenir notre relation, il existe un risque pour que Elise en soit affectée par un biais ou un autre.<br>
+  Il y a 51 min<br>
+  Mais en attendant, j'ai compris qu'elle ai cru que mes messages sur journal intime étaient des moyens détournés de m'adresser à elle (ce qui est incorrect, mais passons), alors j'écris plus, et je me répète, je ne vais plus sur le forum, ni en café poly, et ne parle plus de polyamour sur Fb, puisque j'ai compris que je ne savais parler que de moi (donc de ma situation actuelle) et que Elise se sent concernée à chaque fois. Donc je ne fais plus jusqu'à nouvel ordre. <br>
+  »
+</p>
+
+<p>
+  Sa réponse me laisse pantoise. Comment peut-il être si naïf ?
+</p>
+
+<p>
+  « ne t'en fais pas Tendre, je ne pense pas que le fait que nous nous aimions ait jamais posé problème à Elise, mais qu'elle puisse être mise à l'écart à cause de notre relation ou déconsidérée par toi, ça c'est une autre histoire »
+</p>
+
+<p>
+  Ne pas répondre sur le fait qu'en résultat, c'est moi qui suis mise à l'écart, c'est moi qui était secondaire (aux yeux d'Elise) depuis le début, (elle voulait pas une place semblable à la mienne) et que moi, je ne lui en tiens pas rigueur.<br>
+  Tellement pas rigueur que je ne lui en parle même pas.<br>
+  C'est juste que je sais pas comment lui en parler sans la mettre en cause elle. Il a tellement confiance en elle, c'est affligeant.<br>
+  Comment lui dire que je me sens déconsidérée par elle quand elle dit explicitement qu'elle veut pas de contact ? <br>
+  C'est une autre histoire, j'ai seulement répondu sur le "ne t'en fais pas"
+</p>
+
+<p>
+  « Oh si, je m'en fait beaucoup, et il va m'en falloir du temps avec toi pour me convaincre du contraire, mais chaque chose en son temps, tu ne peux pas me fournir ce temps là en ce moment, je fais avec. »
+</p>
+
+<p>
+  Suivent trois politesses pour fermer la discussion.<br>
+  Et un « si tu as d'autres choses à me dire n'hésite pas cependant, c'est juste que je ne vais pas relancer de moi-même », qu'il ne faut pas que je prenne autrement que un "je ne ferme pas la porte"
+</p>
+
+<p>
+  oh.<br>
+  J'avais gardé l'espoir, quand même, que mon bonheur de Janvier puisse venir de lui.<br>
+  Les probabilités s'amoindrissent de jour en jour.
+</p>
+
+<p>
+  J'ai aussi envoyé, un peu plus tôt : (à relire, on se demande s'il n'a pas prêché le faux pour avoir le vrai !! mais ce sont mes dernières répliques qui sont importantes pour moi)<br>
+  «<br>
+  11:30 Jee<br>
+  je pense qu'Elise n'a pas envie de renouer le dialogue<br>
+  11:45<br>
+  Je le pense aussi, et c'est pour ça que j'ai juste "ouvert une porte", et que je ne compte pas aller la chercher plus que ça.<br>
+  11:46 Jee<br>
+  lorsque tu dis "pas plus que ça" c'est un peu quand même ? :P<br>
+  11:47<br>
+  non, pas plus que ça : envoyer un mail de conciliation et qu'il soit lu. ça me suffit tout à fait.<br>
+  après, du coup, j'ai pas du tout envie de la croiser en public, mais c'est mon problème.<br>
+  après, du coup, si elle garde une place importante dans ta vie, ça réduit les perspectives entre toi et moi, mais je m'ajusterais.<br>
+  »
+</p>
+
+<p>
+  Dans 10 ans, peut être, comme Roxane, il comprendra son erreur...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e151509">
+            <h2>Manipulation ?</h2>
+            <h3>14 décembre 2015 à 17h54</h3>
+            <div class="content">
+                
+<p>
+  Oui, je suis inquiète.
+</p>
+
+<p>
+  Je me souviens de Rémi, me disant « Il a fait de ton cerveau de la pâte à modeler ».<br>
+  Et bien, je commence à avoir une colère du même genre.
+</p>
+
+<p>
+  Voilà ce qu'il m'envoie ce matin : 
+</p>
+
+<p>
+  «<br>
+  ça me tourneboule car j'ai l'impression que je n'ai pas la même lecture qu'elle ou plutôt que je prends les choses au pied de la lettre là où une lecture attentive pourrait peut être permettre de comprendre les choses autrement
+</p>
+
+<p>
+  j'en déduis simplement, pour le moment, que je ne suis pas forcément au fait de mes facultés cognitives, chose tout à fait normale quand on regarde les effets secondaires possibles du traitement que je suis actuellement (encore 2 semaines et c'est terminé !)
+</p>
+
+<p>
+  ma lecture ne faisait pas de liens entre divers éléments historiques précédents, celle d'Elise davantage je dirais. Je ne me suis pas rangé à sa lecture mais elle a présenté des éléments qui m'ont paru cohérents quand elle me les a présentés. <strong>Aujourd'hui cela me semble plus flou</strong>. Du coup j'ai envie de prendre du recul par rapport à ce qu'elle a compris de ton message et l'interprétation que j'en avais faite de prime abord<br>
+  »
+</p>
+
+<p>
+  Elle lui explique un truc. Sur le coup, ça contraste avec la lecture qu'il en avait eu. Et le lendemain, ça lui semble plus flou.<br>
+  Ben dis-donc.<br>
+  Peut être qu'elle aurait exagéré un truc ou deux, non ? en l’assénant avec suffisamment de conviction, sur le coup, ça peut passer.
+</p>
+
+<p>
+  Pour le coup, je regrette vraiment pas d'être allée chercher cette définition de violence : <br>
+  « qui s'exprime, exprime quelque chose avec vigueur, force, conviction, agressivité »
+</p>
+
+<p>
+  C'est exactement ça, sa violence. Et elle est récurrente. Chaque fois qu'elle se sent en danger.<br>
+  ça, et le fait qu'à part se ranger de son avis, on peut rien faire dans la conversation.<br>
+  Dès qu'elle n'est pas d'accord.
+</p>
+
+<p>
+  J'en ai marre de me prendre des volées de bois vert quand je fais des trucs qu'elle trouve inadmissible alors qu'objectivement, elle pourrait entendre qu'il existe plusieurs façons de voir la chose.<br>
+  Comme de mettre en copie les mails de gens en qui on a un minimum de confiance.<br>
+  Comme de retirer un préservatif quand on est sûr de son partenaire.<br>
+  Comme de laisser des affaires dans un lieu où on vient dormir régulièrement.<br>
+  Comme de citer une situation polyamoureuse même si certains peuvent reconnaître une personne ou une autre.
+</p>
+
+<p>
+  Non, il n'y a jamais moyen.<br>
+  Elle dit que ça ne se fait pas donc on a pas le droit de le faire. Point. Et elle hurle tant qu'elle n'a pas la conviction qu'on va obéir.
+</p>
+
+<p>
+  Et après, elle craint pour le bien-être de Jerry s'il continue de me fréquenter.<br>
+  (non mais je rêve)<br>
+  Et après, elle a peur d'être éjectée<br>
+  (alors que c'est elle qui pose une condition à ce que Jerry reprenne avec moi)
+</p>
+
+<p>
+  On a dit quoi, avec Estelle et Papa, de ce qui devrait disparaître pour que le monde soit plus beau ?<br>
+  <strong>Le prosélytisme</strong>.<br>
+  l'art de savoir ce qui est bon pour l'autre à sa place.
+</p>
+
+<p>
+  Oui, j'ai réagit à ça très vite.<br>
+  J'ai refusé d'être sa disciple.<br>
+  De dire oui à tout ce qu'elle donnait comme conseil.
+</p>
+
+<p>
+  Je souhaite que tous mes disciples volent un jour de mes propres ailes, et fassent leur choix, même s'ils sont contraire à ceux que j'aurais pris, du moment qu'ils sont leurs.
+</p>
+
+<p>
+  Confiance, autonomie, et liberté.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e151629">
+            <h2>Je buggue</h2>
+            <h3>21 décembre 2015 à 18h19</h3>
+            <div class="content">
+                
+<p>
+  J'y arrive pas.<br>
+  J'essaye d'écrire, puis de travailler, ou dormir, ou penser à autre chose, mais je n'y arrive pas.
+</p>
+
+<p>
+  Quand je relis que Elise trouve que je l'ai harceler à lui demander de rétablir la communication.<br>
+  Quand on me dit que je n'ai pas à me plaindre d'Elise.
+</p>
+
+<p>
+  Et elle voulait venir squatter à notre rendez vous ? Heureusement que Jerry a refusé.<br>
+  Faudrait que je garde sur moi la liste des choses dont j'ai à me plaindre d'elle.
+</p>
+
+<p>
+  je t'ai privé directement ? de quoi ? d'avoir du temps avec ton amoureux ? alors que je ne l'ai jamais vu plus de trois fois par semaine ? tu trouve pas que tu exagère ?<br>
+  Tu as été malade toute seule ? moi aussi. J'ai même été seule le soir de mon divorce et les 3 nuits qui ont suivies.<br>
+  Tu n'a pas eu beaucoup de week end ? un week end compte deux grasses mat possible, un jour férié une. il y en a un peu plus durant les vacances. De janvier au break, j'ai passé 26 grasses mat avec Jerry sur les 94 possibles. Je trouve pas ça beaucoup pour une amoureuse principale.<br>
+  Je demande toujours plus, et je prends de plus en plus de place. Oui, en juin et en juillet, Jerry m'a accordé les deux trois nuits par semaine.<br>
+  * soupire *
+</p>
+
+<p>
+  ça sert à rien de repeindre la mariée en rose.<br>
+  Elle a jamais voulu de ma place. Ma place de principale à 2 fois par semaine et quelques extras en plus comme quelques vacances. Elle a pas voulu. Elle a gueulé suffisamment fort pour que Jerry cède.
+</p>
+
+<p>
+  Jerry l'a choisie, elle.
+</p>
+
+<p>
+  Fait autre chose de ta vie, Cendre.
+</p>
+
+<p>
+  Ce soir, tu sors avec Estelle et Robic.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e151638">
+            <h2>Colère</h2>
+            <h3>21 décembre 2015 à 23h33</h3>
+            <div class="content">
+                
+<p>
+  Belle soirée avec Estelle et Robic, fou rire en sortant. Je vais bien, Estelle m'aime et le mondre avec des bisous inattendus sur le quai du métro. La vie est magnifique.<br>
+  Et alors boum, je sors de ma posture prostrée cet après midi.<br>
+  En deux stations de métro, ma colère explose.
+</p>
+
+<p>
+  Alors comme ça, j'ai pas à me plaindre d'Elise ?<br>
+  On est en train de rabacher des trucs qui se sont passés il y a 6 mois (Swan) on m'assimile à du harcèlement, bref, on explique qu'on a à se plaindre de moi. Je fais répéter que mon comportement est nikel depuis le 8 octobre (2 mois et demis) et qu'il n'y a pas eu d'incident depuis le 10 novembre (plus d'un mois), histoire d'être sûre. On rabache un malheureux "J'aurais préféré régler ça avec toi, cela m'aurait éviter de parler de toi".<br>
+  Et en attendant, moi, j'ai pas à me plaindre d'Elise ?<br>
+  Qui a mis des zones d'ombre dans septembre, que je ne sais toujours pas ce qui s'est passé ce fameux lundi soir pour me dégommer Jee comme ça ?<br>
+  Qui colle une putain de condition à ce que l'on se revoie (condition que je rempli pourtant scrupuleusement  !! )<br>
+  Qui dit que ça ne se voit pas que je la prend en compte (tu me demandes de disparaître, je disparais de ta vie, tu veux que je fasse quoi de plus ? )<br>
+  Qui persiste dans l'interdiction même une fois que j'ai expliqué que c'était violent pour moi ?<br>
+  Qui persiste à ne pas donner de liste blanche sous prétexte que je lui demanderais une liste noire.<br>
+  Qui continue de décider seule sans concertation ce qui la concerne ou non, ce qui est bien et ce qui est mal, sans voir qu'elle se sent concernée par des choses qui sont effectivement anonymes, sans voir la violence qu'il y a a persister dans une hostilité pareille de "Je veux pas entendre parler de toi".<br>
+  J'explique que je trouve son comportement violent, là, en ce moment : je n'ai rien. Pas un repentir, pas une circonstance atténuante, pas un recul, pas une prise en compte. Juste un "tu as outrepassé mon consentement, je suis donc légitime à te tyranniser". D'autant plus que, grand seigneur, je veux bien que tu vienne assister au show que j'ai organisé "regarde comme je fais bien les choses". Jamais de la vie. Pas tant que j'ai interdiction de te contacter.<br>
+  alors toi, tu peux choisir quand tu veux de me contacter, mais moi, non.<br>
+  Parce que tu crois que tu es gentille peut être ? Désolée de te décevoir. Quand tu fais comme si de rien n'était comme pour l'anniversaire de Jee, je trouve ça irrespectueux pour les blessures que tu m'as infligé et dont tu es au courant. Je veux bien entendre que l'irrespect que je trouve là n'est pas partagé par tous, je ne te demande pas de t'excuser d'avoir fait ça, parce que je sais bien que certaines personnes aurait apprécié que tu agisses comme ça, et que quelque part, je ne t'en veux pas de ne pas savoir ce qui me fait du bien et ce qui me fait du mal.<br>
+  Mais par contre, que tu juges que toi, tu as le droit de me parler quand tu veux parce que tu ne me fais pas de mal alors que moi, je ne doit pas chercher à te contacter même indirectement parce que je t'agresse, et ben c'est avec ça que je ne suis pas d'accord.
+</p>
+
+<p>
+  La seule chose que j'avais à faire, c'est à dire attendre ?<br>
+  Attendre quoi ? que son stress redescende alors qu'il ne descend jamais ?
+</p>
+
+<p>
+  Et je parle même pas de l'insinuation sur le fait que je soit un bourreau qui victimise "regarde ce que tu m'obliges à faire" (Je rêve complètement là)<br>
+  Et je ne parle même pas de la fable sur le harcèlement, comme si j'étais une indésirable.
+</p>
+
+<p>
+  Non, mais, cherche pas, je suis une indésirable.<br>
+  Elle l'a dit en janvier dernier, qu'elle sortait de ma vie. Juste, elle veut emmener Jee hors de la mienne au passage.
+</p>
+
+<p>
+  Je vais proposer qu'on garde le rythme des 15 jours avec Jerry. je verrais ça évoluer de loin, comme ça.
+</p>
+
+<p>
+  En espérant qu'il capte que les victimes sont parfois les pires bourreaux.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e151786">
+            <h2>Maternage</h2>
+            <h3>29 décembre 2015 à 10h26</h3>
+            <div class="content">
+                
+<p>
+  Hier soir, mon chef me dit "mais tu ne vas pas surveiller ton collègue, quand même !!"<br>
+  Et ce matin, je vois notre collègue de gestion rester derrière lui le temps qu'il fasse le mail de report de congés et qu'il imprime le formulaire de report, etc...<br>
+  Rester derrière lui jusqu'au dernier moment.<br>
+  Parce qu'elle est pas sûre sinon, qu'il a l'air tout perdu le pauvre...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e152113">
+            <h2>Jee semaine 1</h2>
+            <h3>11 janvier 2016 à 14h16</h3>
+            <div class="content">
+                
+<p>
+  Mon Amour, mon Prince Malgache,
+</p>
+
+<p>
+  Un jour, il y a bien longtemps, tu m'as fait la proposition d'aller au Havre. <br>
+  Nous ne sortions pas ensemble depuis longtemps. C'était en revenant d'une de nos pauses midi sur le canal, tu me raccompagnais à l'ATIH. A l'époque, il était hors de question que je passe une nuit avec toi. Alors, tu avais proposé que l'on fasse l'aller-retour dans la journée. J'avais été transportée de joie, de bonheur, de reconnaissance et d'amour. Et je me suis faite la promesse, ce jour là, que j'accepterais ta proposition quand je serais en mesure de m'engager sur le long terme avec toi.<br>
+  Un an plus tard, j'ai mis cette promesse à exécution. Et nous avons organisé quelques jours au Havre, vacances merveilleuses. La réalisation de ce voyage signifiait beaucoup pour moi, c'était la marque de mon engagement, que je prenais à coeur tes propositions, que je mettais en oeuvre ce qui importait pour les réaliser. Ce qui importait pour nous, pour le couple que nous formions alors.
+</p>
+
+<p>
+  Aujourd'hui, tu es sorti de ma vie. Tu ne veux pas me garder en otage. Tu souhaites que je sois libérée de toi.<br>
+  Mais il n'empêche que je garde en tête des marques de mon attachement à toi.<br>
+  J'ai envie de voir les baobab de Madagascar. Et les voir sans toi n'aurais qu'un parfum amer (enfin, c'est ce que j'imagine aujourd'hui).<br>
+  Alors, comme à l'époque, je plante un drapeau dans l'avenir. Pour le cas où nous pourrions un jour aller à Madagascar ensemble.<br>
+  A l'époque de la proposition pour le Havre, nous nous connaissions depuis quelques semaines, et la signification de la réalisation de ce voyage n'avait pas perdu d'intensité, même un an plus tard.<br>
+  Je pense bien que je suis capable aujourd'hui, alors que nous nous connaissons depuis quelques années, d'attendre une décennie ou deux.
+</p>
+
+<p>
+  Je t'aime.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e152904">
+            <h2>Mise en ordre</h2>
+            <h3>1 février 2016 à 14h02</h3>
+            <div class="content">
+                
+<p>
+  09h48<br>
+  Je ne devrais pas.<br>
+  J'ai du boulot.
+</p>
+
+<p>
+  Ok, je vais vérifier mon projet, le démarrer, le deployer en devel, et je reviens.
+</p>
+
+<p>
+  10h33. Y'a du boulot, heureusement.<br>
+  Heureusement, je suis arborescente, je me souviens assez bien de ce que je voulais écrire.
+</p>
+
+<p>
+  Ecrire que Elise nuit à notre relation quand elle dit "Si je ne freinais pas au maximum, vous auriez déjà un enfant".<br>
+  Elle reconnaît donc qu'elle exerce une pression sur nous pour qu'on aille moins vite.<br>
+  Je souhaite que soit reconnue la pression négative que cela a engendré sur notre relation.
+</p>
+
+<p>
+  Après, je voulais distinguer deux trucs : <br>
+  le "si Elise était pas là, Anne serait déjà enceinte de Jerry" : c'est sûrement vrai, on était partit, on était confiant, on aurait réglé les problèmes au fur et à mesure de leur apparition et on aurait pas essayé de trouver dans le futur un moment plus parfait.<br>
+  Mais cela ne veut pas dire que si Elise avait pas fait crise sur crise, je serais déjà enceinte.<br>
+  Cela ne veut pas dire que si elle avait pas freiner au maximum, je serais enceinte malgré elle.<br>
+  Non.<br>
+  Parce que j'ai toujours tenu compte de sa présence, quoi qu'ils en pensent.<br>
+  Ne serait-ce qu'en insistant auprès de Jerry pour qu'il lui dise notre projet !! <br>
+  J'aurais voulu qu'elle trouve le moyen ...
+</p>
+
+<p>
+  12h32<br>
+  J'aurais voulu qu'elle trouve le moyen de s'inclure dans notre projet.<br>
+  Alors certes, je reconnais que j'ai pas apprécié qu'elle s'inclue en mode "on va vivre tous les trois ensemble la la la..." : j'ai trouvé qu'elle cherchait à squatter, à s'imposer dans notre projet, je comprends que c'était difficile pour être de s'inclure autrement.<br>
+  Alors certes, je reconnais que j'ai été surprise de la place qu'elle avait dans la vie de Jerry (vu qu'il m'en parlait pas), que du coup j'ai eu du mal à l'inclure de mon coté. C'est bien ce que je racontais en juillet, sur le fait que le "pas inclusive" était un reproche qui me vexait, mais qui me faisait réfléchir aussi.<br>
+  C'est bien ce que je racontais à Jerry la dernière fois quand j'ai admis que j'avais pas été la plus aidante, la plus gentille, parce que à l'époque, j'étais en train de réaliser qu'Elise n'avais jamais accepté ma relation avec Jerry comme principale et que j'en étais cruellement blessée.
+</p>
+
+<p>
+  Donc, reconnaître que quand Elise souhaite freiner (et pas un peu, non, mais bien "au maximum") la relation Jerry&amp;Anne, reconnaître qu'à force, sur des mois et des mois, cela m'a fait du tors.
+</p>
+
+<p>
+  Et donc, que cette volonté qu'elle a eu de nous freiner a eu un impact négatif sur notre relation.<br>
+  Et donc, qu'elle porte une part de responsabilité dans la dégradation de ma relation avec Jerry.
+</p>
+
+<p>
+  Cela ne veux pas dire que je n'ai pas de responsabilité dans la dégradation de la relation Jerry&amp;Anne : je reconnais que j'ai manqué de tact, je reconnais que j'ai de vraies difficultés à demander avant quand il s'agit de l'intimité (et que, couplé à mon manque de discrétion, cela m'a conduit à exposer ce qui n'avait pas à l'être), je reconnais que j'ai été longue à comprendre l'importance de certains paramètres, que j'ai échoué à inspirer confiance, etc...<br>
+  Cela ne veut pas dire qu'Elise a cherché à nous séparer (je pense par contre qu'elle a cherché à ce que l'on se voie moins souvent, ce que j'interprète comme une volonté de garder sa relation primaire et que je reste subalterne.)<br>
+  Cela ne veut pas dire qu'elle n'a pas fait de son mieux (je suis persuadée qu'elle a agit pour se protéger et dans le but de défendre sa propre relation qu'elle considérait en danger)<br>
+  Cela ne veut pas dire qu'elle a cherché à me nuire (je suis persuadée qu'elle n'a jamais été malveillante).
+</p>
+
+<p>
+  Elle ne voulait pas me nuire, et malheureusement, elle l'a fait dans ses comportement de défense.
+</p>
+
+<p>
+  Je souhaite juste que cela soit reconnu. Ça et le fait que Jerry&amp;Elise se sont comportés comme si la relation Jerry&amp;Elise était primaire quand Jerry&amp;Anne était secondaire. (C'est-à-dire en considérant que les comportement de défense d'Elise était normaux et qu'il était inacceptable que ne m'y conforme pas immédiatement, alors que mes propres comportement de défense étaient peu ou pas entendus)<br>
+  Je ne peux pas pardonner ce qui n'a pas été reconnu.
+</p>
+
+<p>
+  Je m'excuse d'avoir négligé l'importance d'Elise dans la vie de Jerry, le fait qu'il l'aime à vouloir cohabiter avec elle, le fait qu'il vivait de fait avec elle, je m'excuse d'avoir voulu que Jerry partage un quotidien avec moi qui n'aurait pas été le même que le quotidien de Jerry&amp;Elise. <br>
+  Je considère avoir essayé de m'inclure dans le quotidien de Jerry&amp;Elise et d'en avoir été rejetée (au motif que j'allais trop vite). Je pensais alors que la bonne solution était que je partage avec Jerry un quotidien adjacent à celui qu'il avait avec Elise. <br>
+  Si on avait mis en place deux quotidiens adjacents, en gardant les règles de cloisonnement et avec un enfant de Jerry&amp;Anne, il est probable que les craintes d'Elise soient fondées et que son propre quotidien avec Jerry aurait régressé de façon très désagréable. Mais je voudrais qu'on reconnaisse que j'étais prête à faire des efforts pour que telle situation n'arrive pas, et que j'ai commencé dès que j'ai réalisé que je m'étais trompée sur l'intrication d'Elise dans la vie de Jerry, j'aimerais que l'on reconnaisse que j'ai toujours souhaité ne pas avoir d'impact négatif sur la relation Jerry&amp;Elise, et que j'ai agit dans ce sens (en acceptant de me conformer aux règles d'Elise, en tolérant que mes propres règles/besoins ne soit pas respectées, en acceptant que la cohabitation Jerry&amp;Elise se fasse vite et sans moi, en acceptant de prendre moins de place). <br>
+  Je comprends que mes efforts n'étaient pas très visibles, et surtout insuffisants. Je comprends qu'ils n'aient pas atténués la sensation de danger que ressentait Elise. Je comprends que par ailleurs, d'autres de mes comportements (en particulier ceux issus de ma blessure de ne pas être reconnue comme principale) augmentaient la sensation de danger que ressentait Elise. Je comprends donc que ses comportements défensifs se soient aggravés. <br>
+  Je m'excuse d'avoir participé à un cercle vicieux (je suis blessée par les comportements défensifs d'Elise, donc j'agis en revendiquant mon droit d'exister, donc j'augmente les comportements défensifs d'Elise)<br>
+  Je m'excuse de ne pas avoir su insuffler suffisamment de confiance dans la structure polyamoureuse. Je m'excuse de ne pas avoir su rendre tangible un avenir où personne n'aurait été lésé.
+</p>
+
+<p>
+  Et j'aimerais que l'on me fasse des excuses similaires.
+</p>
+
+<p>
+  Pour que je ne me sente plus lésée dans cette structure.
+</p>
+
+<p>
+  Et si ce n'est pas reconnu, alors malgré tout l'amour que je porte à Jerry, je ne peux pas envisager de reprendre une relation avec lui.
+</p>
+
+<p>
+  --
+</p>
+
+<p>
+  L'idée est d'attendre que soit passée la St Valentin pour envoyer ça, donc deux bonnes semaines.
+</p>
+
+<p>
+  (A suivre...)
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e153388">
+            <h2>vague</h2>
+            <h3>19 février 2016 à 10h14</h3>
+            <div class="content">
+                
+<p>
+  Bonjour Aimé,<br>
+  J'avais une vague d'amour pour toi ce matin, je n'ai pas envie de t'embêter avec, je souhaite juste que tu tombes dessus un jour, un peu par hasard, alors je te l'envoie ici.<br>
+  Je t'aime. Je souhaite que tu trouves les éléments essentiels à ton bonheur et les agrège autour de toi.<br>
+  Baisers ~~
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e154591">
+            <h2>Comment je suis arrivée à la conviction que Elise fait obstacle entre Jerry et moi</h2>
+            <h3>15 avril 2016 à 12h05</h3>
+            <div class="content">
+                
+<p>
+  Comment je suis arrivée à la conviction que Elise fait obstacle entre Jerry et moi
+</p>
+
+<p>
+  Comme quoi, <br>
+  1/ l'idée que Elise veuille une discussion est constructif pour moi<br>
+  2/ Mon psy a raison : c'est plus difficile de former une question en comment que en pourquoi, mais c'est plus riche aussi.
+</p>
+
+<p>
+  Constat 1 Jerry me promets des choses qu'il ne fait pas.<br>
+  a. Me voir 2/3 fois par semaine (c'est à dire un peu plus de 10 nuits par mois)<br>
+  b. Que je laisse des affaires chez lui<br>
+  c. Qu'on essaye de concevoir un enfant.<br>
+  d. Qu'il revienne vers moi
+</p>
+
+<p>
+  Dans les trois premiers cas, ma première réaction a été de remettre en cause l'envie de Jerry en lui disant "tu ne le fais pas, c'est que tu n'en a pas envie"
+</p>
+
+<p>
+  Mais Jerry répète que c'est son envie, qu'il va changer les choses.<br>
+  Alors j'attends<br>
+  ça n'arrive toujours pas, je fini par me fâcher.<br>
+  Et là, Jerry parle d'un problème avec Elise
+</p>
+
+<p>
+  Comme par ailleurs, je suis en conflit avec Elise, la jalousie aggrave la conviction que c'est Elise qui fait obstacle.
+</p>
+
+<p>
+  Et enfin, certains actes d'Elise (ou conséquence d'actes d'Elise) confirment la conviction.<br>
+  Actes : <br>
+  * plainte/réticence quand il passe deux jours avec moi (plainte du 6 mai sur des paires mercredi/jeudi ou jeudi/vendredi d'avril (c'est à dire après son déménagement), plainte du 7 juin sur la demande du samedi/dimanche suivant)<br>
+  * bloquer Jerry au téléphone alors qu'il vient me retrouver (17 juillet 2015)<br>
+  * lui conseiller de ne plus me contacter. (24 février 2016)<br>
+  Comportement : <br>
+  * plainte que je reste plus tard que l'heure prévue alors que Jerry et moi voulions augmenter les moment à trois.<br>
+  * plainte d'égalitarisme. (printemps 2015 : sur la zone dédiée dans l'armoire et sur les clés)<br>
+  * Elise trop stressée, on ne parle plus de la mise en application du projet de grossesse. (juillet 2015)<br>
+  * Elise mal : Jerry change d'avis, ne rentre plus avec moi mais avec elle (soirée yoga 1er juin, soirée Erosphère 30 août)<br>
+  * Elise terrifiée à l'idée que je reprenne une relation avec Jerry (26 février 2016)
+</p>
+
+<p>
+  Alors voilà,
+</p>
+
+<p>
+  Elise n'est pas la première responsable, le premier, c'est Jerry, qui ne fait pas ce qu'il dit, qui traîne, qui procrastine. Je me souviens qu'il a dit que ça le blessait quand je lui disais qu'il ne tenait pas ses promesses.<br>
+  Et bien sur, je suis responsable d'attendre trop longtemps, de laisser traîner moi aussi, de me fâcher au final.
+</p>
+
+<p>
+  Mais j'ai bien des éléments factuels qui confirme l'intuition. <br>
+  Et des éléments dans l'autres sens sont rares : <br>
+  Juillet 2014 : Elise propose que Jerry reste dormir chez moi à la fin de mon déménagement.<br>
+  Septembre 2014 : Elise accepte que Jerry s'en tienne au planning prévu et passe la nuit avec moi<br>
+  3 juin : suite au pop'In, le taxi nous dépose tous les trois à Vitry, et Elise rentre dormir chez elle.<br>
+  24 septembre 2015 : Elise empêche Jerry de m’appeler furieux au téléphone et évite une rupture au téléphone
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e157689">
+            <h2>Jee vient de m'écrire</h2>
+            <h3>30 juillet 2016 à 1h05</h3>
+            <div class="content">
+                
+<p>
+  J'ai envie de me précipiter pour lui répondre.<br>
+  Il faudrait peut être regarder un peu plus loin que le bout de son nez là, et savoir ce que je veux qu'il sente à ma réponse.<br>
+  Faudrait faire simple, mais la réalité est complexe...
+</p>
+
+<p>
+  J'ai un désir de rétablir la vérité : <br>
+  Non, j'ai pas embrassé Loïc<br>
+  Non, j'ai pas cru que tu agissais pour me punir.<br>
+  Non, j'avais pas enterriné le fait qu'on serait désormais des ex.<br>
+  Le vendredi matin, j'avais fait le point avec Estelle, je voulais t'informer des ateliers que j'allais faire. Je voulais te prendre en compte. Je me suis sentie rejetée.
+</p>
+
+<p>
+  Je comprends que tu te sois senti rejeté également.<br>
+  Je comprends que tu ne veuilles pas remettre en question ta relation avec Elise.<br>
+  Et oui, cette absence de remise en question me pose problème pour reprendre une relation engagée.<br>
+  Je comprends, après coup, que tu as cru que je rejetais l'option "relation secondaire", et qu'il ne restait plus que l'option "ex". Et on en avait pas assez parlé (tu ne m'as pas envoyé tes mails sur la question) pour que je capte immédiatement que tu avais besoin d'une période tampon sans amour pour être serein avec ça.
+</p>
+
+<p>
+  Tu dis que je ne fais pas preuve de patience et de délicatesse pour vous. Ça fait juste deux ans que je m'y emploie. Et en effet, jeudi, je t'ai dit que tes efforts, bien que manifestes, n'était plus suffisants pour moi.
+</p>
+
+<p>
+  ----<br>
+  désir de rétablir ma vérité, de transmettre mon incompréhension<br>
+  Qu'est-ce que cela nous apporte ? à lui ? à moi ?
+</p>
+
+<p>
+  A-t-il compris que Elise, en me refusant d'avoir ce projet avec toi, m'a évincée, elle ?<br>
+  Non, puisqu'il demande encore que je fasse l'effort de lui faire des excuses, alors que je n'ai toujours pas ses excuses à elle d'avoir coupé le contact, de ne pas m'avoir fait de place, d'avoir toujours aussi peur.<br>
+  Je ne veux pas d'une relation où il va me falloir me battre pour avoir ma place, où il faudra que Jerry achève tous ses engagements qu'il a avec elle avant de s'occuper de moi.<br>
+  A-t-il compris que les peurs d'Elise sont auto-réalisatrices ?<br>
+  Et puis zut. Je ne peux m'excuser que si j'ai marché sur une relation primaire. Sinon, je ne sais pas ce qu'on me reproche au juste.<br>
+  Est-ce que lui expliquer une fois de plus a une chance de percuter chez lui ?<br>
+  Je suis intimement persuadée que non, c'est pour ça que je voulais éluder la question, que mon mail commence par "je ne vais pas te répondre"<br>
+  Et pourtant, j'ai envie de répondre.
+</p>
+
+<p>
+  Alors répondre quoi ? dans quel but ?
+</p>
+
+<p>
+  Lui rappeler le manque de communication ? ces mails qu'il n'a pas envoyés ? le fait que c'était pas explicite que "laisse tomber, ne me donne pas les ateliers que tu vas faire" équivalait à "maintenant que tu veux être seulement une ex".
+</p>
+
+<p>
+  Est-ce si mal, d'être son ex ?
+</p>
+
+<p>
+  Est-ce que je veux changer cet état de fait ?<br>
+  Dans la mesure où il ne remet pas en cause la responsabilité de Elise ?
+</p>
+
+<p>
+  Il est même probable que le choc lui ait fait du bien, lui ait ouvert les yeux. Sur l'hypothèse qu'il était en dépendance affective avec moi et Elise, couper la relation avec moi a pu lui être très salutaire. Du coup, il est à Strasbourg, c'est à dire loin d'Elise.
+</p>
+
+<p>
+  Hey, ma belle.<br>
+  T'a quand même un joli mail de lui. Un comme tu les aimes.<br>
+  (probablement parce qu'il est loin d'Elise... n'ayons pas peur de nos convictions, même si elles sont biaisées par mon vécu)<br>
+  Il va reprendre la cohabitation et il va perdre ce contact avec toi. Il va s'endormir dans ses bras au lieu de penser à toi...
+</p>
+
+<p>
+  Mon mail était pas spécialement gentil.<br>
+  J'ai eu une réponse en 9 jours.
+</p>
+
+<p>
+  Je n'ai pas expressément choisi la structure ex, mais maintenant que nous avons tous les deux, depuis 15 jours, avancés dans ce sens, arrêter de faire le yoyo et ne pas revenir sur les faits déjà là.
+</p>
+
+<p>
+  J'ai envie de lui faire un mail gentil, là.
+</p>
+
+<p>
+  Mais comment ?
+</p>
+
+<p>
+  je comprends, je suis désolée, tu as bien fait. (c'est déjà écrit en partie)<br>
+  Comment dit-on à un ancien amour qu'on l'aime encore ? sans donner l'impression qu'il peut revenir ?
+</p>
+
+<p>
+  ne pas faire de pique "oui, je comprends que tu aies perçu que je rechignais à l'effort, faut dire qu'après deux ans de non retour de balancier...". Et Elise rechigne elle aussi, à ce que je perçois, en tout cas.<br>
+  Ne pas parler d'Elise.<br>
+  Ne pas reparler d'enfants "être secondaire ne m'aurait pas dérangé, si j'avais été au courant dès le départ. Et il n'y aurait pas eu de projet d'enfant, bien sur"<br>
+  Ne pas reprendre qu'il y a une différence entre "demander de remettre une relation en question" et "évincer quelqu'un". C'est trop subtile. Ce n'est jamais passé. Il y a des aimants d'interprétation de partout (et j'ai les miens propres, en particulier quand je dis que Elise tenait à garder ses privilèges)
+</p>
+
+<p>
+  Trop de réflexions séparée. Trop d'éloignement du vocabulaire.
+</p>
+
+<p>
+  Lui faire une réponse gentille.
+</p>
+
+<p>
+  Ne pas revenir sur le fait qu'il ne me dit pas laquelle de nous deux s'est trompée. Il n'a pas du comprendre. Il a une Elise a domicile qui lui répète que tout va bien, qu'elle est d'accord, tout ça. C'est donc logiquement moi qui pose problème et doit faire (encore) des excuses.
+</p>
+
+<p>
+  Je lui ai demandé de prendre une décision. Il l'a fait. Elle lui a fait du mal, elle m'a fait du mal, mais il s'y est tenu. Ne pas revenir dessus.<br>
+  J'ai autre chose à faire ces prochaines semaines (il faut que j'aille voir mon père)
+</p>
+
+<p>
+  ---------------
+</p>
+
+<p>
+  Finalement, je me suis mise en colère en comprenant qu'il était sérieux en me demandant la cohabitation, qu'il souhaite encore, finalement, que je redevienne la licorne que j'ai été par miracle cette première année entre Elise et lui.<br>
+  Je tremblais, j'ai remis la fin du mail à plus tard...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e157775">
+            <h2>Journaux et lecteurs</h2>
+            <h3>2 août 2016 à 15h00</h3>
+            <div class="content">
+                
+<p>
+  Impact dans le quotidien.
+</p>
+
+<p>
+  J'aime avoir des connexions quotidienne.<br>
+  En ligne.<br>
+  Voir quelqu'un en ligne.<br>
+  Jerry n'en sera plus. (sourire triste)<br>
+  Teddy ne répond pas ce matin (inquiétude en sourdine)
+</p>
+
+<p>
+  Alors me rattacher aux inconnus. Mes lecteurs de journaux.<br>
+  Ils sont présent. Je les vois.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e174295">
+            <h2>Responsable qualité</h2>
+            <h3>3 février 2020 à 17h56</h3>
+            <div class="content">
+                
+<p>
+  17h22.<br>
+  Lundi.<br>
+  Donc, comme d'hab, je vais attendre que mon prestataire quitte le boulot pour partir après lui, faire bonne figure, moi qui ai a peine répondu à trois questions sur Agora aujourd'hui, vu que le reste, je l'ai passé sur Elvenar.<br>
+  Résolution de faire trois coches par jour ? Raté. Une seule aujourd'hui.<br>
+  MAIS;<br>
+  Oui, il y a un mais.
+</p>
+
+<p>
+  Donc mon chef nous convoque pour discuter de ce qu'on pense de la réorg.<br>
+  J'apprend que réorganisation veut dire "changement des modes de fonctionnement", et que l'organigramme suivra nécessairement (bah voyons)<br>
+  J'apprend que les deux tiers ou les trois quart se sont exprimé (avec moi) pour un changement radical (j'aurais dis beaucoup plus en "ne se prononce pas")<br>
+  J'apprend qu'avoir un espace où rien n'est décidé, juste où les gens s'expriment, c'était la volonté affichée de la réunion.<br>
+  J'apprend que le plus solide, c'est la fameuse cellule de qualité.<br>
+  Parce que rationnaliser les applications pour mettre en commun ce qui est fait à droite/gauche prendre 10 ans (estimation EY)<br>
+  Parce qu'une cellule d'archi ne sera capable que de produire de la recommandation que personne ne suivra.<br>
+  Par contre, le test, ça, tout le monde est d'accord pour dire que ça manque.<br>
+  Par contre, personne ne veut y aller. <br>
+  Encore moins en devenir responsable.
+</p>
+
+<p>
+  Alors mon chef me propose.<br>
+  me propose ça<br>
+  Construire une cellule qualité à l'ATIH.<br>
+  Risque non négligeable de finir comme FX.<br>
+  Après des mois à essayer de pousser la tour Eiffel, se repositionner sur des choses plus simples.
+</p>
+
+<p>
+  Mais perspective d'évolution comme jamais.<br>
+  Ne pas remplacer mon chef, ne pas devenir manager de mon communiste et/ou mon trotskiste.<br>
+  Mais créer, de toute pièce, une cellule, un pôle.<br>
+  Un représentant du personnel responsable, éligible à la hors classe.
+</p>
+
+<p>
+  Comme dit mon chef, c'est tellement plus facile de construire plutôt que réaménager !!<br>
+  Qu'est-ce que je veux ? dans quel ordre ? ce sera à moi de le dire. de demander les ressources, d'organiser.
+</p>
+
+<p>
+  Idées en vrac : <br>
+  * reprendre l'option d'Olivier : une feuille d'autoévaluation pour chaque appli, avec ce qui va, ce qui merde, et les actions engagées.<br>
+  * créer des indicateurs<br>
+  ** monitoring des applications.<br>
+  *** demander la liste des 5 bugs les plus courants en prod et leur qualification (erreur utilisateur ? erreur de spec ? débugs en prod ?<br>
+  *** nombre de mises en prod<br>
+  ** suivi des campagnes (dates, charge)<br>
+  ** suivi des enquêtes de satisfactions (celui qui gueule le plus)<br>
+  * vision globale des applis.<br>
+  * Comme dis Xarkos, il manque une "vision" de l'agence. Cette cellule peut être la première brique pour savoir <del>où on va, </del> savoir ce qu'on fait.<br>
+  * Élaborer un prototype de méthode pour prioriser les chantiers<br>
+  * récupérer le management de Gaëlle, de Wadii sûrement (les cas pénibles), gestion DSC, de l'intérim. <br>
+  * automatiser ?<br>
+  * Gaming de non régression ?<br>
+  * Gaming de documentation ?<br>
+  * questionnaires spécial API.
+</p>
+
+<p>
+  Toutes les idées que j'ai pu avoir, ces derniers temps.<br>
+  J'aurais une certaine légitimité (en étant l'égal des autres chefs de pôle) à les proposer à les faire voter, les mettre en oeuvre.
+</p>
+
+<p>
+  Avoir mon bureau.<br>
+  Mon budget prestation pour embaucher du coach agile.<br>
+  Devoir bosser sérieusement.<br>
+  Arrêter de me planquer, m'exposer.<br>
+  Prendre le risque que ça rate.<br>
+  Prendre le risque de changer quelque chose dans la culture de cette entreprise.
+</p>
+
+<p>
+  J'ai aucune raison d'avoir peur de l'échec, puisque je pourrais partir.<br>
+  Serais-je capable de manager depuis Paris ? de faire régulièrement des aller-retour à Lyon ?<br>
+  Monter qqch avec Sophie, de la solidarité entre responsables de pôle.
+</p>
+
+<p>
+  Oui, je vais y aller, bien sûr.<br>
+  Je vais mourir d'ennui si je reste là encore deux ans.<br>
+  Et dommage, je ne vais plus coder, mais ça fait déjà 6 mois que je ne code plus, alors....<br>
+  Par contre 6 mois que je fais de la feuille excel avec des formules de malade, que je m'intéresse de nouveau à la représentation des données, à la prise de décision sur indicateurs !<br>
+  Oui je vais y aller.
+</p>
+
+<p>
+  A moi de choisir avec quelle monture.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e184133">
+            <h2>235 - absence de libido</h2>
+            <h3>22 avril 2024 à 16h09</h3>
+            <div class="content">
+                
+<p>
+  ça commence jeudi 234-1.<br>
+  On est juste avant le départ en Inde, j'ai invité Tom, qui a été moins fantastique que précédemment, mais je l'embelli soigneusement, dans un texte que j'arrive à lui envoyer avant le départ, <br>
+  Dimanche, mon lapin rentre. J'ai idée qu'il serait intéressant de lui sauter dessus, mais ça ne se fait pas, et puis, j'ai mal à la hanche.<br>
+  En Inde, le deuxième ou troisième soir, je vais reprendre la suite du texte que je pourrais écrire à Thomas et réveille tout ça.<br>
+  Ce sera la dernière fois du mois.
+</p>
+
+<p>
+  234-4.<br>
+  Je rentre d'Inde. Avec lapin, on s'est pas vu depuis 3 semaines, on a pas fait l'amour depuis 2 mois (233-1). Ça devrait être au programme. Et ça vient pas.<br>
+  Je sais plus dans quel ordre.<br>
+  On en parle.<br>
+  On caline beaucoup, c'est tendre et joueur. Mais aucun érotisme. A peine un peu de charme.<br>
+  Le charme, il s'y prête un peu, sur mes désabillage et sur des attitudes de dragueur, mais c'est léger.<br>
+  érotisme 0<br>
+  sexe 0
+</p>
+
+<p>
+  J'ai pas de nouvelles de Thomas et de son intérêt éventuel pour que j'écrive la suite. <br>
+  Je demande à Lapin, si ça lui plairait de les lire. Il me répond pour l'orthographe. Et m'explique que y'a plus rien. Et qu'avec son cancer on va pas lui prescrire de la testostérone, il rigole presque à vouloir en dealer avec nos amis Trans. Ce a quoi je réponds que j'ai lu un post d'Alan qui explique qu'il y a rupture de stock. ... ça fait même pas rire.
+</p>
+
+<p>
+  On revient sur les câlins, car ça, ça marche. Je sais qu'il pourrait avoir envie de me procurer du désir sexuel, mais sans sa propre énergie... comment dire.<br>
+  Ah oui, c'est ça<br>
+  Je l'ai trop fait, moi, de prêter mon corps au plaisir de mon partenaire.<br>
+  Et quand j'ai vu, il y a un an chez Naya, Olivier demander « qu'est-ce que ça te fait de m'utiliser comme un gode »<br>
+  j'entends pas la réponse,<br>
+  ça ne me ferait rien<br>
+  un partenaire comme objet sexuel, assez peu pour moi<br>
+  Et la fois où Olivier m'a poussé à l'utiliser comme un sex-toy, et ben, ... c'est la dernière fois qu'on s'est vu en fait.
+</p>
+
+<p>
+  Donc, <br>
+  ça fait un mois que je suis revenue d'Inde, et j'ai plus de libido<br>
+  Deux soirs avec Rose, chez moi à la jam et chez moi au retour du moulin jaune, et je n'ai aucun désir pour iel. Niet, Nada<br>
+  Alors certes, ses performances sexuelles sont très décevantes.<br>
+  On en parle, d'ailleurs, hier soir. De comment<br>
+  avant sa dépression il dessinait beaucoup d'érotique, pouvait se masturber 7 fois par jour, avait des érections de plusieurs heures ; <br>
+  et avait peu d'expérience romantico-sexuelle<br>
+  depuis son réveil, 12 juin 2021, les occasions ne manquent pas ; mais ses érections sont capricieuses. Et il ne me l'a pas dit, mais sa jouissance génitale difficile.<br>
+  ça fait écho.<br>
+  Sauf que Rose, il lui reste le désir, l'envie, celle qui me faisait chariver, nos indécences au resto.
+</p>
+
+<p>
+  Dante,<br>
+  plus rien<br>
+  Et moi, <br>
+  plus rien non plus.<br>
+  Je reçois les images de Terrubossu, me souvient que je voulais les partager avec Dante. (avec Olivier aussi, tiens), mais que ça s'est pas fait.  Et ça ne me fait rien (ou presque)
+</p>
+
+<p>
+  Alors, <br>
+  A y réfléchir, on pourrait, je pourrais, avec Lapin. Sur ce <em>ou presque</em><br>
+  Il faudrait l'inclure dans une de mes auto-erotisme. Pour moi, mais avec lui dedans. Automone, je sais me finir seule, mais je l'utilise pour chauffer, En plus d'un dessin, en plus d'une vidéo<br>
+  demander à Lapin de continuer à me trouver des vidéos ?<br>
+  Nope.
+</p>
+
+<p>
+  Il m'a dit que quand il sexualise encore un peu, c'est de plus en plus vanille. Et donc. Il sexualise si peu ; que c'est toujours vanille en fait.<br>
+  J'ai rangé histoire d'O dans la bibliothèque.<br>
+  Pas d'Olivier, pas de Dante, pas de Samy, même pas de Tom. Et certainement pas Rose qui n'est pas switch pour un sous.
+</p>
+
+<p>
+  Donc, <br>
+  Si je voulais, avec Lapin, érotiser, sexualiser, il faudrait du vanille.<br>
+  La sex machine, sûrement (sinon, il faut la vendre)<br>
+  il faudrait des ordres<br>
+  il faudrait l'équiper d'accessoires ? une prothèse ?<br>
+  lui apprendre à lécher (moi qui aime si peu les cuni)<br>
+  lui apprendre à fister (ses mains trop grandes, son écoute trop faible)
+</p>
+
+<p>
+  il essaye de m'érotiser de mes seins, ce qui fonctionnait tellement bien quand il me désirait, et si peu lorsque qu'il essaye d'avoir envie.
+</p>
+
+<p>
+  On en parlait avec Rose hier<br>
+  Mon envie d'avoir envie. Ou non.<br>
+  En ce moment, j'ai pas envie.<br>
+  Mais souvent (avant), j'avais envie d'avoir envie, et face au désir de mon partenaire, pousser un peu. L'appétit vient en mangeant.
+</p>
+
+<p>
+  Donc,<br>
+  Lapin doit, parfois encore, avoir envie d'avoir envie.<br>
+  Je vais tourner ça.<br>
+  ça vaut le coup.
+</p>
+
+<p>
+</p>
+<hr>
+<p>
+</p>
+
+<p>
+  Et sinon,<br>
+  parler des larmes<br>
+  qui montent à ces trois mots.<br>
+  ma libido, la sienne, ne sont que la surface.
+</p>
+
+<p>
+  J'ai compris pourquoi il retourne a nowhere cette année.<br>
+  Il n'y va pas avec Natou comme je l'ai cru à la base.<br>
+  Non,
+</p>
+
+<p>
+  <em>Si je devais mourir demain, je ne regretterais rien. Si ce n’est la nostalgie du temps passé.</em><br>
+  c'est pas son cas<br>
+  Alors, il fait. Il faut.<br>
+  Qu'il retourne au WGT<br>
+  Qu'il retourne à Nowhere<br>
+  Qu'il traverse l'Europe en train
+</p>
+
+<p>
+  et les mois vont m'être compté, pour aller à Guedelon ; et Guiger ; et la mongolfière
+</p>
+
+<p>
+  parce que son taux de PSA est a nouveau détectable.
+</p>
+
+<p>
+  Et qu'on ne sait pas combien de mois il reste.
+</p>
+
+<p>
+  .
+</p>
+
+<p>
+  S'il le mettent dans le même état que mon père, je ne saurais même pas nous tuer tous les deux.
+</p>
+
+<p>
+  Mon seul regret, ce sera de manquer à Romy et à Rose.
+</p>
+
+<p>
+</p>
+<hr>
+<p>
+</p>
+
+<p>
+  bon,<br>
+  voilà,<br>
+  c'est écrit, <br>
+  je pourrais le retrouver.
+</p>
+
+<p>
+  sur ce, on va dédramatiser un peu, hein !
+</p>
+
+<p>
+</p>
+
+<blockquote>
+   <p>
+     Si le cancer s'est propagé en dehors de la prostate, le fait que le PSA augmente et à quelle vitesse ne joue pas un rôle si important. Le taux du PSA en lui-même ne prédit pas si un homme aura ou non des symptômes ou combien de temps il vivra. Beaucoup d'hommes ont un taux de PSA très élevé et vont bien. D'autres hommes ayant un faible taux de PSA peuvent avoir symptômes.<br>
+   </p>
+</blockquote>
+
+<p>
+</p>
+
+<p>
+  Donc,<br>
+  il est urgent d'attendre<br>
+  comme toujours avec cette maladie invisible
+</p>
+
+<p>
+  D'abord attendre de voir si ça augmente, si ça double. En combien de temps.<br>
+  Ensuite chercher ailleurs, dans les os en particulier.
+</p>
+
+<p>
+</p>
+<hr>
+<p>
+</p>
+
+<p>
+</p>
+
+<blockquote>
+   <p>
+     Si le cancer de la prostate se propage à d'autres parties du corps, il atteint presque toujours d'abord les os
+   </p>
+</blockquote>
+
+<p>
+  y'a des traitements spécifiques<br>
+  Comme l'hormonothérapie
+</p>
+
+<p>
+</p>
+
+<blockquote>
+   <p>
+     Les androgènes, comme la testostérone, aide les cellules du cancer de la prostate à croître. 
+   </p>
+</blockquote>
+
+<p>
+  En effet. C'est pas avec ça qu'on va lui prescrire de la T.
+</p>
+
+<p>
+</p>
+
+<blockquote>
+   <p>
+     On peut administrer une hormonothérapie, aussi appelée traitement par privation androgénique, pour traiter le cancer de la prostate qui récidive après une chirurgie ou une radiothérapie. C'est le traitement principal du cancer de la prostate qui récidive hors de la région de la prostate
+   </p>
+</blockquote>
+
+<p>
+</p>
+
+<p>
+</p>
+
+<blockquote>
+   <p>
+     La chimiothérapie, l'hormonothérapie (traitement par privation androgénique) et d'autres traitements médicamenteux, comme ceux contre la douleur, la dépression ou l'hypertension, peuvent réduire le taux de testostérone. Cela risque d'atténuer le désir sexuel et la capacité d'avoir une érection. L'hormonothérapie peut aussi causer la dépression, ce qui est susceptible de nuire à votre libido. Les effets secondaires des traitements du cancer, comme la fatigue et la douleur, peuvent également affecter votre libido.
+   </p>
+   <p>
+     Des facteurs émotionnels, tels que ceux-ci, peuvent aussi nuire à votre santé sexuelle et atténuer votre désir sexuel :<br>
+     tristesse et embarras en raison des changements physiques.
+   </p>
+   <p>
+     Même si vous ne pouvez pas avoir de relations sexuelles, il est possible d'apprécier certaines choses comme se tenir les mains, s'embrasser, se cajoler et d'autres façons de se sentir près de son ou de sa partenaire.
+   </p>
+   <p>
+     Vous pourriez trouver utile d'en parler avec d'autres dans un groupe de soutien ou un forum de discussion en ligne
+   </p>
+   <p>
+     https://cancer.ca/fr/treatments/side-effects/sexual-problems-male-sex-organs#ci_sexual_problems_for_men_89_11014_00
+   </p>
+   <p>
+   </p>
+</blockquote>
+
+<p>
+</p>
+
+<p>
+</p>
+
+<blockquote>
+</blockquote>
+
+<p>
+</p>
+
+<p>
+</p>
+
+<blockquote>
+</blockquote>
+
+<p>
+</p>
+
+<p>
+</p>
+<hr>
+<p>
+</p>
+
+<p>
+  haut les cœurs<br>
+  ne pas se laisser abattre.<br>
+  la nudité naturiste n'est pas une bonne idée. <br>
+  maintenir (créer) du charme est probablement une solution. <br>
+  d'ailleurs, ça allait avec l'idée de trouver des <em>déshabillés</em>, non ?
+</p>
+
+            </div>
+        </div>
+        </div>
+        
+        
+        </body></html>

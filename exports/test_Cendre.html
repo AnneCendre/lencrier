@@ -1,0 +1,1381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0094)https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            
+            <title>Cendre</title>
+            <style type="text/css">
+            h1, h2, h3, h4, h5, h6, ul, ol, li, p, blockquote, pre { list-style-type: none; margin: 0; padding: 0; font-size: 1em; font-weight: normal; }
+            body { font-family: Georgia, Times New Roman, Times, serif; font-size: 12pt; background: #fff; color: #000; }
+            #titre { text-align: center; }
+            #titre a { color: #000; }
+            a { color: #009; }
+            a:hover { color: #900; }
+            .content p, .content ul, .content ol, .content pre, .content blockquote, .content h1, .content h2,
+            .content h3, .content h4, .content h5, .content h6 { margin-bottom: 8pt; }
+            .content ul { list-style-type: disc; }
+            .content ol { list-style-type: decimal; }
+            .content { text-align: justify; }
+            .item h3 { font-family: Arial, Helvetica, Sans-serif; font-size: 10pt; color: #999; margin-bottom: 1em; }
+            </style>
+            <style type="text/css" media="screen,projection,handheld">
+            #titre h1 { font-size: 3em; text-shadow: 5px 5px 10px #ccc; }
+            #toc h2 { font-size: 3em; font-style: italic; color: #333; line-height: 0.5em; margin-top: 0.2em; text-shadow: 5px 5px 10px #999; }
+            #toc { width: 30%; float: left; }
+            #toc > ul > li > h3 { font-size: 2em; line-height: 0.8em; font-style: italic; background: #ddd; color: #666; padding: 0 0.2em; }
+            .tocMonths h4 { font-size: 1.5em; line-height: 0.8em; font-style: italic; background: #eee; color: #999; padding: 0 0.2em; }
+            .tocDays h5 { font-size: 1.5em; line-height: 0.9em; font-style: italic; color: #666; padding: 0 0.5em; }
+            .tocItems { margin: 0.2em 0.5em; display: table; width: 100%; }
+            .tocItems li { display: table-row; }
+            .tocItems abbr { display: table-cell; text-align: center; width: 15%; font-family: Arial, Helvetica, Sans-serif; font-size: 8pt; padding: 0 0.3em; }
+            .tocItems strong { display: table-cell; }
+            #ecrits { margin: 2em 0 0 32%; }
+            .item { border: 1px solid #ccc; margin: 3em 0; box-shadow: 0px 0px 10px #999; padding: 10pt; }
+            .item h2 { font-size: 28pt; color: #000; margin-top: -36pt;}
+            </style>
+            <style type="text/css" media="print">
+            @page { size: portrait; }
+            a { color: #000; text-decoration: underline; }
+            a[href]:after { content: " (" attr(href) ")"; }
+            #titre h1 { font-size: 3em; }
+            #titre { margin-bottom: 2em; padding-bottom: 10pt; border-bottom: 1pt solid #999; }
+            #toc { display: none; }
+            .item h2 { font-size: 20pt; color: #000; }
+            .item h2, .item h3 { text-align: center; page-break-after: avoid; }
+            .item { padding-bottom: 10pt; border-bottom: 1pt solid #ccc; margin-bottom: 10pt; display: block !important; }
+            p, blockquote { orphans: 3; widows: 3; }
+            </style>
+            <script type="text/javascript">
+            (function () {
+                var current = false;
+
+                function displayItem(id)
+                {
+                    if (typeof id != "string")
+                    {
+                        var item = this.href.match(/#(e\d+)$/);
+                        var id = item[1];
+                    }
+
+                    if (current)
+                    {
+                        current.className = "item hidden";
+                    }
+
+                    current = document.getElementById(id);
+                    current.className = "item";
+
+                    return true;
+                }
+
+                function init()
+                {
+                    var items = document.getElementsByClassName("item");
+                    var nb_items = items.length;
+
+                    for (var i = 0; i < nb_items; i++)
+                    {
+                        items[i].className = "item hidden";
+                    }
+
+                    var toc_months = document.getElementsByClassName("tocMonths");
+                    var toc_nb_months = toc_months.length;
+
+                    for (var i = 0; i < toc_nb_months; i++)
+                    {
+                        var title = toc_months[i].parentNode.getElementsByTagName("h3")[0];
+                        title.onclick = function () {
+                            var p = this.parentNode.getElementsByClassName("tocMonths")[0];
+                            var v = p.style.display.toLowerCase() == "block";
+                            p.style.display = v ? "none" : "block";
+                        };
+                    }
+
+                    var toc_days = document.getElementsByClassName("tocDays");
+                    var toc_nb_days = toc_days.length;
+
+                    for (var i = 0; i < toc_nb_days; i++)
+                    {
+                        var title = toc_days[i].parentNode.getElementsByTagName("h4")[0];
+                        title.onclick = function () {
+                            var p = this.parentNode.getElementsByClassName("tocDays")[0];
+                            var v = p.style.display.toLowerCase() == "block";
+                            p.style.display = v ? "none" : "block";
+                        };
+
+                        var items = toc_days[i].getElementsByTagName("a");
+                        var nb_items = items.length;
+
+                        for (var j = 0; j < nb_items; j++)
+                        {
+                            items[j].onclick = displayItem;
+                        }
+                    }
+
+                    if (m = window.location.hash.match(/^#(e\d+)$/))
+                    {
+                        displayItem(m[1]);
+
+                        var toc_links = document.getElementById("tocRoot").getElementsByTagName("a");
+                        var nb_links = toc_links.length;
+
+                        for (var i = 0; i < nb_links; i++)
+                        {
+                            if (toc_links[i].href.substr(- (m[0].length)) == m[0])
+                            {
+                                var l = toc_links[i].parentNode;
+
+                                while (l.className != "tocDays")
+                                {
+                                    l = l.parentNode;
+                                }
+
+                                l.style.display = "block";
+
+                                while (l.className != "tocMonths")
+                                {
+                                    l = l.parentNode;
+                                }
+
+                                l.style.display = "block";
+
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        toc_months[0].style.display = "block";
+                        toc_days[0].style.display = "block";
+                    }
+                }
+
+                if ((document.addEventListener || document.attachEvent) && document.getElementsByClassName)
+                {
+                    // Créer style spécifique aux navigations JS
+                    var s = document.createElement("style");
+                    s.disabled = false;
+                    s.media = "screen,projection,handheld";
+                    var s_c = document.createTextNode(".tocMonths, .tocDays, .hidden { display: none; } #toc { position: fixed; overflow-y: auto; overflow-x: hidden; left: 0px; top: 0px; bottom: 0px; } #titre { margin-left: 32%; } #toc > ul > li > h3:hover,.tocMonths h4:hover { cursor: pointer; background: #ccc; color: #009; }");
+                    s.appendChild(s_c);
+                    document.getElementsByTagName("head")[0].appendChild(s);
+
+                    if (document.addEventListener)
+                    {
+                        document.addEventListener("DOMContentLoaded", init, false);
+                    }
+                    else
+                    {
+                        document.attachEvent("onDOMContentLoaded", init, false);
+                    }
+                }
+            } ());
+            </script><style media="screen,projection,handheld">.tocMonths, .tocDays, .hidden { display: none; } #toc { position: fixed; overflow-y: auto; overflow-x: hidden; left: 0px; top: 0px; bottom: 0px; } #titre { margin-left: 32%; } #toc > ul > li > h3:hover,.tocMonths h4:hover { cursor: pointer; background: #ccc; color: #009; }</style>
+        <link type="image/x-icon" rel="shortcut icon" href="data:image/png;base64,AAABAAIAICAAAAEAIACoEAAAJgAAABAQAAABACAAaAQAAM4QAAAoAAAAIAAAAEAAAAABACAAAAAAAAAQAAASCwAAEgsAAAAAAAAAAAAA////AP///wD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wAAAAAFAAAAEAAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAQAAAABQAAAAD///8A////AP///wD///8A////AAAAABAAAAAxAAAAQgAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQwAAAEMAAABDAAAAQgAAADEAAAAQAAAAAP///wD///8A////AP///wD///8AAAAAFrCwrvOvr63/rq6r/62tq/+trav/ra2r/62tq/+trav/ra2r/62tq/+trav/ra2r/62tq/+trav/ra2r/62tq/+trav/ra2r/62tq/+trav/ra2r/66uq/+vr63/sLCu8wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWsLCt//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+wsK3/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABaurqv////////////+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v///////////66uq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq////////f39//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//39/f//////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////8/Pz/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//7+/v//Pz8//////+trav/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABatrav///////v7+f/6+vn/+vr5//r6+f/6+vn/+vr5//r6+f/6+vn/+vr5//r6+f/6+vn/+vr5//r6+f/6+vn/+vr5//r6+f/6+vn/+vr5//r6+f/7+/n//////62tq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq///////+vj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//r4+P//////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////59/f/+Pf3//j39//49/f/+Pf3//j39//49/f/+Pf3//j39//49/f/+Pf3//j39//49/f/+Pf3//j39//49/f/+Pf3//j39//49/f/+ff3//////+trav/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABatrav///////b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb//////62tq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq///////9fX0//X19P/19fT/9fX0//X19P/19fT/9fX0//X19P/19fT/9fX0//X19P/19fT/9fX0//X19P/19fT/9fX0//X19P/19fT/9fX0//X19P//////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//////+trav/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABatrav///////Py8v/z8vL/8/Ly//Py8v/z8vL/8/Ly//Py8v/z8vL/8/Ly//Py8v/z8vL/8/Ly//Py8v/z8vL/8/Ly//Py8v/z8vL/8/Ly//Py8v/z8vL//////62tq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq///////8vHx//Lx8f/y8fH/8vHx//Lx8f/y8fH/8vHx//Lx8f/y8fH/8vHx//Lx8f/y8fH/8vHx//Lx8f/y8fH/8vHx//Lx8f/y8fH/8vHx//Lx8f//////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////x8O//8fDv//Hw7//x8O//8fDv//Hw7//x8O//8fDv//Hw7//x8O//8fDv//Hw7//x8O//8fDv//Hw7//x8O//8fDv//Hw7//x8O//8fDv//////+trav/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABatrav//////+7v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+/v7v/u7+7//////62tq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq///////7e7s/+7u7f/u7u3/7u7t/+7u7f/u7u3/7u7t/+7u7f/u7u3/7u7t/+7u7f/u7u3/7u7t/+7u7f/u7u3/7u7t/+7u7f/u7u3/7u7t/+3u7P//////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////s6+v/7ezs/+3s7P/t7Oz/7ezs/+3s7P/t7Oz/7ezs/+3s7P/t7Oz/7ezs/+3s7P/t7Oz/7ezs/+3s7P/t7Oz/7ezs/+3s7P/t7Oz/7Ovr//////+trav/AAAAFgAAAAD///8A////AP///wD///8A////AAAAABatrav//////+vq6v/s6+v/7Ovr/+zr6//s6+v/7Ovr/+zr6//s6+v/7Ovr/+zr6//s6+v/7Ovr/+zr6//s6+v/7Ovr/+zr6//s6+v/7Ovr/+vq6v/r6ur//////62tq/8AAAAWAAAAAP///wD///8A////AP///wD///8AAAAAFq2tq///////6uno/+vq6f/r6un/6+rp/+vq6f/r6un/6+rp/+vq6f/r6un/6+rp/+vq6f/r6un/6+rp/+rp6P/q6ef/6unn/+rp6P/q6ej/6ejn/+no5///////ra2r/wAAABYAAAAA////AP///wD///8A////AP///wAAAAAWra2r///////p6Of/6uno/+rp6P/q6ej/6uno/+rp6P/q6ej/6uno/+rp6P/q6ej/6uno/+rp6P/p6Of/9PLz//////////////////////////////////////+urqv/AAAAFQAAAAD///8A////AP///wD///8A////AAAAABatrav//////+fn5v/o6Of/6Ojn/+jo5//o6Of/6Ojn/+jo5//o6Of/6Ojn/+jo5//o6Of/6Ojn/+bn5f//////y8vK/6enpP+np6X/p6el/6enpP+lpaL//////6+vrf8AAAANAAAAAP///wD///8A////AP///wD///8AAAAAFq6uq///////5ubl/+fn5v/n5+b/5+fm/+fn5v/n5+b/5+fm/+fn5v/n5+b/5+fm/+fn5v/n5+b/5ebk//////+np6T///////v8/P/29fX/7+7t///////p6en/qamnswAAAAQAAAAA////AP///wD///8A////AP///wAAAAAWrq6r///////k4+L/5uXk/+bl5P/m5eT/5uXk/+bl5P/m5eT/5uXk/+bl5P/m5eT/5uXk/+bl5P/k4+L//////6enpf/7/Pz/8/Ly/+vq6f//////5+fn/6iopa4AAAADAAAAAAAAAAD///8A////AP///wD///8A////AAAAABaurqv//////+Pi4f/l5OP/5eTj/+Xk4//l5OP/5eTj/+Xk4//l5OP/5eTj/+Xk4//l5OP/5eTj/+Pi4f//////p6el//b19f/r6un//////+bm5v+np6SuAAAAAwAAAAAAAAAAAAAAAP///wD///8A////AP///wD///8AAAAAFq6uq///////4uHg/+Pi4f/k4+L/5OPi/+Tj4v/k4+L/5OPi/+Tj4v/k4+L/5OPi/+Tj4v/j4uH/4uHg//////+np6T/7+7t///////m5ub/p6ekrgAAAAMAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wAAAAAVrq6s///////g397/4eDf/+Hg3//h4N//4eDf/+Hg3//h4N//4eDf/+Hg3//h4N//4eDf/+Hg3//g397//////6Wlo///////5+fn/6enpK4AAAADAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AAAAAA2vr63//////////////////////////////////////////////////////////////////////////////////////+np6f+np6WuAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wD///8A////AP///wD///8AAAAABK+vrbSwsK3/rq6s/66uq/+urqv/rq6r/66uq/+urqv/rq6r/66uq/+urqv/rq6r/66uq/+urqv/ra6r/66uq/+vr63/rKyqsAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP/////gAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAfgAAAP4AAAH+AAAD/gAAB/4AAA/+AAAf//////KAAAABAAAAAgAAAAAQAgAAAAAAAABAAAEgsAABILAAAAAAAAAAAAAP///wAAAAAjAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAj////AP///wD///8ApKSiwK+vrf+urqv/ra2r/62tq/+trav/ra2r/62tq/+trav/ra2r/66uq/+vr63/pKSiwP///wD///8A////ALCwrf///////////////////////////////////////////////////////////7Cwrf////8A////AP///wCurqv///////39/f/8/P3//Pz9//z8/f/8/P3//Pz9//z8/f/8/P3//f39//////+urqv/////AP///wD///8Ara2r///////6+Pj/+fj4//n4+P/5+Pj/+fj4//n4+P/5+Pj/+fj4//r4+P//////ra2r/////wD///8A////AK2tq///////9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb//////62tq/////8A////AP///wCtrav///////T08//09PP/9PTz//T08//09PP/9PTz//T08//09PP/9PTz//////+trav/////AP///wD///8Ara2r///////y8fD/8vHw//Lx8P/y8fD/8vHw//Lx8P/y8fD/8vHw//Lx8P//////ra2r/////wD///8A////AK2tq///////7+/u/+/v7v/v7+7/7+/u/+/v7v/v7+7/7+/u/+7u7f/u7u3//////62tq/////8A////AP///wCtrav//////+zr6v/t7Ov/7ezr/+3s6//t7Ov/7Ovq/+zr6f/r6un/6+rp//////+trav/////AP///wD///8Ara2r///////p6ej/6urp/+rq6f/q6un/6eno//P08v//////////////////////rq6r/////wD///8A////AK2uq///////5+Xk/+jn5v/o5+b/6Ofm/+fl5P//////y8vK/6enpP+lpaP//////6+vrf////8A////AP///wCurqv//////+Pj4v/k5OP/5OXk/+Tk4//j4+L//////6enpP/r6+r//////+np6f+wsK6s////AP///wD///8Arq6s///////g397/4d/e/+Hg3//h397/4N/e//////+lpaP//////+jo6P+vr6ynAAAAAP///wD///8A////AK+vrf///////////////////////////////////////////+np6f+urqymAAAAAAAAAAD///8A////AP///wCzs7HvsLCt/66urP+urqv/rq6r/66uq/+trqv/rq6r/6+vrf+wsK7qAAAAAAAAAAAAAAAA////AP///wCAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgAcAAIAPAACAHwAA"></head>
+
+        <body>
+        <div id="titre">
+            <h1>Cendre</h1>
+            <h3>Un journal de <a href="https://journalintime.com/">Journal Intime.com</a></h3>
+            <p>Archive du journal au 08/08/2024.</p>
+        </div>
+        <div id="toc">
+            <h2>Sommaire</h2>
+            <ul id="tocRoot"><li><h3>2012</h3><ul class="tocMonths" style="display: block;"><li><h4>décembre</h4><ul class="tocDays" style="display: block;"><li><h5>dimanche 2</h5><ul class="tocItems"><li><abbr>19h42</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125244">Cendres</a></strong></li></ul></li></ul></li></ul></li><li><h3>2013</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>mercredi 9</h5><ul class="tocItems"><li><abbr>18h27</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125653">Merci K.</a></strong></li></ul></li></ul></li><li><h4>février</h4><ul class="tocDays"><li><h5>samedi 23</h5><ul class="tocItems"><li><abbr>23h11</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125241">Journal extime</a></strong></li></ul></li><li><h5>lundi 25</h5><ul class="tocItems"><li><abbr>13h41</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125298">Aller trop loin</a></strong></li></ul></li><li><h5>mardi 26</h5><ul class="tocItems"><li><abbr>12h32</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125364">Aller trop loin (bis)</a></strong></li></ul></li></ul></li><li><h4>mars</h4><ul class="tocDays"><li><h5>vendredi 1</h5><ul class="tocItems"><li><abbr>10h56</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125544">Gestion des priorités</a></strong></li></ul></li><li><h5>samedi 2</h5><ul class="tocItems"><li><abbr>11h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125578">Samedi matin</a></strong></li></ul></li><li><h5>lundi 4</h5><ul class="tocItems"><li><abbr>11h24</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125647">Extase</a></strong></li></ul></li><li><h5>dimanche 10</h5><ul class="tocItems"><li><abbr>21h46</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125877">97</a></strong></li></ul></li><li><h5>mardi 12</h5><ul class="tocItems"><li><abbr>12h05</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125909">Orgueil</a></strong></li></ul></li><li><h5>jeudi 14</h5><ul class="tocItems"><li><abbr>11h19</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125965">Asynchrone</a></strong></li><li><abbr>14h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e125970">Pensées inconvenantes</a></strong></li></ul></li><li><h5>vendredi 15</h5><ul class="tocItems"><li><abbr>15h12</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126011">Improvisation</a></strong></li></ul></li><li><h5>mardi 19</h5><ul class="tocItems"><li><abbr>11h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126187">Retour au vide</a></strong></li></ul></li><li><h5>jeudi 21</h5><ul class="tocItems"><li><abbr>00h57</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126239">Ce n'est qu'un modèle</a></strong></li></ul></li><li><h5>vendredi 22</h5><ul class="tocItems"><li><abbr>20h08</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126307">Éloge de la lenteur</a></strong></li></ul></li><li><h5>dimanche 24</h5><ul class="tocItems"><li><abbr>21h42</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126381">Fragments de bonheur</a></strong></li></ul></li><li><h5>lundi 25</h5><ul class="tocItems"><li><abbr>16h15</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126404">Se noyer dans un verre d'eau</a></strong></li><li><abbr>22h03</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126413">L'émotion s'estompe</a></strong></li></ul></li><li><h5>mardi 26</h5><ul class="tocItems"><li><abbr>14h17</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126437">Combinatoire</a></strong></li></ul></li><li><h5>mercredi 27</h5><ul class="tocItems"><li><abbr>09h55</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126467">Doutes</a></strong></li></ul></li><li><h5>jeudi 28</h5><ul class="tocItems"><li><abbr>10h19</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126507">Patience ou sublimation ?</a></strong></li></ul></li><li><h5>vendredi 29</h5><ul class="tocItems"><li><abbr>12h45</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126546">J'ai pas le choix</a></strong></li></ul></li><li><h5>dimanche 31</h5><ul class="tocItems"><li><abbr>21h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126624">Petite victoire</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>mardi 2</h5><ul class="tocItems"><li><abbr>23h22</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126710">Advienne ce que pourra</a></strong></li></ul></li><li><h5>jeudi 4</h5><ul class="tocItems"><li><abbr>23h19</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126786">Belle journée</a></strong></li></ul></li><li><h5>dimanche 7</h5><ul class="tocItems"><li><abbr>01h34</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126846">Triste journée</a></strong></li></ul></li><li><h5>mardi 9</h5><ul class="tocItems"><li><abbr>16h55</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126934">Energies complémentaires</a></strong></li></ul></li><li><h5>mercredi 10</h5><ul class="tocItems"><li><abbr>16h24</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e126959">Soupçons</a></strong></li></ul></li><li><h5>vendredi 12</h5><ul class="tocItems"><li><abbr>20h44</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e127047">Retombée comme un soufflé</a></strong></li></ul></li><li><h5>dimanche 14</h5><ul class="tocItems"><li><abbr>18h52</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e127121">J'aime te voir heureux</a></strong></li></ul></li><li><h5>mardi 16</h5><ul class="tocItems"><li><abbr>17h34</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e127483">Je me résigne</a></strong></li></ul></li><li><h5>jeudi 18</h5><ul class="tocItems"><li><abbr>11h25</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e127800">Ça va le faire</a></strong></li></ul></li><li><h5>dimanche 21</h5><ul class="tocItems"><li><abbr>00h54</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e127873">Pari gagné</a></strong></li></ul></li><li><h5>mercredi 24</h5><ul class="tocItems"><li><abbr>00h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e127960">Je suis heureuse</a></strong></li><li><abbr>10h34</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e127968">J'ai pas le temps d'écrire</a></strong></li></ul></li><li><h5>vendredi 26</h5><ul class="tocItems"><li><abbr>00h41</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e128039">Preuves d'amour</a></strong></li></ul></li></ul></li><li><h4>mai</h4><ul class="tocDays"><li><h5>vendredi 3</h5><ul class="tocItems"><li><abbr>00h29</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e128274">Chansons en tête</a></strong></li></ul></li><li><h5>lundi 6</h5><ul class="tocItems"><li><abbr>11h27</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e128395">Par où commencer</a></strong></li></ul></li><li><h5>dimanche 12</h5><ul class="tocItems"><li><abbr>22h20</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e128588">Café poly</a></strong></li></ul></li><li><h5>lundi 13</h5><ul class="tocItems"><li><abbr>14h26</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e128606">Te suis reconnaissante</a></strong></li></ul></li><li><h5>mercredi 15</h5><ul class="tocItems"><li><abbr>09h48</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e128666">Ils sont revenus !</a></strong></li></ul></li><li><h5>jeudi 16</h5><ul class="tocItems"><li><abbr>12h30</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e128695">Pause</a></strong></li></ul></li><li><h5>vendredi 17</h5><ul class="tocItems"><li><abbr>17h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e128737">Connexion musicale</a></strong></li></ul></li><li><h5>samedi 18</h5><ul class="tocItems"><li><abbr>23h44</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e128764">Je rame</a></strong></li></ul></li><li><h5>dimanche 19</h5><ul class="tocItems"><li><abbr>21h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e128797">100</a></strong></li></ul></li><li><h5>samedi 25</h5><ul class="tocItems"><li><abbr>13h38</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e128986">Je vois pas les semaines passer</a></strong></li></ul></li><li><h5>mardi 28</h5><ul class="tocItems"><li><abbr>01h12</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e129201">Tapoum</a></strong></li></ul></li><li><h5>jeudi 30</h5><ul class="tocItems"><li><abbr>21h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e129313">Hamster</a></strong></li></ul></li></ul></li><li><h4>juin</h4><ul class="tocDays"><li><h5>lundi 3</h5><ul class="tocItems"><li><abbr>10h47</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e129451">Je l'aime</a></strong></li></ul></li><li><h5>mardi 11</h5><ul class="tocItems"><li><abbr>12h17</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e129764">Comédie dramatique</a></strong></li></ul></li><li><h5>mercredi 12</h5><ul class="tocItems"><li><abbr>10h24</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e129805">Chonchon patachon</a></strong></li></ul></li><li><h5>jeudi 13</h5><ul class="tocItems"><li><abbr>15h01</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e129841">Mon chef</a></strong></li></ul></li><li><h5>lundi 17</h5><ul class="tocItems"><li><abbr>10h38</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e129978">Pensée arborescente</a></strong></li></ul></li><li><h5>mardi 18</h5><ul class="tocItems"><li><abbr>00h29</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e130012">Je suis un être désirant</a></strong></li></ul></li><li><h5>mercredi 19</h5><ul class="tocItems"><li><abbr>11h04</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e130061">Être désirée</a></strong></li></ul></li><li><h5>vendredi 21</h5><ul class="tocItems"><li><abbr>16h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e130155">Creux</a></strong></li></ul></li><li><h5>samedi 29</h5><ul class="tocItems"><li><abbr>23h47</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e130914">Enfin chez soi</a></strong></li></ul></li></ul></li><li><h4>juillet</h4><ul class="tocDays"><li><h5>lundi 1</h5><ul class="tocItems"><li><abbr>18h46</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e130960">Pas très inspirée</a></strong></li></ul></li><li><h5>jeudi 4</h5><ul class="tocItems"><li><abbr>18h44</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131083">Fais attention de ne pas être triste</a></strong></li></ul></li><li><h5>vendredi 5</h5><ul class="tocItems"><li><abbr>17h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131121">Ne pas dire qu'on est débordé</a></strong></li></ul></li><li><h5>lundi 8</h5><ul class="tocItems"><li><abbr>11h07</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131190">Le temps et l'envie</a></strong></li></ul></li><li><h5>mercredi 10</h5><ul class="tocItems"><li><abbr>10h15</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131250">Étonnamment, ça va bien, en fait</a></strong></li><li><abbr>13h58</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131257">Echec critique</a></strong></li></ul></li><li><h5>lundi 15</h5><ul class="tocItems"><li><abbr>15h53</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131395">Résolument indécent</a></strong></li></ul></li><li><h5>mercredi 17</h5><ul class="tocItems"><li><abbr>10h04</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131446">La vie est belle</a></strong></li></ul></li><li><h5>jeudi 18</h5><ul class="tocItems"><li><abbr>11h20</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131474">Travail en binôme</a></strong></li></ul></li><li><h5>mercredi 24</h5><ul class="tocItems"><li><abbr>00h07</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131608">Chronophage</a></strong></li></ul></li><li><h5>jeudi 25</h5><ul class="tocItems"><li><abbr>15h42</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131652">So lets me go</a></strong></li></ul></li><li><h5>dimanche 28</h5><ul class="tocItems"><li><abbr>21h52</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131756">Pas immunisée</a></strong></li></ul></li><li><h5>lundi 29</h5><ul class="tocItems"><li><abbr>09h51</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131770">La vie est belle si je le décide</a></strong></li></ul></li><li><h5>mardi 30</h5><ul class="tocItems"><li><abbr>14h38</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131827">Bonheurs gratuits</a></strong></li></ul></li><li><h5>mercredi 31</h5><ul class="tocItems"><li><abbr>10h32</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e131856">Lutine le film</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>mardi 13</h5><ul class="tocItems"><li><abbr>17h22</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e132248">Triangulaires</a></strong></li></ul></li><li><h5>mardi 20</h5><ul class="tocItems"><li><abbr>00h21</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e132448">notes</a></strong></li></ul></li><li><h5>jeudi 22</h5><ul class="tocItems"><li><abbr>14h08</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e132530">Faire les choses pour soi</a></strong></li></ul></li><li><h5>samedi 24</h5><ul class="tocItems"><li><abbr>12h15</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e132576">Prendre le temps</a></strong></li></ul></li><li><h5>lundi 26</h5><ul class="tocItems"><li><abbr>14h34</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e132635">Suis-je quelqu'un de bien ?</a></strong></li></ul></li><li><h5>samedi 31</h5><ul class="tocItems"><li><abbr>01h26</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e132791">Boulimie</a></strong></li></ul></li></ul></li><li><h4>septembre</h4><ul class="tocDays"><li><h5>lundi 16</h5><ul class="tocItems"><li><abbr>10h11</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e133326">Soyons optimiste</a></strong></li></ul></li><li><h5>mardi 17</h5><ul class="tocItems"><li><abbr>23h01</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e133400">Comment avais-je pu oublier</a></strong></li></ul></li><li><h5>mercredi 18</h5><ul class="tocItems"><li><abbr>15h58</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e133428">Notes</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>mercredi 2</h5><ul class="tocItems"><li><abbr>15h43</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e133840">Je suis amoureuse</a></strong></li></ul></li><li><h5>jeudi 10</h5><ul class="tocItems"><li><abbr>10h13</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e134040">Pardon</a></strong></li></ul></li><li><h5>vendredi 18</h5><ul class="tocItems"><li><abbr>16h43</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e134278">Équilibres</a></strong></li></ul></li></ul></li><li><h4>novembre</h4><ul class="tocDays"><li><h5>samedi 9</h5><ul class="tocItems"><li><abbr>00h25</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e134960">Hum</a></strong></li></ul></li><li><h5>vendredi 22</h5><ul class="tocItems"><li><abbr>15h35</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e135332">Un psy</a></strong></li></ul></li></ul></li><li><h4>décembre</h4><ul class="tocDays"><li><h5>vendredi 6</h5><ul class="tocItems"><li><abbr>10h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e135720">C'est ça que je pleure ce matin</a></strong></li></ul></li><li><h5>mardi 17</h5><ul class="tocItems"><li><abbr>18h23</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e136032">Stop !</a></strong></li></ul></li><li><h5>samedi 21</h5><ul class="tocItems"><li><abbr>13h44</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e136155">C'est quoi l'Amour ?</a></strong></li></ul></li><li><h5>mardi 24</h5><ul class="tocItems"><li><abbr>15h19</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e136222">Polyfamille</a></strong></li></ul></li><li><h5>vendredi 27</h5><ul class="tocItems"><li><abbr>17h50</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e136286">Je vais bien et mal en même temps</a></strong></li></ul></li></ul></li></ul></li><li><h3>2014</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>dimanche 5</h5><ul class="tocItems"><li><abbr>19h06</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e136586">J'essaye de me mettre à sa place</a></strong></li></ul></li><li><h5>jeudi 9</h5><ul class="tocItems"><li><abbr>14h29</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e136706">Petit nuage</a></strong></li></ul></li><li><h5>mardi 21</h5><ul class="tocItems"><li><abbr>20h16</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e137106">Dans une relation, le plus indépendant a le pouvoir</a></strong></li></ul></li><li><h5>mercredi 29</h5><ul class="tocItems"><li><abbr>12h56</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e137321">Fatigue</a></strong></li></ul></li></ul></li><li><h4>février</h4><ul class="tocDays"><li><h5>dimanche 2</h5><ul class="tocItems"><li><abbr>02h13</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e137413">Comme des enfants</a></strong></li></ul></li><li><h5>mardi 4</h5><ul class="tocItems"><li><abbr>10h09</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e137473">J'suis trop happy</a></strong></li></ul></li><li><h5>mercredi 5</h5><ul class="tocItems"><li><abbr>18h06</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e137521">Déclarations d'amour</a></strong></li></ul></li><li><h5>lundi 17</h5><ul class="tocItems"><li><abbr>16h32</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e137825">Pas moyen de bosser</a></strong></li></ul></li><li><h5>lundi 24</h5><ul class="tocItems"><li><abbr>18h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e137979">J'men suis jamais cachée</a></strong></li></ul></li></ul></li><li><h4>mars</h4><ul class="tocDays"><li><h5>mardi 4</h5><ul class="tocItems"><li><abbr>17h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e138132">J'aime te voir heureux</a></strong></li></ul></li><li><h5>vendredi 7</h5><ul class="tocItems"><li><abbr>10h33</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e138195">Recul ?</a></strong></li></ul></li><li><h5>lundi 24</h5><ul class="tocItems"><li><abbr>10h19</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e138570">Sourire béat</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>vendredi 11</h5><ul class="tocItems"><li><abbr>14h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e138988">Un sens à la vie</a></strong></li></ul></li><li><h5>samedi 12</h5><ul class="tocItems"><li><abbr>13h17</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139007">Il faut</a></strong></li></ul></li><li><h5>mardi 22</h5><ul class="tocItems"><li><abbr>23h57</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139270">Échelles de l'infidélité</a></strong></li></ul></li><li><h5>jeudi 24</h5><ul class="tocItems"><li><abbr>10h44</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139298">Lectures</a></strong></li><li><abbr>14h52</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139302">Objet d'amour</a></strong></li><li><abbr>21h37</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139309">Dominant et Dominé</a></strong></li></ul></li><li><h5>vendredi 25</h5><ul class="tocItems"><li><abbr>10h32</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139315">Mode prolixe et heureuse ce matin</a></strong></li></ul></li><li><h5>samedi 26</h5><ul class="tocItems"><li><abbr>17h56</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139330">Lecture, le couple lunaire</a></strong></li></ul></li><li><h5>lundi 28</h5><ul class="tocItems"><li><abbr>00h26</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139349">Interdépendance</a></strong></li></ul></li></ul></li><li><h4>mai</h4><ul class="tocDays"><li><h5>dimanche 18</h5><ul class="tocItems"><li><abbr>20h27</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139784">Critique de la division du travail</a></strong></li></ul></li><li><h5>mardi 20</h5><ul class="tocItems"><li><abbr>12h08</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139821">Réfléchir avant de parler</a></strong></li></ul></li><li><h5>jeudi 22</h5><ul class="tocItems"><li><abbr>17h12</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139869">Sexualités ?</a></strong></li></ul></li><li><h5>samedi 24</h5><ul class="tocItems"><li><abbr>21h58</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e139919">Effacer les souvenirs</a></strong></li></ul></li></ul></li><li><h4>juin</h4><ul class="tocDays"><li><h5>dimanche 1</h5><ul class="tocItems"><li><abbr>17h07</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e140090">Indépendance ?</a></strong></li></ul></li><li><h5>mardi 3</h5><ul class="tocItems"><li><abbr>14h43</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e140147">Plus t'en fait, plus on te demande</a></strong></li></ul></li><li><h5>jeudi 5</h5><ul class="tocItems"><li><abbr>13h04</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e140191">Notes</a></strong></li></ul></li><li><h5>lundi 9</h5><ul class="tocItems"><li><abbr>14h38</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e140276">Télépathie</a></strong></li><li><abbr>22h43</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e140291">Muse</a></strong></li></ul></li><li><h5>dimanche 15</h5><ul class="tocItems"><li><abbr>11h08</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e140419">Inconstance</a></strong></li></ul></li><li><h5>mardi 17</h5><ul class="tocItems"><li><abbr>11h29</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e140480">Pause</a></strong></li><li><abbr>11h46</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e140481">Je ne suis pas seule</a></strong></li></ul></li><li><h5>mardi 24</h5><ul class="tocItems"><li><abbr>14h25</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e140637">Ronronne</a></strong></li></ul></li><li><h5>vendredi 27</h5><ul class="tocItems"><li><abbr>15h54</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e140730">Parole de mon chef</a></strong></li></ul></li></ul></li><li><h4>juillet</h4><ul class="tocDays"><li><h5>lundi 7</h5><ul class="tocItems"><li><abbr>14h41</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e140986">Sensualité</a></strong></li></ul></li><li><h5>mercredi 16</h5><ul class="tocItems"><li><abbr>15h01</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e141222">Communication non violente ?</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>samedi 9</h5><ul class="tocItems"><li><abbr>16h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e141902">Comment j'ai chopé la gale</a></strong></li></ul></li><li><h5>vendredi 15</h5><ul class="tocItems"><li><abbr>22h33</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e142082">Au nom du polyamour</a></strong></li></ul></li><li><h5>lundi 18</h5><ul class="tocItems"><li><abbr>09h54</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e142144">Des ménagements</a></strong></li></ul></li><li><h5>mardi 19</h5><ul class="tocItems"><li><abbr>12h25</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e142147">Ce que vous m'apportez</a></strong></li></ul></li><li><h5>jeudi 21</h5><ul class="tocItems"><li><abbr>16h42</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e142234">Théorie de la percolation</a></strong></li></ul></li><li><h5>mardi 26</h5><ul class="tocItems"><li><abbr>22h39</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e142367">Trois hommes</a></strong></li></ul></li></ul></li><li><h4>septembre</h4><ul class="tocDays"><li><h5>jeudi 18</h5><ul class="tocItems"><li><abbr>10h13</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e142920">Adoption</a></strong></li></ul></li><li><h5>dimanche 21</h5><ul class="tocItems"><li><abbr>12h42</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e142989">Revenu inconditionnel ou salaire à vie</a></strong></li></ul></li><li><h5>mardi 23</h5><ul class="tocItems"><li><abbr>12h44</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e143034">L'art d'être</a></strong></li></ul></li></ul></li><li><h4>novembre</h4><ul class="tocDays"><li><h5>mercredi 5</h5><ul class="tocItems"><li><abbr>10h39</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e143892">Axiome</a></strong></li><li><abbr>15h24</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e143898">Son rêve</a></strong></li></ul></li><li><h5>vendredi 7</h5><ul class="tocItems"><li><abbr>14h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e143936">Vous savez, le sexe est vraiment une chose ridicule</a></strong></li></ul></li><li><h5>lundi 10</h5><ul class="tocItems"><li><abbr>10h55</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e143977">Je suis amoureuse et polyamoureuse</a></strong></li></ul></li><li><h5>mercredi 12</h5><ul class="tocItems"><li><abbr>12h18</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e144026">Mono en parallèle</a></strong></li></ul></li><li><h5>mardi 18</h5><ul class="tocItems"><li><abbr>18h04</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e144131">Saturation</a></strong></li></ul></li><li><h5>mardi 25</h5><ul class="tocItems"><li><abbr>14h06</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e144295">Du pourquoi du comment de la représentation du personnel au CA</a></strong></li></ul></li><li><h5>jeudi 27</h5><ul class="tocItems"><li><abbr>12h22</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e144336">Décompression</a></strong></li></ul></li></ul></li><li><h4>décembre</h4><ul class="tocDays"><li><h5>vendredi 12</h5><ul class="tocItems"><li><abbr>20h27</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e144638">Kinky ?</a></strong></li></ul></li><li><h5>dimanche 28</h5><ul class="tocItems"><li><abbr>17h12</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e144922">Dernier weekend seule</a></strong></li></ul></li></ul></li></ul></li><li><h3>2015</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>mercredi 14</h5><ul class="tocItems"><li><abbr>18h16</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e145327">38 de fièvre</a></strong></li></ul></li><li><h5>dimanche 25</h5><ul class="tocItems"><li><abbr>14h19</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e145523">Il me fait complètement craquer</a></strong></li></ul></li></ul></li><li><h4>février</h4><ul class="tocDays"><li><h5>jeudi 5</h5><ul class="tocItems"><li><abbr>12h56</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e145742">Prise de bec</a></strong></li></ul></li><li><h5>mercredi 11</h5><ul class="tocItems"><li><abbr>14h16</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e145856">Je reste en deuil</a></strong></li></ul></li></ul></li><li><h4>mars</h4><ul class="tocDays"><li><h5>lundi 23</h5><ul class="tocItems"><li><abbr>18h31</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e146636">Principe de réalité</a></strong></li></ul></li><li><h5>mardi 24</h5><ul class="tocItems"><li><abbr>19h22</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e146651">Cordes</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>jeudi 16</h5><ul class="tocItems"><li><abbr>11h56</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e147174">Témoignages heureux</a></strong></li></ul></li><li><h5>lundi 20</h5><ul class="tocItems"><li><abbr>10h37</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e147246">J'ai un peu mal partout, mais une pêche d'enfert</a></strong></li></ul></li><li><h5>vendredi 24</h5><ul class="tocItems"><li><abbr>10h16</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e147306">Jack sparrow</a></strong></li><li><abbr>12h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e147307">Lecteur !</a></strong></li></ul></li><li><h5>mardi 28</h5><ul class="tocItems"><li><abbr>13h12</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e147394">Brother Sparrow</a></strong></li></ul></li></ul></li><li><h4>mai</h4><ul class="tocDays"><li><h5>mercredi 6</h5><ul class="tocItems"><li><abbr>14h49</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e147571">Le bonheur tient vraiment à peu de chose</a></strong></li></ul></li><li><h5>vendredi 8</h5><ul class="tocItems"><li><abbr>12h01</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e147644">Je suis morte cette nuit</a></strong></li></ul></li><li><h5>lundi 11</h5><ul class="tocItems"><li><abbr>11h46</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e147646">Addiction</a></strong></li></ul></li><li><h5>mardi 12</h5><ul class="tocItems"><li><abbr>11h05</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e147659">Rennaissance</a></strong></li></ul></li><li><h5>mardi 19</h5><ul class="tocItems"><li><abbr>11h53</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e147746">Réconciliation</a></strong></li></ul></li></ul></li><li><h4>juin</h4><ul class="tocDays"><li><h5>lundi 1</h5><ul class="tocItems"><li><abbr>10h33</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e147981">Les relations humaines sont des entités vivantes</a></strong></li></ul></li><li><h5>mercredi 3</h5><ul class="tocItems"><li><abbr>14h19</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e148011">Je ferme les yeux</a></strong></li></ul></li><li><h5>jeudi 4</h5><ul class="tocItems"><li><abbr>10h10</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e148027">Inoxydable</a></strong></li></ul></li><li><h5>dimanche 7</h5><ul class="tocItems"><li><abbr>01h49</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e148030">Pas de compte à rendre</a></strong></li></ul></li><li><h5>vendredi 26</h5><ul class="tocItems"><li><abbr>10h28</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e148411">Bonnes résolutions</a></strong></li></ul></li><li><h5>samedi 27</h5><ul class="tocItems"><li><abbr>22h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e148437">36 ans</a></strong></li></ul></li><li><h5>mardi 30</h5><ul class="tocItems"><li><abbr>23h47</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e148499">Solitude</a></strong></li></ul></li></ul></li><li><h4>juillet</h4><ul class="tocDays"><li><h5>mercredi 29</h5><ul class="tocItems"><li><abbr>09h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e148886">Confiance</a></strong></li></ul></li></ul></li><li><h4>septembre</h4><ul class="tocDays"><li><h5>jeudi 17</h5><ul class="tocItems"><li><abbr>13h31</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e149645">Destruction d'ego</a></strong></li></ul></li><li><h5>vendredi 18</h5><ul class="tocItems"><li><abbr>18h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e149652">Travail d'archive</a></strong></li></ul></li><li><h5>lundi 21</h5><ul class="tocItems"><li><abbr>13h10</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e149719">Occasion manquée</a></strong></li></ul></li><li><h5>mardi 22</h5><ul class="tocItems"><li><abbr>11h31</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e149741">Ce que je suis prête à faire</a></strong></li></ul></li><li><h5>mercredi 30</h5><ul class="tocItems"><li><abbr>21h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e149918">Retour sur les types Jungiens</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>mercredi 7</h5><ul class="tocItems"><li><abbr>11h31</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e150055">Concentration n'est pas adrénaline</a></strong></li></ul></li><li><h5>mardi 13</h5><ul class="tocItems"><li><abbr>10h44</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e150251">Etats d'âmes</a></strong></li></ul></li><li><h5>vendredi 16</h5><ul class="tocItems"><li><abbr>20h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e150325">Consignes d'écriture</a></strong></li></ul></li><li><h5>mardi 20</h5><ul class="tocItems"><li><abbr>23h15</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e150398">Le souci</a></strong></li></ul></li></ul></li><li><h4>novembre</h4><ul class="tocDays"><li><h5>dimanche 1</h5><ul class="tocItems"><li><abbr>22h03</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e150612">MBTI : les tempéraments</a></strong></li></ul></li></ul></li></ul></li><li><h3>2016</h3><ul class="tocMonths"><li><h4>mai</h4><ul class="tocDays"><li><h5>dimanche 8</h5><ul class="tocItems"><li><abbr>20h07</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e155209">Ils sont de retour</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>lundi 1</h5><ul class="tocItems"><li><abbr>10h26</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e157712">Non-naissance</a></strong></li></ul></li><li><h5>mardi 2</h5><ul class="tocItems"><li><abbr>12h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e157766">Radical Face - Ghost Towns</a></strong></li></ul></li><li><h5>mercredi 3</h5><ul class="tocItems"><li><abbr>16h22</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e157828">Ordre de grandeur</a></strong></li></ul></li><li><h5>dimanche 7</h5><ul class="tocItems"><li><abbr>23h51</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e157964">Intimité</a></strong></li></ul></li><li><h5>mardi 9</h5><ul class="tocItems"><li><abbr>13h28</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e158013">horoscope ?</a></strong></li></ul></li></ul></li><li><h4>septembre</h4><ul class="tocDays"><li><h5>jeudi 1</h5><ul class="tocItems"><li><abbr>14h28</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e158453">Encore des larmes</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>mardi 4</h5><ul class="tocItems"><li><abbr>21h16</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e159095">Nous sommes de la même espèce</a></strong></li></ul></li><li><h5>lundi 24</h5><ul class="tocItems"><li><abbr>15h35</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e159448">Profiter de chaque instant ?</a></strong></li></ul></li></ul></li></ul></li><li><h3>2017</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>jeudi 26</h5><ul class="tocItems"><li><abbr>15h52</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e161071">C'est pour ça que je décroche</a></strong></li></ul></li></ul></li><li><h4>février</h4><ul class="tocDays"><li><h5>jeudi 2</h5><ul class="tocItems"><li><abbr>17h52</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e161175">Comment j'ai chopé la gale (bis)</a></strong></li></ul></li><li><h5>mardi 14</h5><ul class="tocItems"><li><abbr>19h19</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e161377">Je suis fâchée</a></strong></li></ul></li></ul></li><li><h4>mars</h4><ul class="tocDays"><li><h5>jeudi 16</h5><ul class="tocItems"><li><abbr>13h03</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e161819">Dissection d'un effondrement.</a></strong></li></ul></li><li><h5>mardi 21</h5><ul class="tocItems"><li><abbr>14h02</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e161899">Célibataire en fonction des lieux ?</a></strong></li></ul></li><li><h5>vendredi 24</h5><ul class="tocItems"><li><abbr>14h26</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e161954">Dévergondage</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>mercredi 5</h5><ul class="tocItems"><li><abbr>15h04</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e162136">Assignée garçon</a></strong></li></ul></li><li><h5>lundi 10</h5><ul class="tocItems"><li><abbr>12h38</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e162197">Chance, pas de chance ?</a></strong></li></ul></li><li><h5>jeudi 20</h5><ul class="tocItems"><li><abbr>17h57</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e162321">Amoureuse ?</a></strong></li></ul></li></ul></li><li><h4>juin</h4><ul class="tocDays"><li><h5>vendredi 16</h5><ul class="tocItems"><li><abbr>11h30</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e163236">Colère</a></strong></li></ul></li><li><h5>lundi 26</h5><ul class="tocItems"><li><abbr>15h50</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e163384">Se laisser tomber amoureuse</a></strong></li></ul></li><li><h5>mardi 27</h5><ul class="tocItems"><li><abbr>12h58</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e163407">Echange de crush</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>mardi 8</h5><ul class="tocItems"><li><abbr>10h17</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e164406">Plaisir</a></strong></li></ul></li></ul></li><li><h4>septembre</h4><ul class="tocDays"><li><h5>vendredi 22</h5><ul class="tocItems"><li><abbr>15h59</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e165647">Circularité</a></strong></li></ul></li></ul></li><li><h4>novembre</h4><ul class="tocDays"><li><h5>vendredi 24</h5><ul class="tocItems"><li><abbr>12h30</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e166503">Evidences</a></strong></li></ul></li></ul></li><li><h4>décembre</h4><ul class="tocDays"><li><h5>mercredi 6</h5><ul class="tocItems"><li><abbr>15h55</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e166621">Dandy</a></strong></li></ul></li><li><h5>lundi 18</h5><ul class="tocItems"><li><abbr>14h51</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e166755">Relecture</a></strong></li></ul></li></ul></li></ul></li><li><h3>2018</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>mardi 9</h5><ul class="tocItems"><li><abbr>16h26</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e167022">Bonne Année !</a></strong></li></ul></li></ul></li><li><h4>février</h4><ul class="tocDays"><li><h5>mardi 13</h5><ul class="tocItems"><li><abbr>17h31</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e167252">Dispersion</a></strong></li></ul></li><li><h5>lundi 19</h5><ul class="tocItems"><li><abbr>12h21</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e167320">Je veux mon billet moi aussi :)</a></strong></li></ul></li></ul></li><li><h4>mars</h4><ul class="tocDays"><li><h5>mardi 27</h5><ul class="tocItems"><li><abbr>11h27</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e167674">Réseau social</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>mardi 10</h5><ul class="tocItems"><li><abbr>10h24</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e167807">Il m'est revenu !</a></strong></li></ul></li></ul></li><li><h4>juin</h4><ul class="tocDays"><li><h5>dimanche 3</h5><ul class="tocItems"><li><abbr>12h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e168347">Différents formes de burns</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>jeudi 23</h5><ul class="tocItems"><li><abbr>10h22</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e169278">Que vaut une minute d'un directeur ?</a></strong></li></ul></li></ul></li></ul></li><li><h3>2019</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>mardi 22</h5><ul class="tocItems"><li><abbr>12h59</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e171318">Fierté</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>jeudi 1</h5><ul class="tocItems"><li><abbr>16h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e172951">Introspection</a></strong></li></ul></li><li><h5>vendredi 2</h5><ul class="tocItems"><li><abbr>15h08</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e172955">Ennéagramme</a></strong></li></ul></li><li><h5>mardi 13</h5><ul class="tocItems"><li><abbr>19h18</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e173030">Narcose</a></strong></li></ul></li></ul></li><li><h4>novembre</h4><ul class="tocDays"><li><h5>vendredi 8</h5><ul class="tocItems"><li><abbr>13h37</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e173592">Ennéagramme, l'atelier</a></strong></li></ul></li><li><h5>mercredi 20</h5><ul class="tocItems"><li><abbr>17h48</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e173659">21 jours d'abondance</a></strong></li></ul></li></ul></li><li><h4>décembre</h4><ul class="tocDays"><li><h5>vendredi 13</h5><ul class="tocItems"><li><abbr>16h30</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e173791">Un peu plus que cela, même</a></strong></li></ul></li></ul></li></ul></li><li><h3>2020</h3><ul class="tocMonths"><li><h4>février</h4><ul class="tocDays"><li><h5>jeudi 27</h5><ul class="tocItems"><li><abbr>19h35</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e174476">Chakras </a></strong></li></ul></li></ul></li><li><h4>mars</h4><ul class="tocDays"><li><h5>mercredi 4</h5><ul class="tocItems"><li><abbr>14h39</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e174513">Inspecteur des travaux finis</a></strong></li></ul></li><li><h5>vendredi 6</h5><ul class="tocItems"><li><abbr>18h08</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e174531">Magicienne du chaos</a></strong></li></ul></li><li><h5>dimanche 22</h5><ul class="tocItems"><li><abbr>11h36</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e174685">ça fait un bail !</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>mercredi 1</h5><ul class="tocItems"><li><abbr>12h54</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e174789">Méditation</a></strong></li></ul></li></ul></li><li><h4>juin</h4><ul class="tocDays"><li><h5>vendredi 26</h5><ul class="tocItems"><li><abbr>16h35</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e175350">188 Réorg</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>mercredi 28</h5><ul class="tocItems"><li><abbr>13h33</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e176002">192 Retour sur site</a></strong></li></ul></li></ul></li></ul></li><li><h3>2021</h3><ul class="tocMonths"><li><h4>avril</h4><ul class="tocDays"><li><h5>mardi 20</h5><ul class="tocItems"><li><abbr>18h11</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e176817">198 Je vais bien</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>mercredi 13</h5><ul class="tocItems"><li><abbr>15h00</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e177591">Sortir de chez moi</a></strong></li></ul></li><li><h5>jeudi 14</h5><ul class="tocItems"><li><abbr>11h29</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e177595">Colère</a></strong></li></ul></li></ul></li><li><h4>novembre</h4><ul class="tocDays"><li><h5>mercredi 3</h5><ul class="tocItems"><li><abbr>09h44</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e177723">Je retourne à nowhere cette année</a></strong></li></ul></li><li><h5>mercredi 10</h5><ul class="tocItems"><li><abbr>10h16</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e177759">205 - Je suis autiste</a></strong></li></ul></li></ul></li></ul></li><li><h3>2022</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>jeudi 13</h5><ul class="tocItems"><li><abbr>20h47</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e178098">207 - Je vais mal</a></strong></li></ul></li></ul></li><li><h4>mars</h4><ul class="tocDays"><li><h5>dimanche 20</h5><ul class="tocItems"><li><abbr>16h57</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e178729">209 - je vais bien</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>mercredi 6</h5><ul class="tocItems"><li><abbr>10h17</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e178826">210 Signaux faible</a></strong></li></ul></li><li><h5>vendredi 22</h5><ul class="tocItems"><li><abbr>12h15</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e178905">Instant présent et liberté</a></strong></li></ul></li></ul></li><li><h4>mai</h4><ul class="tocDays"><li><h5>jeudi 12</h5><ul class="tocItems"><li><abbr>11h07</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e179013">ça fait du bien d'aller bien !!</a></strong></li></ul></li></ul></li><li><h4>juin</h4><ul class="tocDays"><li><h5>jeudi 23</h5><ul class="tocItems"><li><abbr>09h40</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e179329">[212] Anniversaire</a></strong></li></ul></li><li><h5>mardi 28</h5><ul class="tocItems"><li><abbr>15h16</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e179374">Dans une semaine, je suis à Nowhere ! [212-213]</a></strong></li></ul></li></ul></li><li><h4>juillet</h4><ul class="tocDays"><li><h5>lundi 18</h5><ul class="tocItems"><li><abbr>13h52</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e179530">213 - Il ne va pas bien</a></strong></li></ul></li><li><h5>mercredi 20</h5><ul class="tocItems"><li><abbr>12h16</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e179551">213 - Comment j'ai chopé l'herpès</a></strong></li></ul></li></ul></li><li><h4>septembre</h4><ul class="tocDays"><li><h5>vendredi 9</h5><ul class="tocItems"><li><abbr>15h09</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e180161">215 - RBDSM</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>mercredi 5</h5><ul class="tocItems"><li><abbr>18h20</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e180371">216 - Théophanie</a></strong></li></ul></li></ul></li><li><h4>novembre</h4><ul class="tocDays"><li><h5>mardi 15</h5><ul class="tocItems"><li><abbr>17h38</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e180626">217 - Santé mentale</a></strong></li></ul></li><li><h5>jeudi 24</h5><ul class="tocItems"><li><abbr>15h58</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e180704">217 - Comment retrouver le sourire ?</a></strong></li></ul></li></ul></li><li><h4>décembre</h4><ul class="tocDays"><li><h5>mercredi 14</h5><ul class="tocItems"><li><abbr>10h56</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e180848">218 - Temps volé</a></strong></li></ul></li><li><h5>jeudi 15</h5><ul class="tocItems"><li><abbr>12h05</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e180859">218 - colère</a></strong></li></ul></li></ul></li></ul></li><li><h3>2023</h3><ul class="tocMonths"><li><h4>février</h4><ul class="tocDays"><li><h5>lundi 6</h5><ul class="tocItems"><li><abbr>17h58</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e181379">220 - Manhunt 2023</a></strong></li></ul></li><li><h5>mercredi 8</h5><ul class="tocItems"><li><abbr>20h14</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e181397">220 - humeur instable</a></strong></li></ul></li><li><h5>samedi 18</h5><ul class="tocItems"><li><abbr>23h13</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e181480">220·1 - Notre Système</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>mercredi 19</h5><ul class="tocItems"><li><abbr>23h18</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e182776">222 - Craquer en public</a></strong></li></ul></li></ul></li><li><h4>juillet</h4><ul class="tocDays"><li><h5>jeudi 13</h5><ul class="tocItems"><li><abbr>15h34</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e182376">225 - Annabelle</a></strong></li></ul></li><li><h5>jeudi 27</h5><ul class="tocItems"><li><abbr>17h57</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e182484">226 - raz le bol</a></strong></li></ul></li></ul></li><li><h4>août</h4><ul class="tocDays"><li><h5>dimanche 13</h5><ul class="tocItems"><li><abbr>12h50</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e182594">226 - Sauf un point noir</a></strong></li></ul></li><li><h5>lundi 14</h5><ul class="tocItems"><li><abbr>14h08</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e182603">226 - mille petites choses qui ne se reproduiront plus jamais</a></strong></li></ul></li><li><h5>vendredi 18</h5><ul class="tocItems"><li><abbr>13h41</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e182631">227 - lâcher prise</a></strong></li></ul></li><li><h5>lundi 21</h5><ul class="tocItems"><li><abbr>14h25</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e182642">227 - Chaos</a></strong></li></ul></li></ul></li><li><h4>septembre</h4><ul class="tocDays"><li><h5>mercredi 13</h5><ul class="tocItems"><li><abbr>15h48</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e182764">227 - Les plumes de Phœnix sont noires (213)</a></strong></li></ul></li><li><h5>mardi 26</h5><ul class="tocItems"><li><abbr>15h37</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e182858">228 - ma vie est belle</a></strong></li></ul></li></ul></li><li><h4>octobre</h4><ul class="tocDays"><li><h5>jeudi 5</h5><ul class="tocItems"><li><abbr>16h20</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e182912">228 - une cinquième dans mon système</a></strong></li></ul></li></ul></li></ul></li><li><h3>2024</h3><ul class="tocMonths"><li><h4>janvier</h4><ul class="tocDays"><li><h5>mardi 2</h5><ul class="tocItems"><li><abbr>12h48</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e183394">231 - Nouvelle année !</a></strong></li></ul></li><li><h5>lundi 22</h5><ul class="tocItems"><li><abbr>13h45</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e183525">232 - Écritures</a></strong></li></ul></li></ul></li><li><h4>avril</h4><ul class="tocDays"><li><h5>mardi 2</h5><ul class="tocItems"><li><abbr>08h34</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e183961">234 - J'ai pas choisi d'être différente</a></strong></li></ul></li><li><h5>lundi 8</h5><ul class="tocItems"><li><abbr>10h03</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e184006">235 - pourquoi ça ne me fait rien</a></strong></li></ul></li></ul></li><li><h4>juillet</h4><ul class="tocDays"><li><h5>dimanche 14</h5><ul class="tocItems"><li><abbr>09h05</abbr> <strong><a href="https://public.journalintime.com/datas/documents/caillecendre/export-journal-caillecendre.html#e184683">238 - Nowhere</a></strong></li>
+            </ul></li></ul></li></ul></li></ul>
+        </div>
+        <div id="ecrits">
+        
+        <div class="item hidden" id="e125244">
+            <h2>Cendres</h2>
+            <h3>2 décembre 2012 à 19h42</h3>
+            <div class="content">
+                
+<p>
+  Pourquoi Cendre ?
+</p>
+
+<p>
+  Nous étions en mars 2012, Désiré m'avait, avec Aimé, convaincue de refaire un perso, et je l'ai appelé Cendre.<br>
+  Alors oui, il y a plein de raisons à cela. Il y a la référence à Cendre-Lune, cet autre personnage d'une version précédente, jeune fille mystérieuse et énigmatique, c'est ce que je voulais comme nouveau personnage, oui.<br>
+  Et puis, c'était pratique, pour jouer avec le coté androgyne : Sandra, Alexandre =&gt; Cendre. Mon personnage a différentes identités de genre, et son nom, celui que je ne pourrais jamais modifier dans le jeu, restera celui, indéfini et évocateur, « Cendre ».<br>
+  Enfin quand même.
+</p>
+
+<p>
+  Dans ce jeu où les relations sexuelles entre personnages sont une articulation clé des relations humaines, j'ai créé un personnage avec deux genres (masculin-féminin) et aucune sexualité possible. <br>
+  Deux mois avant mon mariage ; je ne peux pas accepter la coïncidence. Le jeu de rôle révèle éternellement une part de nous. Et là, je voulais bien, sur l'insistance de mes deux hommes (dont le premier n'était encore qu'une connaissance) rejouer avec eux, mais pas sur le mode sexuel. Je me suis volontairement coupée tout cet aspect là du jeu.<br>
+  Pas question de se laisser une marge pour pouvoir souffler sur les braises. « Cendre ».
+</p>
+
+<p>
+  Du coup, quand j'ai commencé à jouer avec le personnage de Désiré, comme il me l'avait si bien promis, j'avais tout le background nécessaire pour faire en sorte que jamais mon personnage ne couche avec le sien....<br>
+  Du coup, au lieu de le faire par personnages interposés, on l'a fait IRL.
+</p>
+
+<p>
+  ...
+</p>
+
+<p>
+  C'est à croire que j'allais vraiment mal en mars. Et pire, que je me le masquais très soigneusement.<br>
+  J'écrivais plus, à ce moment là, ou si peu. Je n'écrivais plus depuis des années d'ailleurs, c'est donc assez difficile de savoir vraiment, à posteriori.<br>
+  Oui, je quittais un boulot qui m'avait rongé au delà de tout ce que j'avais pu imaginer. Où comment obtenir l'esclavage consenti de la jeune cadre dynamique.<br>
+  Et puis, l'organisation du <em>plus beau jour de ma vie</em> m'épuisait aussi. Cette robe si chère qui fut tout sauf la robe de mes rêves, ces rendez-vous ratés, le sordide de la relation aux prestataires, le retard systématique, faute de prendre les décisions à temps.
+</p>
+
+<p>
+  Et pourtant, j'en ai encore rediscuté avec Ty, cette journée fut une réussite quand même. Entre mon exploit de tenir jusqu'au petit matin, mes parents qui daignent s'embrasser le lendemain, la fleuriste qui m'a fait don des vases, pour ne citer que ces petits détails.
+</p>
+
+<p>
+  Journée réussie, 2012 tenait ses promesses. <br>
+  Changement de boulot, changement de nom, changement de président, même.<br>
+  Alors pourquoi « Cendre »  ? Pourquoi ce blues en juillet, et pire, en août. <br>
+  Celui qui reste encore aujourd'hui ma justification première. Comment, dans ce blues, pouvais-je avoir la force de refuser le bonheur de l'amour, d'un amour non prémédité, non prévu, sans flirt, sans séduction. Non, juste la constatation qu'il était là, prêt à éclore, et que nous avions que deux possibilités : le laisser s'épanouir ou nous engoncer chacun de son coté dans les remords d'une relation manquée.
+</p>
+
+<p>
+  Je ne regrette rien, pas un mot pas un geste de ces trois derniers mois, les plus intenses de ma vie, surement.<br>
+  Rien ne m'est plus précieux que les battements de mon cœur à chaque caractère que je reçois de lui. Rien ? <br>
+  Bien sur que si qu'il y a plus précieux, c'est la tendresse d'Aimé...<br>
+  Ah, ce vocabulaire, ces tournures, n'ont jamais été pensés pour coller à ma situation. Situation hors normes ou j'aime sincèrement deux hommes...
+</p>
+
+<p>
+  ...
+</p>
+
+<p>
+  Si mon projet actuel abouti, je prendrais peut être la peine de taper mes journaux de 2012. Il n'y en a pas tant, ils sont juste éparpillés sur un nombre insensé de supports, comme si j'avais voulu les jeter aux oubliettes à peine écrits.<br>
+  Pourtant, cette année qui s'achève a été pour moi un vrai tournant, à de multiples angles de vues, et je pense qu'il est important que je travaille sur sa rétrospective, avec le peu de matériaux que j'ai.
+</p>
+
+<p>
+  ...
+</p>
+
+<p>
+  2012.<br>
+  Tel un phénix, la Caille peut renaître de ses cendres.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e125653">
+            <h2>Merci K.</h2>
+            <h3>9 janvier 2013 à 18h27</h3>
+            <div class="content">
+                
+<p>
+  J'ai passé l'après midi avec lui, à discuter boulot, comme j'aime, c'est à dire en prenant du recul sur notre code, et nos méthodes de travail, en prenant le temps d'aller au fond des choses, en prenant le temps de décider ensemble là où on veux aller loin et ce que l'on néglige.
+</p>
+
+<p>
+  C'est un vrai consultant, qui apporte une vraie plus-values à l'équipe, et je suis extrêmement sensible à la démarche de notre chef qui est de nous offrir son support sans contrainte de rentabilité, sachant que quelque soit le sujet de discussion que l'on trouvera, il sera bénéfique pour l'équipe.
+</p>
+
+<p>
+  K. est un jeune homme plein d'assurance, qui vient avec ses idées arrêtées, mais également l'argumentation et l'ouverture d'esprit qui va bien pour pouvoir discuter, pour pouvoir apprendre.<br>
+  Il est à peine plus jeune que moi, mais tandis que je m'escrimais à sortir un manuscrit de thèse, pendant que j'apprenais à douter, il accumulait expérience et assurance.
+</p>
+
+<p>
+  On discute, on rigole. Je passe un excellent moment avec lui.<br>
+  Avant ma découverte du polyamour, je me souviens, j'avais un peu fantasmé sur lui. Comme je faisais souvent avec les hommes qui me plaisent. Vouloir en savoir un peu plus sur lui.<br>
+  Et le résultat de tout cela, c'est juste une chouette complicité, et la bise que je lui claque à chaque fois qu'il vient dans le bâtiment. Et à force de discuter de tout et de rien, je l'ai gagné, cette confiance l'un en l'autre, qu'il me raconte ses anecdotes, qu'il parle un peu plus de lui, de ses choix, de ses erreurs...
+</p>
+
+<p>
+  Bref, une bouffée d'air frais dans une journée qui s'annonçait un poil morose, sans culpabilité aucune puisqu'il m'a filé nombre de billes pour mes réunions demain, après demain et mercredi prochain, qu'il nous a donné des arguments pour se simplifier la vie, pour mieux travailler, pour mieux vivre.
+</p>
+
+<p>
+  Merci.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e125241">
+            <h2>Journal extime</h2>
+            <h3>23 février 2013 à 23h11</h3>
+            <div class="content">
+                
+<p>
+  Le but de celui-ci est d'être public. Ça fait trois quatre jours que j'y songe. Que je voudrais y anté-coller des textes précédents. Parce que j'ai envie qu'on les lise.
+</p>
+
+<p>
+  Triste vanité, sûrement, doublée d’exhibition. Un comming out qui se fait petit à petit d'un coté, qui se ferme de l'autre. Sensations contradictoires. Car nous sommes au moins deux dans l'affaire, et qu'il n'y a que moi qui ait ce désir d'écrire, désir d'être lue, comprise, acceptée pour ce que je suis.
+</p>
+
+<p>
+  Acceptée pour ce que je suis. <br>
+  Voilà l'enjeu.
+</p>
+
+<p>
+  Je suis un extraterrestre. <br>
+  Et j'essaye de savoir pourquoi.<br>
+  En 2005, je me suis collée l'étiquette <em>Aspie</em>, aujourd'hui, c'est celle de <em>polyamoureuse</em>. Aussi vaine l'une que l'autre ?<br>
+  La deuxième, quand même correspond en plus à des vrai échanges, avec de vrais gens, que je revois demain d'ailleurs. <br>
+  Mais quand même. Combien de temps durera cette euphorie avant que, laminée, je ne referme les parenthèses ouvertes et me recolle dans mon huître chérie.
+</p>
+
+<p>
+  Surtout que je suis veinarde, car dans ma coquille, j'entretiens une perle. Magnifique. Qui se couvre de nacre toujours plus belle à chaque coup du sort, à chacune de mes facétie.
+</p>
+
+<p>
+  C'est ce qui me donne confiance.<br>
+  Nous sommes indestructible.
+</p>
+
+<p>
+  Mais quand même, là, j'espère ne pas être allée trop loin...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e125298">
+            <h2>Aller trop loin</h2>
+            <h3>25 février 2013 à 13h41</h3>
+            <div class="content">
+                
+<p>
+  Bien sur que je suis allée trop loin. Mais pas hier, non, pas même ce mardi 27 novembre. Même s'il est a peu près impossible de dater la « faute », elle est bien antérieure à tout cela.
+</p>
+
+<p>
+  Et là, qu'est-ce que je suis en train de faire ?<br>
+  La seule chose raisonnable pour pouvoir continuer de vivre avec ça dans son passé, poser les choses à plat, sortir les sujets du placard, refuser de fermer les yeux.<br>
+  Et le faire à deux.<br>
+  Et se donner l'espace pour décider, à deux, de ce que l'on en fait, maintenant.
+</p>
+
+<p>
+  Hier était une des plus belle occasion qu'il puisse exister pour montrer, pour concrétiser le concept, pour le rendre visible sous de nombreux aspects. Le polyamour par la pratique, en somme. (même si y'a pas eu de masturbation collective <a href="http://polyamour.info/discussion/-eb-/L-effet-papillon-derapage/">mdr</a> )
+</p>
+
+<p>
+  Prendre le temps de décanter, de digérer. Laisser reposer. Prendre soin de nous.<br>
+  Tout ce que j'ai pu conseiller à tors et à travers, me l'appliquer.
+</p>
+
+<p>
+  Je suis très fière de ce que tu as réalisé, douce Cendre, maintenant, il est temps de te chouchouter un peu.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e125364">
+            <h2>Aller trop loin (bis)</h2>
+            <h3>26 février 2013 à 12h32</h3>
+            <div class="content">
+                
+<p>
+  Heu, en fait si, je suis allée trop loin dimanche.
+</p>
+
+<p>
+  Et je ne sais pas ce qui est le pire.<br>
+  De se prendre la douleur de l'autre en face alors que l'on ne s'y attendait pas ou de constater que l'on a été jusque là complètement hermétique à cette douleur, justement, alors que le lien de l'amour est censé nous rendre justement plus sensible à ce genre de choses.
+</p>
+
+<p>
+  Maladresses. Multiples.
+</p>
+
+<p>
+  Cette propension que l'on a, en voyant l'acceptation de l'autre, d'en profiter pour lui en demander toujours plus. Je m'étais promis de faire attention à ce travers. C'est raté.
+</p>
+
+<p>
+  Qu'est-ce que je souhaite ? Que l'on soit bien tous les deux.<br>
+  C'est raté.<br>
+  Même si cela me permet de me rendre compte combien son sourire m'est précieux.
+</p>
+
+<p>
+  Alors envoyer, par écrit, les choses qui m'importent, aux personnes qui m'importent.<br>
+  J'ai fait ce qui était le plus important pour moi ce matin.<br>
+  Maintenant, laisser le temps œuvrer un peu.
+</p>
+
+<p>
+  Et se mettre au boulot. <br>
+  Il serait temps...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e125544">
+            <h2>Gestion des priorités</h2>
+            <h3>1 mars 2013 à 10h56</h3>
+            <div class="content">
+                
+<p>
+  J'ai pas envie de bosser, mais alors vraiment pas.<br>
+  J'ai envie de lire, d'écrire encore.<br>
+  J'ai envie de caler mes prochains rendez vous, avec plein de monde.<br>
+  J'ai envie d'écrire mes réfléxions engagées par mes dernières conversations.<br>
+  J'ai envie de remercier la terre entière pour le bonheur que je vis en ce moment.<br>
+  J'aurais quand même envie de jeter un petit coup d'œil, ultra rapide, dans un an, pour voir si mon mari y va bien.
+</p>
+
+<p>
+  Et quand bien même. Qu'est-ce que cela changerais à ma conduite ?<br>
+  C'est tellement important pour moi, d'essayer, qu'il se trouve démuni, incapable de me refuser ça, même s'il le vit assez mal.<br>
+  On ne fait pas le bonheur des autres malgré eux.<br>
+  Je me raccroche désespérément à ça. Je lui montre comment moi, j'ai tout mis par terre, pour être heureuse, et que donc il peut en faire de même, dans le registre qui lui conviendra.
+</p>
+
+<p>
+  Comment on soutient quelqu'un qui déprime ?
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e147174">
+            <h2>Témoignages heureux</h2>
+            <h3>16 avril 2015 à 11h56</h3>
+            <div class="content">
+                
+<p>
+  Ce matin, j'ai crâné dans le métro avec mon amoureux et son autre amoureuse. Et sans être ultra démonstratif, les petits gestes, les attentions, les mains qui se superposent sur la barre centrale, c'est quand même rudement agréable.
+</p>
+
+<p>
+  Et puis, en prime, dans le bus, alors que notre amoureux est ailleurs, sa main sur mon bras, ses excuses d'être restée un peu tard hier soir alors que c'était pas prévu ainsi à la base. Et m'entendre dire, sans même avoir trop à réfléchir (faut pas trop m'en demander, le matin, non plus), m'entendre dire qu'il y a pas de problèmes, que j'ai bien vu, que si ça m'avait dérangé, je l'aurais dit, je ne l'aurais pas invitée, que même si j'avais ma propre journée chargée dans les pattes, c'était tout bon.<br>
+  Je ne savais pas pourquoi c'était tout bon (des fois, j'ai besoin de ma soirée juste avec mon amoureux), mais là c'était tout bon.
+</p>
+
+<p>
+  Peut être juste exactement pour ça : parce qu'elle avait conscience qu'on était "hors programme", parce que cela se sentait qu'on pouvait à tout moment lui demander de nous laisser, parce que cela n'a aucune raison de se reproduire, parce qu'elle semblait mieux avec nous que seule, et que nous étions pas plus mal avec elle que seuls. Parce qu'elle m'a exprimé ce matin son regret de ne pas avoir suivi le programme.<br>
+  Parce qu'il n'y avait là aucun abus, pas même un abus de circonstances.
+</p>
+
+<p>
+  Et puis, aussi, faut savoir reconnaître, que je suis vachement moins susceptible quand la nuit précédente, je l'ai déjà passée avec mon amoureux (et sans elle, cette fois là). Quand je suis pas en manque, je suis moins sur les dents, tout se passe quand même beaucoup plus souplement.
+</p>
+
+<p>
+  Une fois de plus, la conviction qu'il n'y avait rien de mieux pour moi qu'une construction polyamoureuse...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e147246">
+            <h2>J'ai un peu mal partout, mais une pêche d'enfert</h2>
+            <h3>20 avril 2015 à 10h37</h3>
+            <div class="content">
+                
+<p>
+  Tiens donc, pourquoi <em>encore</em> ici ?<br>
+  Tu crois pas que tu vas saouler tes lecteurs, à parler toujours de la même chose ?
+</p>
+
+<p>
+  Oui mais c'est chaque fois différent, chaque fois neuf !
+</p>
+
+<p>
+  Bon. Les bonnes résolutions d'abord. Aux Potains, on prévoit deux séances. Une 19-21, une autre 21-23. C'est pas raisonnable d'aller au delà, tant pour les gréeurs que les modèles. Faut que je m'y fasse.
+</p>
+
+<p>
+  Deux, je vais m'acheter du jute, je pense. Rien que pour avoir un objet qui a été fabriqué là-bas.
+</p>
+
+<p>
+  Ensuite, la petite boule d'énergie dans les cordes de son amoureux, cette impression d'avoir fait ce qu'il fallait pour les réconcilier, pour qu'elle entre dans son monde. Qu'elle n'ait plus peur, observe notre bisounourserie et s'en inspire. Elle était rayonnante, audacieuse. Méconnaissable avec celle qui s'est présentée vendredi soir !
+</p>
+
+<p>
+  Et puis après, quand même, mes expériences propres.
+</p>
+
+<p>
+  La première, avec un inconnu. Parce que les Chats sont pas encore là (même si on m'en promet l'arrivée imminente). Après tout, si je viens souvent, c'est aussi pour me prêter au jeu des presque inconnus. On vient me demander. Je dis oui. Je veux bien me faire une réputation de modèle facile (huhu ! )<br>
+  Avantage de la démarche ? un gréeur qui a vraiment envie de toi ! inconvénient ? frontière avec l'érotique moins carrée. J'ai été obligé de lui signaler. Mais en langage du corps seulement, donc c'est bien passé.<br>
+  Et puis, il a pas assez serré. Et moi, je commence à vraiment kiffer quand ça serre.
+</p>
+
+<p>
+  Du coup, j'ai été servie à la deuxième.<br>
+  En même temps, la suspension, cela ne peut pas ne pas serrer !
+</p>
+
+<p>
+  Un montage entièrement debout (même qu'on s'est fait gronder, juste après qu'on ait convenu ensemble qu'il fallait que je le prévienne 15 secondes avant que je ne tombe ! )<br>
+  Un harnais lâche. Que j'ai trouvé très appréciable au début (donne plus de temps de confort, retarde le moment où le corps commence à râler). Que j'ai trouvé moins top en l'air. Parce qu'il bougeait quand même beaucoup (même s'il était facile à replacer), et pesait quand même violemment. En témoigne la pluie que j'ai, non seulement à droite (beaucoup l'on trouvé très belle), mais également à gauche (moins marquée, mais tout aussi étendue : jusqu'au creux du coude.) Et cette douleur qui me reste sur le poitrail, à mi-chemin entre les seins et les clavicules, uniformément, sur toute la largeur, je tiens le passage. Même doublée, je crois que trop de poids c'est posé là.<br>
+  Trop ? Trop par rapport à quoi ? <br>
+  Somme toute, j'avais tellement mal au dessus des genoux (en plein dans du muscle, là, aucun danger. Même si j'ai été surprise après coup de voir les nœuds qui appuyaient, même si j'ai encore des traces sensibles ce matin – que c'est beau ! ) qu'il était facile de déterminer que j'avais moins mal en haut qu'en bas, donc que la douleur n'était pas insupportable, donc que je pouvais rester.<br>
+  C'est juste quand ça a commencé à poser sur les poignets (même après lui avoir fait remonté l'attache vers les omoplates), mes avants bras s'en souviennent, c'est seulement là que j'ai trouvé qu'on y était allé un peu fort.
+</p>
+
+<p>
+  Un peu fort pour finalement pas planer plus que ça (y aurait-il un regret ?).<br>
+  Je sais qui est mon gréeur préféré, maintenant. (« Merci pour le compliment détourné »). Je l'avais alors formulé au pluriel, mais si j'aime les mains de son colocataire, le Vent maîtrise bien mieux mes vols...<br>
+  (et sa compagne est délicieusement câline ! inclusivité, quand tu nous tiens !)
+</p>
+
+<p>
+  Sur ce, je vais pas cracher dans la soupe. J'ai quand même demandé à ce qu'il me remonte. Ce qu'il a fait gracieusement !
+</p>
+
+<p>
+  Et enfin, la démonstration d'un TK. Devant. Derrière. Merci.<br>
+  Je vais m'en acheter. Et tester.<br>
+  Et la première fois que j'enverrais quelqu'un en l'air, je songerais à tripler celle du poitrail... Et peut être même, garder ce harnais lâche, et le doubler, à la fin, d'une structure plus fixe. Mais amovible, donc.<br>
+  Voilà que mes idées de gréeur se concrétisent...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e147306">
+            <h2>Jack sparrow</h2>
+            <h3>24 avril 2015 à 10h16</h3>
+            <div class="content">
+                
+<p>
+  Ainsi j'ai des nouvelles du moineau...
+</p>
+
+<p>
+  Alors que ses allusions Fb m'étaient à moitié désagréables, parce qu’insidieuses, j'avais un projet (un de ces projets que je ne réalise jamais), j'avais formé le projet de lui écrire que j'allais le retirer de mes contacts Fb, afin de ne plus avoir de notifications le concernant, parce qu'il avait bien d'autres moyens de me joindre s'il le voulait vraiment.
+</p>
+
+<p>
+  Il a du recevoir l'avertissement, d'une parce que les allusions ont cessées, et de deux j'ai eu un mail hier soir.<br>
+  Un mail comme j'aime. Descriptif.<br>
+  Il revient sur son abjuration. C'est déjà ça.
+</p>
+
+<p>
+  Ne pas oublier que le mail est écrit en plusieurs fois...
+</p>
+
+<p>
+  Non, je n'ai pas le temps de lui répondre là.<br>
+  J'ai même pas le temps de finir cet article.
+</p>
+
+<p>
+  ça attendra quelques jours...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e148027">
+            <h2>Inoxydable</h2>
+            <h3>4 juin 2015 à 10h10</h3>
+            <div class="content">
+                
+<p>
+  Je me suis blindée.
+</p>
+
+<p>
+  Et je suis très surprise du résultat : au moins à court terme, ça marche.
+</p>
+
+<p>
+  J'ai réduit mes attentes, réduit mes émissions. J'étais en mode autonome en présence de mon amoureux.<br>
+  J'ai fermé les canaux.
+</p>
+
+<p>
+  ça donne de la disponibilité, j'arrête d'attendre l'autre, de vérifier tout le temps où il est ce qu'il fait.<br>
+  ça donne de l'espace, je n'hésite pas à aller vers autrui, discuter, danse, échanger des œillades. <br>
+  et surtout, ça ne fait plus mal.
+</p>
+
+<p>
+  En fait, soyons précise, les deux premiers, bien sur que je les ai sans fermer les canaux. Je les ai  eu, dans, par exemple, la soirée du nouvel an ; avec tous les canaux ouverts, avec la compersion en prime, avec le sourire complice "T'inquiète, tu le reverras demain".<br>
+  Mais juste là, hier soir, constater que je les ai eu malgré le trou. Malgré le manque. Malgré la situation.<br>
+  Au simple prix d'une distanciation.<br>
+  simple (?)
+</p>
+
+<p>
+  Du coup, pas besoin de faire la petite malheureuse.<br>
+  Pas la peine d'attirer l'attention sur moi.<br>
+  Je peux très bien m'en tenir à ce qui a été dit, sans crispation. <br>
+  J'écoute Beth. Je ne suis pas d'accord avec ce qu'elle dit jusqu'au moment où je réalise que c'est bien qu'elle dise ce genre de chose, que ce discours existe (même si ce n'est pas le mien) que cela soit entendu, alors je lui dit « Tu as bien fait »
+</p>
+
+<p>
+  Les bras me tombent quand je réalise qu'elle est partie comme ça. On est d'accord que ce n'est pas de mon fait si on est sorti du programme.
+</p>
+
+<p>
+  Je songe à rouvrir les canaux, après tout, on a alors un moment d'intimité non prévu.<br>
+  Mais je renonce.<br>
+  D'abord, le planning comprenait avant tout du sommeil.<br>
+  Et puis, il y a trois jours à tenir comme ça.<br>
+  En fait, ça fait mal à peine j'entrouvre la porte.<br>
+  Je préfère qu'on se sépare dans le calme cette fois.
+</p>
+
+<p>
+  Couche inoxydable. <br>
+</p>
+
+<p class="innerNote">
+  Galvanisation ? (Ah Zut, ce terme a déjà été repris avec une autre connotation... Zute, flûte. Il a pris les connotations d'immortel, et d'invulnérabilité associé, avec le pouvoir que cela donne.<br>
+  le seul pouvoir que cela me donne, là, c'est d'agir, réfléchir et ressentir comme si tout allait bien...)
+</p>
+
+<p>
+</p>
+
+<p>
+  Et après ?<br>
+  Est-ce que je vais pouvoir continuer comme ça, avec cette poussière là sous le tapis ? (merci l'écriture qui me permet de pouvoir l'envisager sereinement, puisque je pourrais revenir aux écrits même des années plus tard)<br>
+  Est-ce que l'on va s'accorder le temps pour trier le grain de l'ivraie là dedans ?<br>
+  Il faut descendre les poubelles, certes, mais est-ce indispensable de le faire avec la personne concernée ?<br>
+  Il a lu mes mails. Il y a sûrement réfléchi (je lui fait bien assez confiance). Je peux tabler sur un changement de comportement global sans réponse spécifique.<br>
+  Et puis, de mon coté, j'ai débriefé. Avec Ty, et avec le grand John.<br>
+  Alors ?<br>
+  Est-ce que cela peut suffire ?
+</p>
+
+<p>
+  J'aimerais bien.
+</p>
+
+<p>
+  J'aimerais bien passer nos temps ensemble à autre chose qu'à désamorcer les problèmes précédents et en soulever tout autant...<br>
+  Ils sont trop rares pour être ainsi gâchés...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e148030">
+            <h2>Pas de compte à rendre</h2>
+            <h3>7 juin 2015 à 1h49</h3>
+            <div class="content">
+                
+<p>
+  Idée de jeudi midi : <br>
+  Une soirée pour soi, ce n'est pas tant une soirée que l'on se garde pour faire qqch seul, mais c'est surtout, avant tout, une soirée où on ne s'est engagé auprès de personne, où on est pas attendu, où on générera pas de déception si on fait autre chose (ou rien), où on a pas de comptes à rendre.<br>
+  Ni aux autres, ni à soi même.
+</p>
+
+<p>
+  Un espace non planifié pour permettre l'émergence d'autre chose...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e148411">
+            <h2>Bonnes résolutions</h2>
+            <h3>26 juin 2015 à 10h28</h3>
+            <div class="content">
+                
+<p>
+  L'air est notre principale source d'énergie.
+</p>
+
+<p>
+  En cas de pause d'une minute ou deux imposée par un job informatique, ne pas se précipiter sur Fb ou autre, mais prendre ces deux minutes comme un don pour respirer, corriger sa posture, fermer les yeux, etc..
+</p>
+
+<p>
+  J'dis ça, mais j'ai commencé à le faire.<br>
+  Et j'ai arrêté pour venir écrire ici.
+</p>
+
+<p>
+  !!!! FAILL !!!!
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e148437">
+            <h2>36 ans</h2>
+            <h3>27 juin 2015 à 22h02</h3>
+            <div class="content">
+                
+<p>
+  Je suis contente, j'ai posé la question à Maman, et elle m'a donné plein d'éléments.
+</p>
+
+<p>
+  A priori, cette histoire de "je me suis arrêtée à 36 ans", cela daterait de 1992, de ce voyage en Alsace où il avait fait si froid. Elle avait 42 ans, elle aurait pris ce chiffre chez ma sœur, par beauté du nombre (6x6, ou bien comme les 360° du cercle).<br>
+  Et puis en fait non, c'est beaucoup plus riche que ça.<br>
+  Parce que 6 ans, chez elle, c'est un bouleversement de vie, entrée à l'école + déménagement (et que 36+6 = 42)<br>
+  Et puis, on peut remonter plus loin.
+</p>
+
+<p>
+  Grand-mère est née en 27. 36 ans, ça fait donc 1963, 3 ans après ma tante. Ce pourrait être la date du dernier avortement de Grand-mère.<br>
+  Et du coup, d'en parler, de ça.<br>
+  Des avortements (nombreux) de ma grand mère.<br>
+  Du deuxième, avant même la naissance de ma mère, où ça a saigné trop, où mon grand père est allé voir son chef, qui a récupéré le truc en lui recommandant de ne plus jamais faire ça.<br>
+  Et quand, en 1973, pour faire suivre au manifeste des 343 salopes, un collègue de Mantes la Jolie lui propose une nouvelle pétition, il signe « J'ai pratiqué des avortements malgré l'interdiction de la loi française. » (manifeste des 331 salaud)
+</p>
+
+<p>
+  Fierté.<br>
+</p>
+
+<p class="innerNote">
+  Le militantisme est assez héréditaire par chez nous.
+</p>
+
+<p>
+</p>
+
+<p>
+  Et puis, ce serait aussi l'arrivée de Lacan dans la famille.
+</p>
+
+<p>
+  Le monde a énormément changé en deux générations. De grossesses non désirées à répétitions, on est passé à des soucis d'infertilité où la conception se fait attendre.<br>
+  Encore un argument que Michel Serres aurait pu prendre pour montrer la nouveauté de notre monde par rapport à ce qui était encore le néolithique tardif.<br>
+  <a href="http://www.usievents.com/fr/talks/13-humain-et-revolution-numerique-michel-serres">http://www.usievents.com/fr/talks/13-humain-et-revolution-numerique-michel-serres</a>
+</p>
+
+<p>
+  Ça me plait.
+</p>
+
+<p>
+  Mon projet d'enfant qui reprend à l'âge où il s'est terminé pour ma Grand-mère. C'est tardif, mais ça a du sens.<br>
+  Même si, ce projet est sérieusement remis en cause vu les secousses telluriques qu'il provoque.
+</p>
+
+<p>
+  Faire preuve de patience.
+</p>
+
+<p>
+  On verra bien. <br>
+</p>
+
+<p class="innerNote">
+  Le temps d'écrire cette note, 126 s'est déployée dans le ciel, gibbeuse, opalescence. <br>
+  24. c'est pas très loin de 36 ^.^ 
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e150055">
+            <h2>Concentration n'est pas adrénaline</h2>
+            <h3>7 octobre 2015 à 11h31</h3>
+            <div class="content">
+                
+<p>
+  Erreur d'aiguillage repéré au cours d'une conversation sur les massages et le shiastu, sur la difficulté de me sentir responsable du corps de l'autre.<br>
+  J'ai parlé d'adrénaline.
+</p>
+
+<p>
+  Si je gère ma concentration avec de l'adrénaline, c'est pas très surprenant que je ne tienne pas plus d'une heure. L'adrénaline, cela génère du qui-vive, et c'est pas fait pour être maintenu plus que par pic ponctuel.
+</p>
+
+<p>
+  Retour au Zen.
+</p>
+
+<p>
+  Je n'ai pas besoin de me stresser au boulot, même si mon climat émotionnel est à l'orage.
+</p>
+
+<p>
+  Pause. Respirer. Décompresser avant d'être tellement sous pression que je vais créer un trou de plusieurs heures de procrastination.
+</p>
+
+<p>
+  Sidération.<br>
+  J'ai besoin d'une pause alors que je n'ai bossé qu'une heure.<br>
+  Indulgence.<br>
+  Si j'ai mis en marche un qui-vive à l'adrénaline, ce résultat n'est pas très surprenant.
+</p>
+
+<p>
+  J'en suis à 20 minutes de pause ...<br>
+  Qu'est-ce que 20 minutes dans une journée de boulot ?<br>
+  Dédramatisation.
+</p>
+
+<p>
+  Larmes aux coins des yeux.<br>
+  ça m'étonnait aussi que le deuil de ma relation de confiance avec x passe aussi vite.<br>
+  Phase du deuil.<br>
+  Après le marchandage et les chantages, vient la dépression.<br>
+  Et enfin, l'acceptation.
+</p>
+
+<p>
+  J'essaye de rebosser une heure, et après, on verra...
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e150251">
+            <h2>Etats d'âmes</h2>
+            <h3>13 octobre 2015 à 10h44</h3>
+            <div class="content">
+                
+<p>
+  Je relis cet excellent ouvrage de Christophe André : <em>Les états d'âmes</em>
+</p>
+
+<p>
+  Il répète l'importance de tenir un journal, pour observer ces derniers, ne pas les laisser tourner en rond dans nos têtes et pourrir notre existence à notre insu. Il répète l'importance de s'en tenir aux faits, et de ne pas se précipiter sur le pourquoi, sur les responsabilité et les jugements.<br>
+  (il a d'autres recommandations sur la forme que doit prendre l'écriture, mais j'ai oublié, je relirais le chapitre et reviendrait vous dire)
+</p>
+
+<p>
+  J'ai lu ce livre il y a 6 ans maintenant. Il m'a fait reprendre un journal, il m'a bougé. C'est sur cette dynamique que je suis devenue polyamoureuse, que j'ai tenu divers journaux ici et en papier. Que je me suis mise à la méditation, aussi, que je me suis ouverte au sacré.<br>
+  J'étais contente de moi, je pensais avoir bien fait le travail, d'introspection, de recul, de prise de conscience.
+</p>
+
+<p>
+  Mais rien de tout cela ne protège, ni du conflit amoureux, ni du chagrin d'amour.
+</p>
+
+<p>
+  Si je regarde mes état d'âmes, hier, ce matin, il reste de la colère, encore. Je tâche de ne pas m'y attarder. Je ne peux pas supprimer ces pensées par le pouvoir de l'esprit : elles font partie de moi. Je ne peux que me réjouir quand elles cèdent la place à d'autres pensées.<br>
+  Il y a des brides d'acceptation : <em>c'est sa nature, elle seule peut y changer quelque chose, et uniquement dans l'ordre qui lui convient, et c'est ainsi qu'il l'aime.</em> Et une résignation plus globale : les promesses qu'il m'avait faites n'étaient pas réalisables. Pas telles que je les avais comprises. Pas sans améliorer mon rapport avec elle. Et j'ai eu peur du gouffre énergétique que cela aurait représenté pour moi.<br>
+  Fleurs à croissance très lente, l'acceptation, mais les bourgeons continuent de grossir. <br>
+  Il y a de la déception. J'avais sincèrement avancé sur le chemin du pardon, de la réconciliation, de la réparation et de l'acceptation de nouvelles prises de risque. Mais à quoi bon si chacun fait cette démarche dans son coin sans concertation avec l'autre ? Sans espérer être compris de l'autre ?
+</p>
+
+<p>
+  Et il y a surtout une immense tristesse. La perte des petits rien de bonheurs. Le sentiment de fusion, de savoir ce que pense l'autre, d'être ainsi intimement persuadée de l'amour qu'il nous porte en réponse à celui qu'on lui témoigne. Ce n'est jamais qu'une illusion, on le sait bien. On se le répète. Mais j'en étais tellement heureuse....
+</p>
+
+<p>
+  Phases du deuil : dépression.
+</p>
+
+<p>
+  Je suis de plus en plus calme après chaque échappée de larmes. <br>
+  Résilience en cours.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e150325">
+            <h2>Consignes d'écriture</h2>
+            <h3>16 octobre 2015 à 20h14</h3>
+            <div class="content">
+                
+<p>
+  Voici comme promis la relecture depuis <em>Les états d'âme</em> de Christophe André sur comment faire pour que tenir un journal intime (ou extime, il y a-t-il une différence ici ?) soit le plus apaisant pour nos états d'âmes : 
+</p>
+
+<p>
+  1/ Être dans l'approfondissement de ses état d'âmes, et non dans un objectif de relativiser et dépassionner. C'est plus dur sur le moment, mais plus profitable par la suite.
+</p>
+
+<p>
+  2/ Plus les écrits contiennent de « joncteurs », de causalité ou de temporalité (comme : <em> c'est pourquoi, ainsi, donc, et alors...</em>) et des mots liés à l'introspection (comme : <em> j'ai compris que, j'ai réalisé que...</em>), plus cela annonce des progrès à venir.
+</p>
+
+<p>
+  3/ Favoriser l'écriture « expérientielle » (décrire moment après moment <em>comment</em> on s'est senti pendant et après la situation), et non l'écriture « évaluative » (décrire <em>pourquoi</em> on se sent comme ça). Le <em>pourquoi</em>, ce sera pour plus tard, lorsque l'activation émotionnelle sera retombée....
+</p>
+
+<p>
+  Extraits choisis : 
+</p>
+
+<p>
+  (Je confesse : ça me fait un exercice de copie au clavier, chose que je n'ai pas fait depuis longtemps, j'y prend un malin plaisir à reposer ainsi mon cerveau, et à ne pas être du tout dans l'introspection ce soir.<br>
+  Contradictions, quand tu nous tiens !! )
+</p>
+
+<p>
+  «<br>
+  [...] de nombreuses études ont montré que [l'introspection] était bénéfique à notre santé, qu'[elle] aidait à la pacification émotionnelle dans les moments de vie difficiles...<br>
+  [...] A l'issue de l'expérience, le groupe « approfondissement des états d'âmes » enregistrait, - par rapport au groupe « dépassionné » - des bénéfices sur son bien-être subjectif à moyen terme (dans les quinze jours qui suivaient) et aussi sur sa santé objective à long terme (moins de visites en moyenne chez les médecins dans l'année qui suivit l'expérience). Par contre, les effets psychologiques  immédiats n'avaient pas été confortables : beaucoup de des participants du groupe « approfondissement des états d'âmes » disaient avoir été perturbés par cette expérience de l'« écriture de soi », tout en la jugeant très intéressante et enrichissante pour eux.<br>
+  [...] Pennebaker conduisit ensuite de nombreux autres travaux qui confirmèrent globalement le pouvoir de l'écriture comme acte clarificateur et pacificateur de nos états d'âmes douloureux, mais aussi de nos variables biologiques. [...] amélioration sensible de l'état des personnes qui en souffrent.
+</p>
+
+<p>
+  [...] Pour digérer une expérience douloureuse, il faut d'abord la reconnaître et l'accepter, pour pouvoir ensuite la raconter ou l'écrire... C'est pourquoi le déni et la « rétention émotionnelle » ont un coût si élevé en termes de dégâts sur la santé, physique ou morale. Ensuite, la mise en mots et en récit permet d'augmenter la cohérence d'événements et d'états d'âmes qui sans cela auraient un goût d'inachevé. Et l'inachevé est psychotoxique, peu d'entre nous sont capable de se sentir bien avec des dossiers émotionnels refermés « non rangés » (cf. l'effet Zeigarnik dont nous avons parlé précédemment). D'ailleurs, les études qui comparent le fait de parler, d'écrire ou de simplement réfléchir à des expériences de vie douloureuses montrent clairement que l'écriture et la discussion font toutes deux bien mieux que la réflexion solitaire. Pourquoi la « simple » réflexion est-elle souvent si peu utile ? Parce qu'elle dérape très vite en rumination ! Alors qu'il est bien plus difficile de ruminer par écrit : l'absurdité et la toxicité du mécanisme nous sauteraient aux yeux, alors que nous le tolérons dans notre esprit...<br>
+  En effet, un des mécanismes soignants de l'écriture passe par la réorganisation de l'expérience douloureuse, qui sans cela repose sur des états d'âmes souvent chaotiques et embrouillés. Nous contraindre à transcrire ces états d'âme en récit cohérent a un effet bénéfique. [il parle ici de la discussion avec un tiers, qui a aussi son intérêt mais où] nous y avons aussi moins d'espace pour la continuité de notre parole et de notre pensée. Ce qui nous dispense parfois d'aller chercher au fond de nous-même certains états d'âmes biens cachés. D'où l'immense intérêt de l'écrit solitaire, qui nous force à aller au bout de notre pensée. D'ailleurs, à ce propos, la disparition progressive des lettres au profit des appels téléphoniques [...] ou autres SMS est en train de provoquer des modifications psychologiques considérables : l'interactions immédiate et rapide remplace l'attention approfondie. C'est peut être bénéfique pour l'animal social en nous. Mais cela l'est sans doute moins pour l'animal mental que nous sommes aussi, et pour l'intelligence de nos états d'âmes.
+</p>
+
+<p>
+  Revenons-en au journal. Donner de la cohérence à nos états d'âmes grâce à l'écriture a donc clairement un effet thérapeutique. Ce retour de la cohérence dans des expériences de vie subies est bénéfique, par exemple dans la dépression, où des études ont montré que plus les écrit commencent à utiliser des « joncteurs », de causalité ou de temporalité (comme : <em> c'est pourquoi, ainsi, donc, et alors...</em>) et des mots liés à l'introspection (comme : <em> j'ai compris que, j'ai réalisé que...</em>), plus cela annonce des progrès à venir. Ces expressions sont en quelque sorte des indicateurs du sentiment de cohérence et d'autocompréhension retrouvé. De tels résultats avaient aussi été montrés dans l'analyse du discours spontané des patients déprimés en psychothérapie au fur et à mesure de l'avancement de leur guérison.
+</p>
+
+<p>
+  [...] on découvrit que, par rapport à la période « avant journal intime » le fait d'avoir travaillé à porter ses état d'âme sur le papier provoquait une fréquence accrue de mots positifs et de verbes au futur. Avoir accepté nos douleurs fait de la place pour nos bonheurs, et s'être penché (transitoirement) sur soi permet de se tourner vers l'avenir.
+</p>
+
+<p>
+  Ce qui semble également bénéfique, c'est l'évolution des états d'âme au fur et à mesure de l'écriture, et non une vérité toute plaquée qui apparaîtrait dès le début. [...] C'est le processus de construction et de compréhension qui importe. [...]
+</p>
+
+<p>
+  Autre consigne important : écrire ses états d'âme sans forcément et frénétiquement chercher à les résoudre tout de suite. ( « pourquoi je les ai ? comment vont-t-ils disparaître ? » ). L'inverse de la rumination, ce n'est pas la précipitation de l'activisme, mais la réflexion lucide et tranquille. D'abord écrire, mettre à plat, comprendre ce qui s'est passé, quel impact cela a eu sur nous, être précis et honnête, sans maquiller ou masquer la vérité de nos ressentis.
+</p>
+
+<p>
+  Dans cette logique, attention aussi au style que vous utiliserez, comme l'a montré une autre étude : des volontaires sont invités à rédiger un texte après avoir été mis en échec. Deux consignes d'écriture : soit « expérientielle » (décrire moment après moment <em>comment</em> vous vous êtes senti pendant et après la situation), soit « évaluative » (décrire <em>pourquoi</em> vous vous sentiez comme ça). La seconde consigne aggravait tout le monde, avec davantage de pensées intrusives dans les heures qui suivaient. <br>
+  Donc, dans votre journal intime, décrivez bien ce qui s'est passé, avant de (et parfois <em>au lieu de</em> ) vouloir mettre à plat les causes ; le <em>pourquoi</em>, ce sera pour plus tard, lorsque l'activation émotionnelle sera retombée....
+</p>
+
+<p>
+  Chez [les « gros ruminateurs » ], l'écriture les force à regarder le problème vraiment en face, au lieu de faire tourner un ersatz de réflexion au bout  duquel on ne va pas. L'effort d'écriture débloque sans doute le « <em>cogitatus interruptus</em> » typique de la rumination. Une recherche sur l'écriture des états d'âme chez les ruminateurs montraient d'ailleurs un autre bénéfice sur les comportements sociaux (en plus du mieux-être interne) : les sujets recherchaient plus facilement les vrais échanges, et non simplement des oreilles pour ce plaindre.
+</p>
+
+<p>
+  Enfin, comme pour beaucoup de démarches de soin de soi, on sait l'importance des attentes, la nécessité de ne pas se livrer à l'exercice du journal intime sans conviction. En matière d'états d'âme, faire semblant ne marche pas, seule la sincérité a du sens et de l'efficacité sur notre bien-être. Laisser tous les mots et tous les états d'âme venir sous la plume. En se souvenant que « les mots sont plus anciens et plus puissants que les hommes qui parlent ».<br>
+  »<br>
+  Fin de citation.
+</p>
+
+<p>
+</p>
+<hr>
+<p>
+</p>
+
+<p>
+  J'ai copié tout le passage sur les « gros ruminateurs » parce que j'estime en faire partie. De celles qui vont s'inquiéter tous les jours d'une boule dans le sein mais qui en moyenne iront consulter deux mois plus tard que les autres (c'est un exemple qui a été donné plus tôt dans le livre). De ceux qui procrastinent, restent prostrés, avec des réflexions qui tournent en bouclent et ne mènent nulle part, sauf à une aggravation de tous les ressentis négatifs.<br>
+  C'est la raison principale pour laquelle je me recopie ces passages (en plus du plaisir d'être lu par d'autres diaristes qui trouveront certainement là une certaine satisfaction). Parce que, si je n'aime pas ressentir de la colère, je me déteste encore plus quand, une semaine ou un mois après, je constate que la colère est la même, et que je tiens le même discours de plainte, avec les mêmes arguments sur ce que l'autre a fait ou n'a pas fait. Et je suis intimement persuadée que je ne peux pas ranger ce dossier émotionnel tant que je reste focalisée sur les actes (ou l'absence d'actes) de cet autre qui m'ont mit en colère.<br>
+  La colère est une émotion que j'apprends à utiliser, qui est utile sur le moment, pour signifier à l'autre ses limites, pour préserver notre intégrité morale. Mais je n'y vois aucun intérêt quand elle perdure : elle ne peux que ruiner tous nos efforts relationnels.
+</p>
+
+<p>
+  (A suivre...)
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e174685">
+            <h2>ça fait un bail !</h2>
+            <h3>22 mars 2020 à 11h36</h3>
+            <div class="content">
+                
+<p>
+  ça commence, que Lapin m'offre Borderland
+</p>
+
+<p>
+  ça fait un bail que j'ai pas joué, que j'ai pas utilisé mon compte steam, mais le moment est très propice, donc hop, on s'y met (j'suis niveau 10 maintenant)
+</p>
+
+<p>
+  Et donc, compte steam non utilisé depuis 5 ans, et là dedans, des contacts...<br>
+  [des contacts, sur steam, j'en ai très peu, ça tient sur une main, d'où l'importance de chacun]
+</p>
+
+<p>
+  Y'a mon (ex) mari, là dedans (la dernière personne avec j'ai beaucoup joué), et ça me fait toujours bizarre de me dire qu'il va voire à quoi je joue, mais bon, je peux pas le supprimer de mes contacts, ça serait pire.
+</p>
+
+<p>
+  Y'a mon ex-beau frère. Bon, voilà, ça vient avec le territoire. Il a changé de speudo mais je le reconnait. Ok
+</p>
+
+<p>
+  Y'a un autre dont je suis pas sûre, un ami de cette époque là aussi, avec qui j'ai coupé les ponts aussi, du coup, avec le divorce, bref, c'est pas si grave.
+</p>
+
+<p>
+  Et, puis, y'a un cinquième<br>
+  Qui m'interpelle
+</p>
+
+<p>
+  Je vois vraiment pas qui c'est, et ça a beau être nécessairement de la même époque (mon compte steam a pas été actif très longtemps), je fais pas le lien avec les potes de mon mari....
+</p>
+
+<p>
+  Je me dit, "c'est pas grave, c'est juste pour jouer, ils vont savoir que je m'éclate à borderland, ça donne pas des infos cruciales"
+</p>
+
+<p>
+  et hier soir, j'ai un message de ce dernier contact
+</p>
+
+<p>
+  Qui me dit "ouah, ça fait un bail ! Tu te souviens ?"
+</p>
+
+<p>
+  Bah non, justement, je me souviens pas.
+</p>
+
+<p>
+  Alors en fait, c'était il y a 5 ans, à mon boulot, un petit apprenti en informatique tout mignon, gentil et un peu naïf comme le sont souvent les jeunes adultes, mais ouvert et curieux, avec qui j'avais pris l'habitude de papoter, pour lui dire entre autre de se méfier des employeurs peu scrupuleux
+</p>
+
+<p>
+  Et je sais plus comment (mais al s'en souvient très bien), j'en vient à lui causer polyamour. Faut dire que c'était une de mes marottes à l'époque. Je lui file même un marque page polyamour.info que j'avais sur moi.
+</p>
+
+<p>
+  Et là, 5 ans plus tard, elle m'explique qu'elle est devenue femme, lesbienne et poly.<br>
+  Qu'elle se souvient très bien de moi, que c'était une rencontre qui compte dans son parcours
+</p>
+
+<p>
+  j'sais pas si tu vois l'effet que ça m'a fait.<br>
+  encore, se dire que j'ai eu les bons mots pour être parmi ceux qui crée une ouverture, ça, je commence à m'y faire, je suis fière de ça quand même.
+</p>
+
+<p>
+  Mais ce qui m'épate, c'est le concours de circonstances :
+</p>
+
+<p>
+  quelle est la proba pour qu'un apprenti en informatique, dont je garde un contact dans steam (milieu gamer, donc), se révèle finalement queer ???
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e178729">
+            <h2>209 - je vais bien</h2>
+            <h3>20 mars 2022 à 16h57</h3>
+            <div class="content">
+                
+<p>
+  ça méritait une entrée, quand même : une semaine que je vais beaucoup, beaucoup mieux.<br>
+  Bon,<br>
+  L'appartement, c'est pas encore ça, mais on s'y fait, doucement.<br>
+  Vendredi, on a installé mes Kub, c'est chouette, et je vais pouvoir ranger mes affaires.<br>
+  Et puis<br>
+  Je pense que la Lamotrigine, à 50 au lieu de 25, c'est vachement ça fait effet.<br>
+  Dommage d'être tributaire d'une molécule, mais bon, je fais avec.
+</p>
+
+<p>
+  Hier, jolie soirée, à la Hello Kinky. Des look sympa, et puis surtout, le sentiment d'être à la maison, chez moi, avec de la bienveillance et de l'amour qui déborde, comme par exemple avec les soeurs de la perptétuelle indulgence &lt;3
+</p>
+
+<p>
+  Demain, je reprends à 80%.<br>
+  Espérons que ça va le faire.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e178826">
+            <h2>210 Signaux faible</h2>
+            <h3>6 avril 2022 à 10h17</h3>
+            <div class="content">
+                
+<p>
+  Je retourne donc au boulot tous les jours depuis deux mois.<br>
+  ça y est, je suis habituée, ça ne me coute plus d’énergie.<br>
+  Il n’y a pas trop de monde à l’agence, et surtout des médecins, la salle de pause n’est plus si désagréable.<br>
+  Et donc, j’y cause un peu. Je réponds aux « ça va ? » avec un poil de franchise.<br>
+  Et ben ça fonctionne : ces signaux faibles sont reçus, traités. Ainsi, en discutant avec Sophie ce matin, elle me dit qu’elle se demandait si ça allait bien dans mon couple, et qu’elle était heureuse d’apprendre que ce n’était pas ça le souci.<br>
+  Les collègues prennent en compte que je ne vais pas très bien, et ajustent leur comportement, augmentant les paroles encourageantes et les gentillesses.<br>
+  Et si ça fonctionne sur place, ça fonctionne également probablement à distance.<br>
+  Par exemple, ce collègue qui fait secrétaire pour moi, m’indique les mails importants. Je lui ai demandé plusieurs fois, il n’a pas l’air de le prendre mal. Juste comme une tâche à faire.<br>
+  J’ai de la chance et j’en suis consciente.<br>
+  Je suis prise en compte.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e178905">
+            <h2>Instant présent et liberté</h2>
+            <h3>22 avril 2022 à 12h15</h3>
+            <div class="content">
+                
+<p>
+  Mardi, rencontre avec une personne extraordinaire, et sujets de discussion variées, des reconstitutions gauloises, des burns et du tissage à carton.<br>
+  Elle me dit qu'elle a été frappée par ma présence, ma façon d'être, Immediacy<br>
+  Hier Jeudi, Burn café, mon élément naturel, où je papote et danse en toute liberté<br>
+  Et pareil, on me signale que l'ambiance est particulière ici, pas du jugement et grande liberté.
+</p>
+
+<p>
+  Il y a-t-il autre chose pour être heureux ?
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e179013">
+            <h2>ça fait du bien d'aller bien !!</h2>
+            <h3>12 mai 2022 à 11h07</h3>
+            <div class="content">
+                
+<p>
+  Voilà,
+</p>
+
+<p>
+  Ma vie n'a pas franchement changé, j'ai toujours l'aménagement qui va prendre des mois, j'ai toujours le boulot qui rame faute d'ETP, j'ai toujours la rage contre moi quand je galère à coder des choses simples, j'ai toujours l'impression d'être sous-efficace.<br>
+  Mais je vais bien <strong>quand même</strong>.
+</p>
+
+<p>
+  Hier, en préparant ma trousse pour Crème Brûlée, je la retourne sur le balcon pour virer la poussière, et je constate que j'avais oublié que j'y avait remis un truc. Je regarde le truc tomber. <br>
+  Première réaction <br>
+</p>
+
+<blockquote>
+   <p>
+     zut, je suis nulle, je l'y ai mis y'a 10 minutes, j'aurais pu y penser quand même, et puis c'est un moop, c'est du plastique qui va polluer le jardin en bas, et il faudrait que j'aille le chercher, et j'ai pas le courage, je vais pas le faire, et ça fait deux depuis que j'ai fait tomber mon briquet la dernière fois, la vie est mal faite et je ne vaux rien...<br>
+   </p>
+</blockquote>
+
+<p>
+  Bref, des belles réflexions de déprimée, ce type de pensées qui me plombent depuis plus d'un an (si ce n'est depuis toujours)<br>
+  Pendant ce temps, je regarde mon truc tomber.<br>
+  Et là, une deuxième pensée se développe.<br>
+</p>
+
+<blockquote>
+   <p>
+     Ho ! il tombe lentement, en faisant des tours sur lui même, en spirale, on dirait des graine d'érable. C'est vrai qu'il y a une bonne surface de portance, que le petit élastique crée un centre de gravité rassemblé qui favorise la rotation, que la plaque de plastique légère et lisse doit créer un depression au dessus, qui applique une force vers le haut, comme pour un planeur !<br>
+   </p>
+</blockquote>
+
+<p>
+  Et voilà.<br>
+  C'est là que je peux dire "je vais bien"<br>
+  Parce que les pensées d'émerveillement, celles qui partent dans l'analyse de petits détails sans importance mais qui me procurent tellement de joie, ces pensées se mettent aussi en place.
+</p>
+
+<p>
+  Quand je n'ai pas ces pensées, elles me manquent. Mais je ne sais pas pour autant les provoquer.<br>
+  Mais en ce moment, elles sont là.
+</p>
+
+<p>
+  Ce matin, je discute avec mon RSSIE, et au lieu d'en être déprimée comme à la dernière réunion face à tout ce qu'on aurait du faire au boulot depuis des années et qui n'a pas été fait, ce matin, je suis contente. On a fait un pas. Pas grand peut être, mais ensemble. Et au moins, ce mètre là est parcouru et c'est une épine en moins dans nos pieds.
+</p>
+
+<p>
+  Je vais bien.
+</p>
+
+<p>
+  et dans 4 jours, je pars à Crème Brûlée.
+</p>
+
+<p>
+  Les burn, c'est ma bouffée d'oxygène !!!
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e182858">
+            <h2>228 - ma vie est belle</h2>
+            <h3>26 septembre 2023 à 15h37</h3>
+            <div class="content">
+                
+<p>
+  Je suis amoureuse.
+</p>
+
+<p>
+  Avant tout de moi, car je me vois faire, et j'aime<br>
+  Je suis fière de moi !
+</p>
+
+<p>
+  J'ai apporté <a href="https://www.facebook.com/anne.cendre.5/posts/3471596786392249">l'aquarium au bureau</a> <br>
+  Je réfléchi déjà à un contournement suite aux cyano dans le 260L<br>
+  Je me suis offert une théière en fonte pour remplacer la monoprix verte que j'avais acheté par défaut. <br>
+  Je vois Pimspink demain,<br>
+  J'appelle mon « j'ai fait des cordes avec un collègues » après demain, et j'ai vu son sourire quand je lui ai dit que j'allais bien, que je voulais prendre le temps pour lui, qu'il ne me dérangeait pas, etc<br>
+  J'ai mon ex-deuxième amoureux qui m'envoie un message sans socialisation de la journée, avec un « ça va venir » et approuve qu'on est loin de perdre le contact.
+</p>
+
+<p>
+  J'ai amoureux premier qui me répète combien me voir gaie, heureuse, plussoyante et débordant d'énergie joue vraiment sur son moral, lui donne envie de faire ces bêtises qui rendent heureux.<br>
+  Que c'est comme ça qu'il m'a connu (donc quand j'étais en NRE avec lui)
+</p>
+
+<p>
+  J'ai cette amie dont je me rapproche puisqu'elle se rapproche de celui-ci qui me dit vendredi soir, à moitié bourrée, que nous avons une qualité très rare, à être non-abusif. Je souris en pensant à mon amour, oui, bien sûr qu'il l'est. Alors elle répète : toi aussi. Elle répète : toi plus que lui.<br>
+  Frissons
+</p>
+
+<p>
+  J'ai même un dom potentiel que je revois le 9<br>
+  Et un père de famille qui a envie qu'on prenne du temps tous les deux<br>
+  Et une coach qui me propose un jeu d'observation pour mes ambiguïtés attributionnelle, <br>
+</p>
+
+<p class="innerNote">
+   c'est à dire ne pas chercher à interpréter, utiliser un dé pour obtenir une réponse, et s'en tenir au comportement que cette réponse induit -&gt; passer à l'acte plutôt que de boucler sur l'interprétation. De toute manière, se planter une fois sur deux, on est assez proche de la réalité, non ? 
+</p>
+
+<p>
+  Et un passage à Lyon qui 1/ me permettra de voir du monde là-bas 2/ libérera de l'espace pour amoureux premier. <br>
+  Et je me lève tous les matins de bonne humeur, à réciter du Antigone en regardant le jour se lever.
+</p>
+
+<p>
+</p>
+
+<blockquote>
+   <p>
+     Tu crois que si on se levait comme ça tous les matins, ce serait tous les matins aussi beau, nourrice, d’être la première fille dehors ?<br>
+   </p>
+</blockquote>
+
+<p>
+  .
+</p>
+
+<p>
+  Je réouvre mes onglets télégram avec ceux-là qui me sont si chers<br>
+  explose d'amour et de gratitude,<br>
+  pour eux,<br>
+  que j'aime pour ce qu'iels sont, inconditionnellement, je leur souhaite le meilleur, avec moi ou indépendamment de moi
+</p>
+
+<p>
+  Voilà à nouveau les dents sur les babines, les phalanges qui blanchissent, traversées par une émotion d'une intensité peu commune, de joie et bonheur.
+</p>
+
+<p>
+  Mais l'inverse est tellement vrai, tellement flagrant, ne le nie pas s'il te plait<br>
+  Tu importes à leurs yeux, tu leur fais du bien, iels te prennent pour ce que tu es, inconditionnellement, iels te souhaitent le meilleur, avec elleux ou indépendamment d'elleux  (particulièrement indépendamment d'elleux, d'ailleurs, tous les trois. Pense à toi, agis pour toi, sois heureuse : voilà leur principal message).
+</p>
+
+<p>
+  « Ainsi aiment les hommes que j'aime »
+</p>
+
+<p>
+  Et pas que ces hommes.<br>
+  Moi aussi,
+</p>
+
+<p>
+  Moi même. <br>
+  Moi m'aime.
+</p>
+
+            </div>
+        </div>
+        <div class="item hidden" id="e184683">
+            <h2>238 - Nowhere</h2>
+            <h3>14 juillet 2024 à 9h05</h3>
+            <div class="content">
+                
+<p>
+  C'était peut être mon dernier nowhere.
+</p>
+
+<p>
+  parce que je n'y vais pas l'an prochain.<br>
+  Parce que parier sur son existence en 2026 est un peu trop risqué
+</p>
+
+<p>
+  Il paraît que c'était le meilleur, à égalité avec tous les autres.<br>
+  Il ne leur ressemble pas, en tout cas.<br>
+  Un nowhere ne ressemble jamais aux précédent, j'ai passé mon temps à le rabacher.<br>
+  mais le mien de cette année
+</p>
+
+<p>
+  pas de larmes en rentrant, pas de grosse nostalgie en prenant des photos de dust, pas même de dust (ni de thym) dans mon sac.<br>
+  C'était le deuxième nowhere d'Annæbelle, et elle est devenue minimaliste (elle part de loin, vous inquétez pas, on continue de garder des trucs inutiles, mais pas un contenant dont les 3 premiers n'ont pas trouvé leurs usages)<br>
+  un nowhere par procuration.<br>
+  le plus gros crush, c'est Saw<br>
+  Elle a ramené des cailloux et des os, que je lui ai retrouvé juste avant de partir, qui seront bien plus précieux que mon traditionnel pot de dust.
+</p>
+
+<p>
+  pas de larmes en rentrant, mais trois sur place. De fatigue, de loyauté
+</p>
+
+<p>
+  builder un camps pour vivre dans un autre, c'était fun, mais éprouvant quand même, surtant quand il faut quitter celui qui s'est effondré une deuxième fois pour aller retrouver celui qui a une surface de shade et un espace sans vent de très bonne qualité.
+</p>
+
+<p>
+  Et puis ma rupture avec Ran'Dome, comme une vraie relation. Assimilée sur place. Je n'irais plus travailler avec eux, et y danser même est peu probable sauf quand avec Saw on refait le tour des barrios son pour se poser à mon préféré, <a href="https://soundcloud.com/kosmozoo">kosmozoo</a>
+</p>
+
+<p>
+  Et le dernier soir. dimanche. je suis déphasée depuis plus de 24h, complètement dissociée de mes émotions, shuntées pour ne pas exploser, ce quelle font que je retourne dormir dans la Sahara car la fresh&amp;black est pliée. J'ai jamais aussi peu dormi, j'ai probablement plus bossé, mais ça avait commencé le samedi soir, dernier tour, même si l'orgie romaine avait bien rattrapé l'aventure.
+</p>
+
+<p>
+  hurler de cette constatation : j'ai rien fait de nouveau.<br>
+  Faut dire qu'avec une cheville foulée, c'était pas gagné.<br>
+  Alors c'est pas vrai<br>
+  J'ai fait mon premier attrape rêve<br>
+  j'ai sorti mes jouets et beaucoup ont aimé<br>
+  j'ai pris mon temps sans courir partout<br>
+  j'ai eu aucun fomo, de toute manière, je ne pouvais pas bouger<br>
+  J'ai choisi une famille qui a été présente pour moi<br>
+  j'ai eu 6 badges "j'ai pris soin de moi" comme me les a donné Helm la belle rencontre du tout premier soir<br>
+  j'ai vécu un nowhere par procuration. un magnifique pet play, des play room, se battre pour récupérer Léonie, danser à <a href="https://www.curiouscreatures.info/">Curious Creature</a> et kiffer le son.
+</p>
+
+<p>
+  un nowhere par procuration. Je me suis réservée pour les marches les plus importantes<br>
+  les fêtes le mercredi, celle du barrio, puis l'anniversaire de Ran'Dome, <br>
+  une perche le jeudi soir, avec Saw, Pink et Fleur<br>
+  un no-mad le vendredi soir<br>
+  la montagne le samedi soir.<br>
+  lundi et mardi soir avec mon étoile d'été dont j'ai gardé le sac
+</p>
+
+<p>
+  un nowhere raisonnable, où &nbsp;en rentrant à Paris je répare ma tente et aspire régulièrement la dust<br>
+  j'ai appris des nœuds de grand père et des nœud de chapiteaux, un tour de passe passe avec un crayon<br>
+  un nowhere où on m'a loué des conseils que j'ai donné sans les appliquer<br>
+  un nowhere où j'ai compris tellement de choses qu'on me disait jusque là (rien ne vaut expérimenter ce que ça donne quand on fait autrement)<br>
+  pas trop de fruits, pas de pastèque, pas de chocolat (même si la cuisine de Rosace a déchiré, même pour faire des pâtes au mais)<br>
+  pas de projet à moitié fini, c'est utilisable, et surtout mal compris<br>
+  pas de discours divergents<br>
+  le maximum de signalétique
+</p>
+
+<p>
+  reste la rencontre de samedi soir, à développer ou non.<br>
+  reste le DJ et sa compagne, si dynamique et pleines de projets, de ressources, de (très) bonnes idées.
+</p>
+
+<p>
+  Et puis une nuit de mission avec celui que je devrais arrêter de draguer. que j'aurais du faire un rapport comme il l'a fait, d'ailleurs. Même si, la transmission d'information, surtout avec mon anglais incompréhensible, avais-je seulement des infos pertinentes autres que celles que ses compagnons pouvaient apporter ? J'aime à croire que la petite blonde souriante et rassurante dans son gilet bleu a aidé à ce qu'il nous vienne à malfaire sans nous échapper plus de deux fois.
+</p>
+
+<p>
+  mais partout,<br>
+  comme à Ran'Dome, ce manque de reconnaissance. C'est normal, il faut le faire.<br>
+  un &nbsp;cours de shibari avec une prof qui insiste « oui, c'est très bien, comme ça, oui, continue » <br>
+  a l'inverse, chez ces vieux de la vielle, <br>
+  j'ai encore besoin de reconnaissance, d'encouragement, de validation comme dirait Twist. (il faut que j'arrête de penser à lui, c'est mort et enterré cette histoire)<br>
+  cette reconnaissance, Rosace m'en a donné pléthore.
+</p>
+
+<p>
+  une idée de partage de bonnes pratique, des flash-info aux météo émotionnelles<br>
+  des idées en pagailles, qu'il faudra organiser. ça fait une semaine déjà<br>
+  Et un sentiment de fermeture
+</p>
+
+<p>
+  C'était peut être mon dernier nowhere
+</p>
+
+<p>
+</p>
+<hr>
+<p>
+</p>
+
+<p>
+  pour mémoire un peu.<br>
+  mercredi : des ballons mais surtout de l'amertume, «&nbsp;Adieu Ran'Dome&nbsp;» et le plaisir de retrouver l'artiste du dôme en ski pour passer la nuit avec lui :*
+</p>
+
+            </div>
+        </div>
+        </div>
+        
+        
+        </body></html>
