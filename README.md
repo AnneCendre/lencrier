@@ -23,3 +23,5 @@ lencrier/
 ├─ result/                      # fichiers CSV et HTML générés
 └─ README.md
 
+
+

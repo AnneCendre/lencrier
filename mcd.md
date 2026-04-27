@@ -14,7 +14,18 @@ table article :
 - id_lencrier
 - titre
 - date_lencrier : date à la française
+
+table paragraphe : 
+- référence article
+- date
+- titre article
+- sous-titre
 - source_contenu_html
+
+
+
+
+
 
 
 table citation
