@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from models.article import Article
 from utils.database import save_in_db
 
+
 def lire_articles_from_lencrier_html(nom_lencrier, fichierSource):
     html = open(fichierSource)
     soup = BeautifulSoup(html.read(), 'html.parser')

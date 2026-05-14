@@ -1,27 +1,44 @@
 # lencrier
 
  cmd : 
-`cendre@Terminus:~/dev/lencrier$ python3 ./src/fusion.py`
+`cendre@Terminus:~/dev/lencrier$ python3 ./src/01_lire_article.py`
 
-lencrier/
-│
-├─ src/
-│   ├─ __init__.py
-│   ├─ main.py                  # script principal
-│   │
-│   ├─ models/
-│   │   ├─ __init__.py
-│   │   └─ article.py           # classe Article
-│   │
-│   ├─ utils/
-│   │   ├─ __init__.py
-│   │   ├─ date_utils.py        # conversion de dates
-│   │   ├─ import_utils.py      # lecture des HTML
-│   │   └─ export_utils.py      # écriture CSV / HTML
-│
-├─ exports/                     # fichiers HTML sources
-├─ result/                      # fichiers CSV et HTML générés
-└─ README.md
+modules :
+pip install -r requirements.txt
+
+
+# archi 
+.
+├── analyse.md
+├── articles.db
+├── exports
+│   ├── test_Cendre.html                    # fichiers d'exemples plus légers
+│   ├── test_Les amours de Cendre.html
+│   └── test_Mes écrits manuscrits.html
+├── exports (src)                           # exports complets des journaux
+├── README.md
+├── requirement.txt
+├── result
+│   ├── data.csv                            # export CSV (sans contenu)
+│   ├── journaux.html                       # export HTML obtenu à partir du template.html
+│   └── template.html
+├── skel                                    # mise en forme sur le site journalintime
+├── src
+│   ├── __init__.py
+│   ├── 01_lire_articles.py                 # lit les articles et les sauve dans la base de données
+│   ├── 02_embeded.py                       # lecture sémantique
+│   ├── exemple_create_table.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   ├── article.py
+│   │   ├── metadata.py
+│   └── utils
+│       ├── __init__.py
+│       ├── database.py
+│       ├── date_utils.py
+│       ├── exporter.py
+│       ├── importer.py
+└── todo.md
 
 
 

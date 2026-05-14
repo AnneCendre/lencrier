@@ -1,15 +1,14 @@
-import requests
-import re
-import copy
-from bs4 import BeautifulSoup
+
 from operator import attrgetter
-from typing import List
 
-
-from utils.date_utils import date_fr_vers_iso
 from models.article import Article
 from utils import lire_articles_from_lencrier_html, write_html
 
+## Lit les articles à partir des fichiers HTML exportés depuis Lencrier
+## sauve les articles dans la base de données au fur et à mesure de leur lecture
+## trie les articles par date 
+## crée un fichier CSV avec les métadonnées des articles
+## crée un fichier HTML de sortie avec les articles triés par date
 
 nom_fichier = "./exports/test_Cendre.html"
 nom_lencrier = "caillecendre"

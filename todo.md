@@ -1,9 +1,6 @@
 
 
-## structurer le code en différents fichiers
-
-## créer une base de données fichier
-
+## créer une table de metadata
 
 
 ## anonymiser
