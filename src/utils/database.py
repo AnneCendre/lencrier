@@ -46,7 +46,7 @@ def create_metadata_table(drop=False):
         
     cur.execute('''
         CREATE TABLE IF NOT EXISTS metadata (
-            id_lencrier INTEGER PRIMARY KEY,
+            id_lencrier TEXT PRIMARY KEY,
             embedding TEXT,
             nb_caracteres INTEGER,
             nb_paragraphes INTEGER

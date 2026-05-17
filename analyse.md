@@ -3,7 +3,12 @@
 
 créer le chatbot qui répond à des questions sur un article identifié par id.
 
+# Considérations
 
+Je peux traiter l'analyse vectorielle en mémoire car j'ai moins d'un millier d'articles.
+( au delà de 10k, il est conseillé de passer à des bases de données dédiées )
+
+json.loads() est requise pour transformer la chaîne JSON stockée en tableau numérique manipulable par numpy.
 
 # analyse par paragraphes
 

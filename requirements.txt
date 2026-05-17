@@ -1,2 +1,7 @@
-sqlite3
-sentence-transformers
+beautifulsoup4
+sqlite-vec
+tokenizers==0.20.1
+torch>=1.11.0
+transformers==4.45.2
+sentence-transformers>=5.1.2
+
